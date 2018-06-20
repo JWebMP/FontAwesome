@@ -18,8 +18,7 @@ package com.jwebmp.plugins.fontawesome5.icons;
 
 import com.jwebmp.plugins.fontawesome5.IFontAwesomeIcon;
 
-import static com.jwebmp.utilities.StaticStrings.CHAR_DASH;
-import static com.jwebmp.utilities.StaticStrings.CHAR_UNDERSCORE;
+import static com.jwebmp.utilities.StaticStrings.*;
 
 /**
  * A list of all 5.0.13 Font Awesome Icons
@@ -27,7 +26,9 @@ import static com.jwebmp.utilities.StaticStrings.CHAR_UNDERSCORE;
  * @author GedMarc
  * @since 10 May 2016
  */
-public enum FontAwesomeIcons implements IFontAwesomeIcon {
+public enum FontAwesomeIcons
+		implements IFontAwesomeIcon
+{
 	address_book,
 	address_card,
 	adjust,
@@ -903,7 +904,8 @@ public enum FontAwesomeIcons implements IFontAwesomeIcon {
 	x_ray,
 	yen_sign,;
 
-	FontAwesomeIcons() {
+	FontAwesomeIcons()
+	{
 	}
 
 	/**
@@ -912,7 +914,8 @@ public enum FontAwesomeIcons implements IFontAwesomeIcon {
 	 * @return
 	 */
 	@Override
-	public String toString() {
+	public String toString()
+	{
 		return "fa-" + name().replace(CHAR_UNDERSCORE, CHAR_DASH);
 	}
 }

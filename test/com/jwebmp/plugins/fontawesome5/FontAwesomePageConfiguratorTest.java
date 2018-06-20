@@ -37,9 +37,10 @@ public class FontAwesomePageConfiguratorTest
 	public void testSomeMethod()
 	{
 		Page p = new Page();
-		FontAwesomePageConfigurator.getConfigOptions().setNestSVG();
+		FontAwesomePageConfigurator.getConfigOptions()
+		                           .setNestSVG();
 		FontAwesomePageConfigurator.setIncludeAll(true);
-		p.add(FontAwesome.createIcon(FontAwesomeIcons.cog,FontAwesomeStyles.Regular));
+		p.add(IFontAwesome.createIcon(FontAwesomeIcons.cog, FontAwesomeStyles.Regular));
 
 		System.out.println(p.toString(true));
 

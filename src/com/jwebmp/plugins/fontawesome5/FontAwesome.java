@@ -16,13 +16,6 @@
  */
 package com.jwebmp.plugins.fontawesome5;
 
-import java.util.ArrayList;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Set;
-
-import javax.validation.constraints.NotNull;
-
 import com.jwebmp.base.html.Italic;
 import com.jwebmp.base.html.interfaces.children.BodyChildren;
 import com.jwebmp.base.html.interfaces.children.ListItemChildren;
@@ -37,7 +30,13 @@ import com.jwebmp.plugins.fontawesome5.options.FontAwesomeStyles;
 import com.jwebmp.plugins.fontawesome5.options.FontAwesomeTransforms;
 import org.apache.commons.lang3.StringUtils;
 
-import static com.jwebmp.utilities.StaticStrings.STRING_SPACE;
+import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Set;
+
+import static com.jwebmp.utilities.StaticStrings.*;
 
 /**
  * The FontAwesome project.
@@ -48,11 +47,12 @@ import static com.jwebmp.utilities.StaticStrings.STRING_SPACE;
  * @since 21 May 2016
  */
 @ComponentInformation(name = "Font Awesome 5",
-	description = "The font awesome tag",
-	url = "www.fontawesome.com")
+		description = "The font awesome tag",
+		url = "www.fontawesome.com")
 public class FontAwesome<J extends FontAwesome<J>>
-	extends Italic<J>
-	implements ListItemChildren, ParagraphChildren, BodyChildren, PageChildren, IFontAwesome<J> {
+		extends Italic<J>
+		implements ListItemChildren, ParagraphChildren, BodyChildren, PageChildren, IFontAwesome<J>
+{
 
 	private static final long serialVersionUID = 1L;
 	private FontAwesomeStyles style;
@@ -63,7 +63,8 @@ public class FontAwesome<J extends FontAwesome<J>>
 	 *
 	 * @param icon
 	 */
-	public FontAwesome(FontAwesomeStyles style, IFontAwesomeIcon icon) {
+	public FontAwesome(FontAwesomeStyles style, IFontAwesomeIcon icon)
+	{
 		this.style = style;
 		this.icon = icon;
 	}
@@ -71,7 +72,8 @@ public class FontAwesome<J extends FontAwesome<J>>
 	/**
 	 * A blank no icon italic tag
 	 */
-	public FontAwesome() {
+	public FontAwesome()
+	{
 		//No config required
 	}
 
@@ -79,29 +81,37 @@ public class FontAwesome<J extends FontAwesome<J>>
 	 * Inserts the icon and style classes
 	 */
 	@Override
-	public void preConfigure() {
-		if (!isConfigured()) {
+	public void preConfigure()
+	{
+		if (!isConfigured())
+		{
 			Set<String> clazzes = getClasses();
 			List<String> ordered = new ArrayList<>(clazzes);
-			if(icon != null)
-			ordered.add(0, getIcon().toString());
-			if(style != null)
-			ordered.add(0, getStyle().toString());
+			if (icon != null)
+			{
+				ordered.add(0, getIcon().toString());
+			}
+			if (style != null)
+			{
+				ordered.add(0, getStyle().toString());
+			}
 			setClasses(new LinkedHashSet<>(ordered));
 
-			switch (style) {
-			case Light:
-				FontAwesomePageConfigurator.setIncludeLight(true);
-				break;
-			case Regular:
-				FontAwesomePageConfigurator.setIncludeRegular(true);
-				break;
-			case Solid:
-				FontAwesomePageConfigurator.setIncludeSolid(true);
-				break;
+			switch (style)
+			{
+				case Light:
+					FontAwesomePageConfigurator.setIncludeLight(true);
+					break;
+				case Regular:
+					FontAwesomePageConfigurator.setIncludeRegular(true);
+					break;
+				case Solid:
+					FontAwesomePageConfigurator.setIncludeSolid(true);
+					break;
 			}
-			
-			if(icon.getClass().isAssignableFrom(FontAwesomeBrandIcons.class))
+
+			if (icon.getClass()
+			        .isAssignableFrom(FontAwesomeBrandIcons.class))
 			{
 				FontAwesomePageConfigurator.setIncludeBrands(true);
 			}
@@ -111,6 +121,7 @@ public class FontAwesome<J extends FontAwesome<J>>
 
 	/**
 	 * A smaller neater option for Font Awesome
+	 *
 	 * @return
 	 */
 	public IFontAwesome asMe()
@@ -121,7 +132,8 @@ public class FontAwesome<J extends FontAwesome<J>>
 	@Override
 	@SuppressWarnings("unchecked")
 	@NotNull
-	public J setSize(FontAwesomeSizes size) {
+	public J setSize(FontAwesomeSizes size)
+	{
 		addClass(size);
 		return (J) this;
 	}
@@ -129,7 +141,8 @@ public class FontAwesome<J extends FontAwesome<J>>
 	@Override
 	@SuppressWarnings("unchecked")
 	@NotNull
-	public J spin() {
+	public J spin()
+	{
 		addClass(FontAwesomeDisplayOptions.Spin);
 		return (J) this;
 	}
@@ -137,7 +150,8 @@ public class FontAwesome<J extends FontAwesome<J>>
 	@Override
 	@SuppressWarnings("unchecked")
 	@NotNull
-	public J pulse() {
+	public J pulse()
+	{
 		addClass(FontAwesomeDisplayOptions.Pulse);
 		return (J) this;
 	}
@@ -145,7 +159,8 @@ public class FontAwesome<J extends FontAwesome<J>>
 	@Override
 	@SuppressWarnings("unchecked")
 	@NotNull
-	public J pullRight() {
+	public J pullRight()
+	{
 		addClass(FontAwesomeDisplayOptions.PullRight);
 		return (J) this;
 	}
@@ -153,7 +168,8 @@ public class FontAwesome<J extends FontAwesome<J>>
 	@Override
 	@SuppressWarnings("unchecked")
 	@NotNull
-	public J pullLeft() {
+	public J pullLeft()
+	{
 		addClass(FontAwesomeDisplayOptions.PullLeft);
 		return (J) this;
 	}
@@ -161,7 +177,8 @@ public class FontAwesome<J extends FontAwesome<J>>
 	@Override
 	@SuppressWarnings("unchecked")
 	@NotNull
-	public J border() {
+	public J border()
+	{
 		addClass(FontAwesomeDisplayOptions.Border);
 		return (J) this;
 	}
@@ -169,7 +186,8 @@ public class FontAwesome<J extends FontAwesome<J>>
 	@Override
 	@SuppressWarnings("unchecked")
 	@NotNull
-	public J fixedWidth() {
+	public J fixedWidth()
+	{
 		addClass(FontAwesomeDisplayOptions.FixedWidth);
 		return (J) this;
 	}
@@ -177,9 +195,11 @@ public class FontAwesome<J extends FontAwesome<J>>
 	@Override
 	@SuppressWarnings("unchecked")
 	@NotNull
-	public J transform(FontAwesomeTransforms... transforms) {
+	public J transform(FontAwesomeTransforms... transforms)
+	{
 		StringBuilder attributeValue = new StringBuilder(StringUtils.trimToEmpty(getAttributes().get("data-fa-transform")));
-		for (FontAwesomeTransforms transform : transforms) {
+		for (FontAwesomeTransforms transform : transforms)
+		{
 			attributeValue.append(transform + STRING_SPACE);
 		}
 		addAttribute("data-fa-transform", attributeValue.toString());
@@ -187,38 +207,44 @@ public class FontAwesome<J extends FontAwesome<J>>
 	}
 
 	@Override
-	public FontAwesomeStyles getStyle() {
+	public FontAwesomeStyles getStyle()
+	{
 		return style;
 	}
 
 	@Override
 	@SuppressWarnings("unchecked")
 	@NotNull
-	public J setStyle(FontAwesomeStyles style) {
+	public J setStyle(FontAwesomeStyles style)
+	{
 		this.style = style;
 		return (J) this;
 	}
 
 	@Override
-	public IFontAwesomeIcon getIcon() {
+	public IFontAwesomeIcon getIcon()
+	{
 		return icon;
 	}
 
 	@Override
 	@SuppressWarnings("unchecked")
 	@NotNull
-	public J setIcon(IFontAwesomeIcon icon) {
+	public J setIcon(IFontAwesomeIcon icon)
+	{
 		this.icon = icon;
 		return (J) this;
 	}
 
 	@Override
-	public boolean equals(Object o) {
+	public boolean equals(Object o)
+	{
 		return false;
 	}
 
 	@Override
-	public int hashCode() {
+	public int hashCode()
+	{
 		return super.hashCode();
 	}
 }

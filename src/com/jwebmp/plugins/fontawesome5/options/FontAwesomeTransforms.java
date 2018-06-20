@@ -2,32 +2,31 @@ package com.jwebmp.plugins.fontawesome5.options;
 
 import com.jwebmp.base.interfaces.ICSSClassName;
 
-import static com.jwebmp.utilities.StaticStrings.CHAR_DASH;
-import static com.jwebmp.utilities.StaticStrings.CHAR_UNDERSCORE;
+import static com.jwebmp.utilities.StaticStrings.*;
 
 /**
  * Power Transforms: Scaling
- *
- * Power Transform scaling effects icon size without changing or moving the container. To scale icons up or down, use grow-# and shrink-# with any 
+ * <p>
+ * Power Transform scaling effects icon size without changing or moving the container. To scale icons up or down, use grow-# and shrink-# with any
  * arbitrary value, including decimals. Units are 1/16em. For clarity in the example, we’ve added a background color on the icon so you can see the
  * effect.
- * 
+ * <p>
  * Power Transforms: Positioning
- *
- * Power Transform positioning effects icon location without changing or moving the container. To move icons up, down, left, or right, use up-#, 
+ * <p>
+ * Power Transform positioning effects icon location without changing or moving the container. To move icons up, down, left, or right, use up-#,
  * down-#, left-#, and right-# with any arbitrary value, including decimals. Units are 1/16em. For clarity in the example, we’ve added a background
  * color on the icon so you can see the effect.
- * 
+ * <p>
  * Power Transforms: Rotating & Flipping
- *
- * Power Transform rotating & flipping effects icon angle and reflection without changing or moving the container. To rotate or flip icons use any 
- * combination of rotate-#, flip-v, and flip-h with any arbitrary value. Units are degrees with negative numbers allowed (see fifth icon in the 
+ * <p>
+ * Power Transform rotating & flipping effects icon angle and reflection without changing or moving the container. To rotate or flip icons use any
+ * combination of rotate-#, flip-v, and flip-h with any arbitrary value. Units are degrees with negative numbers allowed (see fifth icon in the
  * example). For clarity in the example, we’ve added a background color on the icon so you can see the effect.
- * 
- * 
  */
-public enum FontAwesomeTransforms implements ICSSClassName {
-	
+public enum FontAwesomeTransforms
+		implements ICSSClassName
+{
+
 	Grow_1,
 	Grow_2,
 	Grow_3,
@@ -36,7 +35,7 @@ public enum FontAwesomeTransforms implements ICSSClassName {
 	Grow_6,
 	Grow_7,
 	Grow_8,
-	
+
 	Shrink_1,
 	Shrink_2,
 	Shrink_3,
@@ -45,7 +44,7 @@ public enum FontAwesomeTransforms implements ICSSClassName {
 	Shrink_6,
 	Shrink_7,
 	Shrink_8,
-	
+
 	Up_1,
 	Up_2,
 	Up_3,
@@ -54,7 +53,7 @@ public enum FontAwesomeTransforms implements ICSSClassName {
 	Up_6,
 	Up_7,
 	Up_8,
-	
+
 	Down_1,
 	Down_2,
 	Down_3,
@@ -63,7 +62,7 @@ public enum FontAwesomeTransforms implements ICSSClassName {
 	Down_6,
 	Down_7,
 	Down_8,
-	
+
 	Left_1,
 	Left_2,
 	Left_3,
@@ -72,7 +71,7 @@ public enum FontAwesomeTransforms implements ICSSClassName {
 	Left_6,
 	Left_7,
 	Left_8,
-	
+
 	Right_1,
 	Right_2,
 	Right_3,
@@ -81,19 +80,21 @@ public enum FontAwesomeTransforms implements ICSSClassName {
 	Right_6,
 	Right_7,
 	Right_8,
-	
-	
+
+
 	Rotate_45,
 	Rotate_90,
 	Rotate_120,
 	Rotate_180,
 	Rotate_270,
-	
+
 	Flip_V,
 	Flip_H;
 
 	@Override
-	public String toString() {
-		return name().toLowerCase().replace(CHAR_UNDERSCORE, CHAR_DASH);
+	public String toString()
+	{
+		return name().toLowerCase()
+		             .replace(CHAR_UNDERSCORE, CHAR_DASH);
 	}
 }

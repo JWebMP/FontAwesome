@@ -2,7 +2,9 @@ package com.jwebmp.plugins.fontawesome5.options;
 
 import com.jwebmp.base.interfaces.ICSSClassName;
 
-public enum FontAwesomeSizes implements ICSSClassName {
+public enum FontAwesomeSizes
+		implements ICSSClassName
+{
 	Xs,
 	Sm,
 	Lg,
@@ -17,7 +19,9 @@ public enum FontAwesomeSizes implements ICSSClassName {
 	$10x;
 
 	@Override
-	public String toString() {
-		return "fa-" + name().replaceAll("\\$", "").toLowerCase();
+	public String toString()
+	{
+		return "fa-" + name().replaceAll("\\$", "")
+		                     .toLowerCase();
 	}
 }

@@ -1,23 +1,21 @@
 package com.jwebmp.plugins.fontawesome5.options;
 
-import javax.validation.constraints.NotNull;
-
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.jwebmp.htmlbuilder.javascript.JavaScriptPart;
 
-@JsonAutoDetect(
-	fieldVisibility = JsonAutoDetect.Visibility.ANY,
-	getterVisibility = JsonAutoDetect.Visibility.NONE,
-	setterVisibility = JsonAutoDetect.Visibility.NONE
-)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonIgnoreProperties(
-	ignoreUnknown = true
-)
+import javax.validation.constraints.NotNull;
 
-public class FontAwesomeConfigOptions<J extends FontAwesomeConfigOptions<J>> extends JavaScriptPart<J> {
+@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY,
+		getterVisibility = JsonAutoDetect.Visibility.NONE,
+		setterVisibility = JsonAutoDetect.Visibility.NONE)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonIgnoreProperties(ignoreUnknown = true)
+
+public class FontAwesomeConfigOptions<J extends FontAwesomeConfigOptions<J>>
+		extends JavaScriptPart<J>
+{
 
 	/**
 	 * CSS Pseudo-elements
@@ -72,7 +70,8 @@ public class FontAwesomeConfigOptions<J extends FontAwesomeConfigOptions<J>> ext
 	 */
 	private Boolean showMissingIcons;
 
-	public FontAwesomeConfigOptions() {
+	public FontAwesomeConfigOptions()
+	{
 		//No config required
 	}
 
@@ -88,7 +87,8 @@ public class FontAwesomeConfigOptions<J extends FontAwesomeConfigOptions<J>> ext
 	 *
 	 * @return
 	 */
-	public Boolean getSearchPseudoElements() {
+	public Boolean getSearchPseudoElements()
+	{
 		return searchPseudoElements;
 	}
 
@@ -103,11 +103,13 @@ public class FontAwesomeConfigOptions<J extends FontAwesomeConfigOptions<J>> ext
 	 * * very beginning.
 	 *
 	 * @param searchPseudoElements
+	 *
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
 	@NotNull
-	public J setSearchPseudoElements(Boolean searchPseudoElements) {
+	public J setSearchPseudoElements(Boolean searchPseudoElements)
+	{
 		this.searchPseudoElements = searchPseudoElements;
 		return (J) this;
 	}
@@ -121,7 +123,8 @@ public class FontAwesomeConfigOptions<J extends FontAwesomeConfigOptions<J>> ext
 	 *
 	 * @return
 	 */
-	public String getAutoReplaceSvg() {
+	public String getAutoReplaceSvg()
+	{
 		return autoReplaceSvg;
 	}
 
@@ -133,11 +136,13 @@ public class FontAwesomeConfigOptions<J extends FontAwesomeConfigOptions<J>> ext
 	 * You can configure Font Awesome to nest the <svg> within the <i> tag.
 	 *
 	 * @param autoReplaceSvg
+	 *
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
 	@NotNull
-	public J setAutoReplaceSvg(String autoReplaceSvg) {
+	public J setAutoReplaceSvg(String autoReplaceSvg)
+	{
 		this.autoReplaceSvg = autoReplaceSvg;
 		return (J) this;
 	}
@@ -147,7 +152,8 @@ public class FontAwesomeConfigOptions<J extends FontAwesomeConfigOptions<J>> ext
 	 *
 	 * @return
 	 */
-	public Boolean getAutoAddCss() {
+	public Boolean getAutoAddCss()
+	{
 		return autoAddCss;
 	}
 
@@ -155,11 +161,13 @@ public class FontAwesomeConfigOptions<J extends FontAwesomeConfigOptions<J>> ext
 	 * true	Insert the supporting CSS into the <head> of the HTML document?
 	 *
 	 * @param autoAddCss
+	 *
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
 	@NotNull
-	public J setAutoAddCss(Boolean autoAddCss) {
+	public J setAutoAddCss(Boolean autoAddCss)
+	{
 		this.autoAddCss = autoAddCss;
 		return (J) this;
 	}
@@ -169,7 +177,8 @@ public class FontAwesomeConfigOptions<J extends FontAwesomeConfigOptions<J>> ext
 	 *
 	 * @return
 	 */
-	public String getFamilyPrefix() {
+	public String getFamilyPrefix()
+	{
 		return familyPrefix;
 	}
 
@@ -177,11 +186,13 @@ public class FontAwesomeConfigOptions<J extends FontAwesomeConfigOptions<J>> ext
 	 * Class prefix for icons and CSS styles like fa-spin
 	 *
 	 * @param familyPrefix
+	 *
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
 	@NotNull
-	public J setFamilyPrefix(String familyPrefix) {
+	public J setFamilyPrefix(String familyPrefix)
+	{
 		this.familyPrefix = familyPrefix;
 		return (J) this;
 	}
@@ -191,7 +202,8 @@ public class FontAwesomeConfigOptions<J extends FontAwesomeConfigOptions<J>> ext
 	 *
 	 * @return
 	 */
-	public Boolean getKeepOriginalSource() {
+	public Boolean getKeepOriginalSource()
+	{
 		return keepOriginalSource;
 	}
 
@@ -199,11 +211,13 @@ public class FontAwesomeConfigOptions<J extends FontAwesomeConfigOptions<J>> ext
 	 * If replacing with inline SVG keep an HTML comment <-- --> with the original markup
 	 *
 	 * @param keepOriginalSource
+	 *
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
 	@NotNull
-	public J setKeepOriginalSource(Boolean keepOriginalSource) {
+	public J setKeepOriginalSource(Boolean keepOriginalSource)
+	{
 		this.keepOriginalSource = keepOriginalSource;
 		return (J) this;
 	}
@@ -213,7 +227,8 @@ public class FontAwesomeConfigOptions<J extends FontAwesomeConfigOptions<J>> ext
 	 *
 	 * @return
 	 */
-	public Boolean getMeasurePerformance() {
+	public Boolean getMeasurePerformance()
+	{
 		return measurePerformance;
 	}
 
@@ -221,11 +236,13 @@ public class FontAwesomeConfigOptions<J extends FontAwesomeConfigOptions<J>> ext
 	 * For supporting browsers, add markers in the Performance section of developer tools?
 	 *
 	 * @param measurePerformance
+	 *
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
 	@NotNull
-	public J setMeasurePerformance(Boolean measurePerformance) {
+	public J setMeasurePerformance(Boolean measurePerformance)
+	{
 		this.measurePerformance = measurePerformance;
 		return (J) this;
 	}
@@ -235,7 +252,8 @@ public class FontAwesomeConfigOptions<J extends FontAwesomeConfigOptions<J>> ext
 	 *
 	 * @return
 	 */
-	public Boolean getObserveMutations() {
+	public Boolean getObserveMutations()
+	{
 		return observeMutations;
 	}
 
@@ -243,11 +261,13 @@ public class FontAwesomeConfigOptions<J extends FontAwesomeConfigOptions<J>> ext
 	 * Watch the DOM for any changes and add, replace, or modify icons on-the-fly
 	 *
 	 * @param observeMutations
+	 *
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
 	@NotNull
-	public J setObserveMutations(Boolean observeMutations) {
+	public J setObserveMutations(Boolean observeMutations)
+	{
 		this.observeMutations = observeMutations;
 		return (J) this;
 	}
@@ -257,7 +277,8 @@ public class FontAwesomeConfigOptions<J extends FontAwesomeConfigOptions<J>> ext
 	 *
 	 * @return
 	 */
-	public String getReplacementClass() {
+	public String getReplacementClass()
+	{
 		return replacementClass;
 	}
 
@@ -265,11 +286,13 @@ public class FontAwesomeConfigOptions<J extends FontAwesomeConfigOptions<J>> ext
 	 * Main CSS class for svg tags replacements. All replacements will have this class.
 	 *
 	 * @param replacementClass
+	 *
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
 	@NotNull
-	public J setReplacementClass(String replacementClass) {
+	public J setReplacementClass(String replacementClass)
+	{
 		this.replacementClass = replacementClass;
 		return (J) this;
 	}
@@ -279,7 +302,8 @@ public class FontAwesomeConfigOptions<J extends FontAwesomeConfigOptions<J>> ext
 	 *
 	 * @return
 	 */
-	public Boolean getShowMissingIcons() {
+	public Boolean getShowMissingIcons()
+	{
 		return showMissingIcons;
 	}
 
@@ -287,11 +311,13 @@ public class FontAwesomeConfigOptions<J extends FontAwesomeConfigOptions<J>> ext
 	 * If an icon cannot be found show an animated “missing” icon in its place
 	 *
 	 * @param showMissingIcons
+	 *
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
 	@NotNull
-	public J setShowMissingIcons(Boolean showMissingIcons) {
+	public J setShowMissingIcons(Boolean showMissingIcons)
+	{
 		this.showMissingIcons = showMissingIcons;
 		return (J) this;
 	}
@@ -301,7 +327,8 @@ public class FontAwesomeConfigOptions<J extends FontAwesomeConfigOptions<J>> ext
 	 *
 	 * @return
 	 */
-	public Boolean getAutoA11y() {
+	public Boolean getAutoA11y()
+	{
 		return autoA11y;
 	}
 
@@ -312,7 +339,8 @@ public class FontAwesomeConfigOptions<J extends FontAwesomeConfigOptions<J>> ext
 	 */
 	@SuppressWarnings("unchecked")
 	@NotNull
-	public J setAutoA11y(Boolean autoA11y) {
+	public J setAutoA11y(Boolean autoA11y)
+	{
 		this.autoA11y = autoA11y;
 		return (J) this;
 	}
@@ -322,7 +350,8 @@ public class FontAwesomeConfigOptions<J extends FontAwesomeConfigOptions<J>> ext
 	 *
 	 * @return
 	 */
-	public J setNestSVG() {
+	public J setNestSVG()
+	{
 		return setAutoReplaceSvg("nest");
 	}
 }

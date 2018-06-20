@@ -1,16 +1,17 @@
 package com.jwebmp.plugins.fontawesome5;
 
-import javax.annotation.Nullable;
-import javax.validation.constraints.NotNull;
-
 import com.jwebmp.plugins.fontawesome5.options.FontAwesomeDisplayOptions;
 import com.jwebmp.plugins.fontawesome5.options.FontAwesomeSizes;
 import com.jwebmp.plugins.fontawesome5.options.FontAwesomeStyles;
 import com.jwebmp.plugins.fontawesome5.options.FontAwesomeTransforms;
 
-import static com.jwebmp.utilities.StaticStrings.STRING_SPACE;
+import javax.annotation.Nullable;
+import javax.validation.constraints.NotNull;
 
-public interface IFontAwesome<J extends FontAwesome<J>> {
+import static com.jwebmp.utilities.StaticStrings.*;
+
+public interface IFontAwesome<J extends FontAwesome<J>>
+{
 
 	/**
 	 * Masking
@@ -24,23 +25,34 @@ public interface IFontAwesome<J extends FontAwesome<J>> {
 	 * icon
 	 * * so you can see the effect.
 	 *
-	 * @param icon           The icon to use, brands or standard
-	 * @param iconStyle      the style to apply to the icon, regular solid or light
-	 * @param mask           The mask to apply behind the icon
-	 * @param maskIconStyle  The style of the icon behind the icon
-	 * @param displayOptions Any display options or transformations you may want
+	 * @param icon
+	 * 		The icon to use, brands or standard
+	 * @param iconStyle
+	 * 		the style to apply to the icon, regular solid or light
+	 * @param mask
+	 * 		The mask to apply behind the icon
+	 * @param maskIconStyle
+	 * 		The style of the icon behind the icon
+	 * @param displayOptions
+	 * 		Any display options or transformations you may want
+	 *
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
 	@NotNull
-	static FontAwesome<?> createMaskIcon(@NotNull IFontAwesomeIcon icon, @NotNull FontAwesomeStyles iconStyle, @NotNull IFontAwesomeIcon mask,
-		@NotNull FontAwesomeStyles maskIconStyle, @Nullable FontAwesomeDisplayOptions... displayOptions) {
+	static FontAwesome<?> createMaskIcon(
+			@NotNull IFontAwesomeIcon icon,
+			@NotNull FontAwesomeStyles iconStyle, @NotNull IFontAwesomeIcon mask, @NotNull FontAwesomeStyles maskIconStyle, @Nullable FontAwesomeDisplayOptions... displayOptions)
+	{
 
-		FontAwesome<?> maskedIcon = new FontAwesome<>(iconStyle,icon);
-		if (displayOptions != null && displayOptions.length > 0) {
+		FontAwesome<?> maskedIcon = new FontAwesome<>(iconStyle, icon);
+		if (displayOptions != null && displayOptions.length > 0)
+		{
 			StringBuilder transformClasses = new StringBuilder();
-			for (FontAwesomeDisplayOptions displayOption : displayOptions) {
-				transformClasses.append(displayOption).append(STRING_SPACE);
+			for (FontAwesomeDisplayOptions displayOption : displayOptions)
+			{
+				transformClasses.append(displayOption)
+				                .append(STRING_SPACE);
 			}
 			maskedIcon.addAttribute("data-fa-transform", transformClasses.toString());
 		}
@@ -54,9 +66,11 @@ public interface IFontAwesome<J extends FontAwesome<J>> {
 	 *
 	 * @param icon
 	 * @param iconStyle
+	 *
 	 * @return
 	 */
-	static FontAwesome<?> createIcon(@NotNull IFontAwesomeIcon icon, @NotNull FontAwesomeStyles iconStyle) {
+	static FontAwesome<?> createIcon(@NotNull IFontAwesomeIcon icon, @NotNull FontAwesomeStyles iconStyle)
+	{
 		return new FontAwesome<>(iconStyle, icon);
 	}
 

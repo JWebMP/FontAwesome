@@ -2,10 +2,11 @@ package com.jwebmp.plugins.fontawesome5.icons;
 
 import com.jwebmp.plugins.fontawesome5.IFontAwesomeIcon;
 
-import static com.jwebmp.utilities.StaticStrings.CHAR_DASH;
-import static com.jwebmp.utilities.StaticStrings.CHAR_UNDERSCORE;
+import static com.jwebmp.utilities.StaticStrings.*;
 
-public enum FontAwesomeBrandIcons implements IFontAwesomeIcon {
+public enum FontAwesomeBrandIcons
+		implements IFontAwesomeIcon
+{
 	$500px,
 	accessible_icon,
 	accusoft,
@@ -369,11 +370,12 @@ public enum FontAwesomeBrandIcons implements IFontAwesomeIcon {
 	yelp,
 	yoast,
 	youtube,
-	youtube_square,
-	;
+	youtube_square,;
 
 	@Override
-	public String toString() {
-		return name().replace("\\$","" ).replace(CHAR_UNDERSCORE,CHAR_DASH);
+	public String toString()
+	{
+		return name().replace("\\$", "")
+		             .replace(CHAR_UNDERSCORE, CHAR_DASH);
 	}
 }

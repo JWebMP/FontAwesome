@@ -2,7 +2,9 @@ package com.jwebmp.plugins.fontawesome5.options;
 
 import com.jwebmp.base.interfaces.ICSSClassName;
 
-public enum FontAwesomeDisplayOptions implements ICSSClassName {
+public enum FontAwesomeDisplayOptions
+		implements ICSSClassName
+{
 	/**
 	 * Fixed Width Icons
 	 * <p>
@@ -39,20 +41,18 @@ public enum FontAwesomeDisplayOptions implements ICSSClassName {
 	/**
 	 * Use fa-border and fa-pull-right or fa-pull-left for easy pull quotes or article icons.
 	 */
-	PullRight("pull-right"),
-	
-	
-	
-	;
+	PullRight("pull-right"),;
 
 	private String text;
 
-	FontAwesomeDisplayOptions(String text) {
+	FontAwesomeDisplayOptions(String text)
+	{
 		this.text = text;
 	}
 
 	@Override
-	public String toString() {
+	public String toString()
+	{
 		return "fa-" + text;
 	}
 }
