@@ -42,7 +42,7 @@ public class FontAwesomeConfigOptions<J extends FontAwesomeConfigOptions<J>>
 	 */
 	private Boolean autoA11y;
 	/**
-	 * Insert the supporting CSS into the <head> of the HTML document?
+	 * Insert the supporting CSS into the &lt;head&gt; of the HTML document?
 	 */
 	private Boolean autoAddCss;
 	/**
@@ -148,7 +148,7 @@ public class FontAwesomeConfigOptions<J extends FontAwesomeConfigOptions<J>>
 	}
 
 	/**
-	 * true	Insert the supporting CSS into the <head> of the HTML document?
+	 * true	Insert the supporting CSS into the &lt;head&gt; of the HTML document?
 	 *
 	 * @return
 	 */
@@ -158,7 +158,7 @@ public class FontAwesomeConfigOptions<J extends FontAwesomeConfigOptions<J>>
 	}
 
 	/**
-	 * true	Insert the supporting CSS into the <head> of the HTML document?
+	 * true	Insert the supporting CSS into the &lt;head&gt; of the HTML document?
 	 *
 	 * @param autoAddCss
 	 *
