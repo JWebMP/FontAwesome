@@ -21,12 +21,12 @@ public enum FontAwesomeDisplayOptions
 	 */
 	List("ul"),
 	/**
-	 * Use the fa-spin class to get any icon to rotate, and use fa-pulse to have it rotate with 8 steps. Works especially well with fa-spinner &
+	 * Use the fa-spin class to get any icon to rotate, and use fa-pulse to have it rotate with 8 steps. Works especially well with fa-spinner &amp;
 	 * everything in the spinner icons category.
 	 */
 	Spin("spin"),
 	/**
-	 * Use the fa-spin class to get any icon to rotate, and use fa-pulse to have it rotate with 8 steps. Works especially well with fa-spinner &
+	 * Use the fa-spin class to get any icon to rotate, and use fa-pulse to have it rotate with 8 steps. Works especially well with fa-spinner &amp;
 	 * everything in the spinner icons category.
 	 */
 	Pulse("pulse"),
