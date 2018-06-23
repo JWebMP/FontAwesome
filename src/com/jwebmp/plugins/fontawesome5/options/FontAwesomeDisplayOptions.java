@@ -9,7 +9,7 @@ public enum FontAwesomeDisplayOptions
 	 * Fixed Width Icons
 	 * <p>
 	 * Use fa-fw to set icons to the same fixed width. Great to use when varying icon widths would throw off vertical alignment. Especially useful
-	 * in things like nav lists & list groups. For clarity in the example, we’ve added a background color on the icon so you can see the fixed width.
+	 * in things like nav lists &amp; list groups. For clarity in the example, we’ve added a background color on the icon so you can see the fixed width.
 	 */
 	FixedWidth("fw"),
 	/**

@@ -29,11 +29,11 @@ public class FontAwesomeConfigOptions<J extends FontAwesomeConfigOptions<J>>
 	private Boolean searchPseudoElements;
 
 	/**
-	 * Nest <svg> tags instead of replacing
+	 * Nest &lt;svg&gt; tags instead of replacing
 	 * <p>
-	 * There may be some cases where the replacement of the <i> tag is just not working out like you need it to.
+	 * There may be some cases where the replacement of the &lt;i&gt; tag is just not working out like you need it to.
 	 * <p>
-	 * You can configure Font Awesome to nest the <svg> within the <i> tag.
+	 * You can configure Font Awesome to nest the &lt;svg&gt; within the &lt;i&gt; tag.
 	 */
 	private String autoReplaceSvg;
 
@@ -50,7 +50,7 @@ public class FontAwesomeConfigOptions<J extends FontAwesomeConfigOptions<J>>
 	 */
 	private String familyPrefix;
 	/**
-	 * If replacing with inline SVG keep an HTML comment <-- --> with the original markup
+	 * If replacing with inline SVG keep an HTML comment with the original markup
 	 */
 	private Boolean keepOriginalSource;
 	/**
@@ -62,7 +62,7 @@ public class FontAwesomeConfigOptions<J extends FontAwesomeConfigOptions<J>>
 	 */
 	private Boolean observeMutations;
 	/**
-	 * Main CSS class for <svg> tags replacements. All replacements will have this class.
+	 * Main CSS class for &lt;svg&gt; tags replacements. All replacements will have this class.
 	 */
 	private String replacementClass;
 	/**
@@ -115,11 +115,11 @@ public class FontAwesomeConfigOptions<J extends FontAwesomeConfigOptions<J>>
 	}
 
 	/**
-	 * Nest <svg> tags instead of replacing
+	 * Nest &lt;svg&gt; tags instead of replacing
 	 * <p>
-	 * There may be some cases where the replacement of the <i> tag is just not working out like you need it to.
+	 * There may be some cases where the replacement of the &lt;i&gt; tag is just not working out like you need it to.
 	 * <p>
-	 * You can configure Font Awesome to nest the <svg> within the <i> tag.
+	 * You can configure Font Awesome to nest the &lt;svg&gt; within the &lt;i&gt; tag.
 	 *
 	 * @return
 	 */
@@ -129,11 +129,11 @@ public class FontAwesomeConfigOptions<J extends FontAwesomeConfigOptions<J>>
 	}
 
 	/**
-	 * Nest <svg> tags instead of replacing
+	 * Nest &lt;svg&gt; tags instead of replacing
 	 * <p>
-	 * There may be some cases where the replacement of the <i> tag is just not working out like you need it to.
+	 * There may be some cases where the replacement of the &lt;i&gt; tag is just not working out like you need it to.
 	 * <p>
-	 * You can configure Font Awesome to nest the <svg> within the <i> tag.
+	 * You can configure Font Awesome to nest the &lt;svg&gt; within the &lt;i&gt; tag.
 	 *
 	 * @param autoReplaceSvg
 	 *
@@ -198,7 +198,7 @@ public class FontAwesomeConfigOptions<J extends FontAwesomeConfigOptions<J>>
 	}
 
 	/**
-	 * If replacing with inline SVG keep an HTML comment <-- --> with the original markup
+	 * If replacing with inline SVG keep an HTML comment with the original markup
 	 *
 	 * @return
 	 */
@@ -208,7 +208,7 @@ public class FontAwesomeConfigOptions<J extends FontAwesomeConfigOptions<J>>
 	}
 
 	/**
-	 * If replacing with inline SVG keep an HTML comment <-- --> with the original markup
+	 * If replacing with inline SVG keep an HTML comment with the original markup
 	 *
 	 * @param keepOriginalSource
 	 *

@@ -17,7 +17,7 @@ import static com.jwebmp.utilities.StaticStrings.*;
  * down-#, left-#, and right-# with any arbitrary value, including decimals. Units are 1/16em. For clarity in the example, we’ve added a background
  * color on the icon so you can see the effect.
  * <p>
- * Power Transforms: Rotating & Flipping
+ * Power Transforms: Rotating &amp; Flipping
  * <p>
  * Power Transform rotating & flipping effects icon angle and reflection without changing or moving the container. To rotate or flip icons use any
  * combination of rotate-#, flip-v, and flip-h with any arbitrary value. Units are degrees with negative numbers allowed (see fifth icon in the
