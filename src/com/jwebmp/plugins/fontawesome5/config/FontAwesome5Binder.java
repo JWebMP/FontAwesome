@@ -1,7 +1,7 @@
 package com.jwebmp.plugins.fontawesome5.config;
 
-import com.jwebmp.guiceinjection.abstractions.GuiceSiteInjectorModule;
-import com.jwebmp.guiceinjection.interfaces.GuiceSiteBinder;
+import com.jwebmp.guicedservlets.GuiceSiteBinder;
+import com.jwebmp.guicedservlets.GuiceSiteInjectorModule;
 import com.jwebmp.logger.LogFactory;
 
 import java.util.logging.Level;
