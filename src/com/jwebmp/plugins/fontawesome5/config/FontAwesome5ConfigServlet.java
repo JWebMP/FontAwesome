@@ -22,7 +22,7 @@ public class FontAwesome5ConfigServlet
 	@Override
 	public void perform()
 	{
-		FontAwesomeConfigOptions<?> configOptions = FontAwesomePageConfigurator.getConfigOptions();
+		FontAwesomeConfigOptions<?> configOptions = FontAwesome5PageConfigurator.getConfigOptions();
 		String config = configOptions.toString(true);
 		if (!config.replace("\\{", STRING_EMPTY)
 		           .replace("\\}", STRING_EMPTY)

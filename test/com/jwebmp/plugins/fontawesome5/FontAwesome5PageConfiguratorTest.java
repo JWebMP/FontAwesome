@@ -17,7 +17,7 @@
 package com.jwebmp.plugins.fontawesome5;
 
 import com.jwebmp.Page;
-import com.jwebmp.plugins.fontawesome5.config.FontAwesomePageConfigurator;
+import com.jwebmp.plugins.fontawesome5.config.FontAwesome5PageConfigurator;
 import com.jwebmp.plugins.fontawesome5.icons.FontAwesomeIcons;
 import com.jwebmp.plugins.fontawesome5.options.FontAwesomeStyles;
 import org.junit.jupiter.api.Test;
@@ -25,11 +25,11 @@ import org.junit.jupiter.api.Test;
 /**
  * @author GedMarc
  */
-public class FontAwesomePageConfiguratorTest
+public class FontAwesome5PageConfiguratorTest
 
 {
 
-	public FontAwesomePageConfiguratorTest()
+	public FontAwesome5PageConfiguratorTest()
 	{
 	}
 
@@ -37,9 +37,9 @@ public class FontAwesomePageConfiguratorTest
 	public void testSomeMethod()
 	{
 		Page p = new Page();
-		FontAwesomePageConfigurator.getConfigOptions()
-		                           .setNestSVG();
-		FontAwesomePageConfigurator.setIncludeAll(true);
+		FontAwesome5PageConfigurator.getConfigOptions()
+		                            .setNestSVG();
+		FontAwesome5PageConfigurator.setIncludeAll(true);
 		p.add(IFontAwesome.createIcon(FontAwesomeIcons.cog, FontAwesomeStyles.Regular));
 
 		System.out.println(p.toString(true));

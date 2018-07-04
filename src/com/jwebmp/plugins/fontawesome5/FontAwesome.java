@@ -22,7 +22,7 @@ import com.jwebmp.base.html.interfaces.children.ListItemChildren;
 import com.jwebmp.base.html.interfaces.children.PageChildren;
 import com.jwebmp.base.html.interfaces.children.generics.ParagraphChildren;
 import com.jwebmp.plugins.ComponentInformation;
-import com.jwebmp.plugins.fontawesome5.config.FontAwesomePageConfigurator;
+import com.jwebmp.plugins.fontawesome5.config.FontAwesome5PageConfigurator;
 import com.jwebmp.plugins.fontawesome5.icons.FontAwesomeBrandIcons;
 import com.jwebmp.plugins.fontawesome5.options.FontAwesomeDisplayOptions;
 import com.jwebmp.plugins.fontawesome5.options.FontAwesomeSizes;
@@ -100,20 +100,20 @@ public class FontAwesome<J extends FontAwesome<J>>
 			switch (style)
 			{
 				case Light:
-					FontAwesomePageConfigurator.setIncludeLight(true);
+					FontAwesome5PageConfigurator.setIncludeLight(true);
 					break;
 				case Regular:
-					FontAwesomePageConfigurator.setIncludeRegular(true);
+					FontAwesome5PageConfigurator.setIncludeRegular(true);
 					break;
 				case Solid:
-					FontAwesomePageConfigurator.setIncludeSolid(true);
+					FontAwesome5PageConfigurator.setIncludeSolid(true);
 					break;
 			}
 
 			if (icon.getClass()
 			        .isAssignableFrom(FontAwesomeBrandIcons.class))
 			{
-				FontAwesomePageConfigurator.setIncludeBrands(true);
+				FontAwesome5PageConfigurator.setIncludeBrands(true);
 			}
 		}
 		super.preConfigure();

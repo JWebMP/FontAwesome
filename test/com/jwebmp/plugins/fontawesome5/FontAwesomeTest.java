@@ -17,7 +17,7 @@
 package com.jwebmp.plugins.fontawesome5;
 
 import com.jwebmp.Page;
-import com.jwebmp.plugins.fontawesome5.config.FontAwesomePageConfigurator;
+import com.jwebmp.plugins.fontawesome5.config.FontAwesome5PageConfigurator;
 import com.jwebmp.plugins.fontawesome5.config.FontAwesomeReferenceType;
 import com.jwebmp.plugins.fontawesome5.icons.FontAwesomeIcons;
 import com.jwebmp.plugins.fontawesome5.options.FontAwesomeSizes;
@@ -39,19 +39,19 @@ public class FontAwesomeTest
 	@Test
 	public void testIcon_FontAwesomeIcons_FontAwesomePropertiesArr()
 	{
-		FontAwesomePageConfigurator.getConfigOptions()
-		                           .setKeepOriginalSource(true)
-		                           .setNestSVG();
+		FontAwesome5PageConfigurator.getConfigOptions()
+		                            .setKeepOriginalSource(true)
+		                            .setNestSVG();
 
-		FontAwesomePageConfigurator.setIncludeBrands(true);
-		FontAwesomePageConfigurator.setIncludeLight(true);
-		FontAwesomePageConfigurator.setIncludeRegular(true);
-		FontAwesomePageConfigurator.setIncludeSolid(true);
-		FontAwesomePageConfigurator.setIncludeAll(true);
+		FontAwesome5PageConfigurator.setIncludeBrands(true);
+		FontAwesome5PageConfigurator.setIncludeLight(true);
+		FontAwesome5PageConfigurator.setIncludeRegular(true);
+		FontAwesome5PageConfigurator.setIncludeSolid(true);
+		FontAwesome5PageConfigurator.setIncludeAll(true);
 		//Config for your pro
-		FontAwesomePageConfigurator.setRootReferenceDir("path/to/pro/directory");
+		FontAwesome5PageConfigurator.setRootReferenceDir("path/to/pro/directory");
 		//Use CSS instead of new SVG
-		FontAwesomePageConfigurator.setFontAwesomeReferenceType(FontAwesomeReferenceType.WebFontCSS);
+		FontAwesome5PageConfigurator.setFontAwesomeReferenceType(FontAwesomeReferenceType.WebFontCSS);
 	}
 
 	@Test
