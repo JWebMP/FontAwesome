@@ -5,7 +5,6 @@ import com.jwebmp.plugins.fontawesome5.options.FontAwesomeSizes;
 import com.jwebmp.plugins.fontawesome5.options.FontAwesomeStyles;
 import com.jwebmp.plugins.fontawesome5.options.FontAwesomeTransforms;
 
-import javax.annotation.Nullable;
 import javax.validation.constraints.NotNull;
 
 import static com.jwebmp.utilities.StaticStrings.*;
@@ -42,7 +41,7 @@ public interface IFontAwesome<J extends FontAwesome<J>>
 	@NotNull
 	static FontAwesome<?> createMaskIcon(
 			@NotNull IFontAwesomeIcon icon,
-			@NotNull FontAwesomeStyles iconStyle, @NotNull IFontAwesomeIcon mask, @NotNull FontAwesomeStyles maskIconStyle, @Nullable FontAwesomeDisplayOptions... displayOptions)
+			@NotNull FontAwesomeStyles iconStyle, @NotNull IFontAwesomeIcon mask, @NotNull FontAwesomeStyles maskIconStyle, FontAwesomeDisplayOptions... displayOptions)
 	{
 
 		FontAwesome<?> maskedIcon = new FontAwesome<>(iconStyle, icon);
