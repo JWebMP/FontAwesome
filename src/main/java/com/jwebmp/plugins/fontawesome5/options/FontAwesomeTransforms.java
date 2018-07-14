@@ -81,7 +81,6 @@ public enum FontAwesomeTransforms
 	Right_7,
 	Right_8,
 
-
 	Rotate_45,
 	Rotate_90,
 	Rotate_120,

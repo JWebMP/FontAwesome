@@ -902,7 +902,8 @@ public enum FontAwesomeIcons
 	won_sign,
 	wrench,
 	x_ray,
-	yen_sign,;
+	yen_sign,
+	;
 
 	FontAwesomeIcons()
 	{

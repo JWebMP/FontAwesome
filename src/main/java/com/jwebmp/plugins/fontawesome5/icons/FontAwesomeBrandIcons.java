@@ -370,7 +370,8 @@ public enum FontAwesomeBrandIcons
 	yelp,
 	yoast,
 	youtube,
-	youtube_square,;
+	youtube_square,
+	;
 
 	@Override
 	public String toString()

@@ -41,7 +41,8 @@ public enum FontAwesomeDisplayOptions
 	/**
 	 * Use fa-border and fa-pull-right or fa-pull-left for easy pull quotes or article icons.
 	 */
-	PullRight("pull-right"),;
+	PullRight("pull-right"),
+	;
 
 	private String text;
 
