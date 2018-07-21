@@ -1,12 +1,12 @@
 package com.jwebmp.plugins.fontawesome5;
 
-import com.jwebmp.base.html.List;
-import com.jwebmp.base.html.ListItem;
-import com.jwebmp.base.html.Span;
-import com.jwebmp.base.html.interfaces.AttributeDefinitions;
-import com.jwebmp.base.html.interfaces.GlobalChildren;
-import com.jwebmp.base.html.interfaces.children.ListChildren;
-import com.jwebmp.base.html.interfaces.events.GlobalEvents;
+import com.jwebmp.core.base.html.List;
+import com.jwebmp.core.base.html.ListItem;
+import com.jwebmp.core.base.html.Span;
+import com.jwebmp.core.base.html.interfaces.AttributeDefinitions;
+import com.jwebmp.core.base.html.interfaces.GlobalChildren;
+import com.jwebmp.core.base.html.interfaces.children.ListChildren;
+import com.jwebmp.core.base.html.interfaces.events.GlobalEvents;
 import com.jwebmp.plugins.fontawesome5.options.FontAwesomeDisplayOptions;
 
 /**

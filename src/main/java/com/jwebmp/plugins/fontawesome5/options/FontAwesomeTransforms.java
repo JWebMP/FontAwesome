@@ -1,8 +1,8 @@
 package com.jwebmp.plugins.fontawesome5.options;
 
-import com.jwebmp.base.interfaces.ICSSClassName;
+import com.jwebmp.core.base.interfaces.ICSSClassName;
 
-import static com.jwebmp.utilities.StaticStrings.*;
+import static com.jwebmp.core.utilities.StaticStrings.*;
 
 /**
  * Power Transforms: Scaling

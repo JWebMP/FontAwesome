@@ -1,6 +1,6 @@
 package com.jwebmp.plugins.fontawesome5.options;
 
-import com.jwebmp.base.interfaces.ICSSClassName;
+import com.jwebmp.core.base.interfaces.ICSSClassName;
 
 public enum FontAwesomeDisplayOptions
 		implements ICSSClassName

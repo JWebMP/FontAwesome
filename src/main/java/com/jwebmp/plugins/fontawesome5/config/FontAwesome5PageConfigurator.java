@@ -16,11 +16,11 @@
  */
 package com.jwebmp.plugins.fontawesome5.config;
 
-import com.jwebmp.Page;
-import com.jwebmp.PageConfigurator;
-import com.jwebmp.base.references.CSSReference;
-import com.jwebmp.base.references.JavascriptReference;
-import com.jwebmp.plugins.PluginInformation;
+import com.jwebmp.core.Page;
+import com.jwebmp.core.PageConfigurator;
+import com.jwebmp.core.base.references.CSSReference;
+import com.jwebmp.core.base.references.JavascriptReference;
+import com.jwebmp.core.plugins.PluginInformation;
 import com.jwebmp.plugins.fontawesome5.options.FontAwesomeConfigOptions;
 
 /**
@@ -303,8 +303,8 @@ public class FontAwesome5PageConfigurator
 					                  .trim()
 					                  .isEmpty())
 					{
-						page.addJavaScriptReference(new JavascriptReference("FontAwesome5Configuration", 1.0, FontAwesome5Binder.getFontAwesome5SiteBinding()
-						                                                                                                        .replace("/", "")).setSortOrder(5));
+						page.addJavaScriptReference(new JavascriptReference("FontAwesome5Configuration", 1.0, FontAwesome5BinderIGuiceSiteBinder.getFontAwesome5SiteBinding()
+						                                                                                                                        .replace("/", "")).setSortOrder(5));
 					}
 
 					if (includeAll)

@@ -7,7 +7,7 @@ import com.jwebmp.plugins.fontawesome5.options.FontAwesomeTransforms;
 
 import javax.validation.constraints.NotNull;
 
-import static com.jwebmp.utilities.StaticStrings.*;
+import static com.jwebmp.core.utilities.StaticStrings.*;
 
 public interface IFontAwesome<J extends FontAwesome<J>>
 {

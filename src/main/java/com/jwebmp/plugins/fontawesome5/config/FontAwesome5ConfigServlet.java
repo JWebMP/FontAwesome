@@ -1,13 +1,13 @@
 package com.jwebmp.plugins.fontawesome5.config;
 
 import com.google.inject.Singleton;
-import com.jwebmp.base.servlets.JWDefaultServlet;
+import com.jwebmp.core.base.servlets.JWDefaultServlet;
 import com.jwebmp.logger.LogFactory;
 import com.jwebmp.plugins.fontawesome5.options.FontAwesomeConfigOptions;
 
 import java.util.logging.Logger;
 
-import static com.jwebmp.utilities.StaticStrings.*;
+import static com.jwebmp.core.utilities.StaticStrings.*;
 
 @Singleton
 public class FontAwesome5ConfigServlet

@@ -16,12 +16,12 @@
  */
 package com.jwebmp.plugins.fontawesome5;
 
-import com.jwebmp.base.html.Italic;
-import com.jwebmp.base.html.interfaces.children.BodyChildren;
-import com.jwebmp.base.html.interfaces.children.ListItemChildren;
-import com.jwebmp.base.html.interfaces.children.PageChildren;
-import com.jwebmp.base.html.interfaces.children.generics.ParagraphChildren;
-import com.jwebmp.plugins.ComponentInformation;
+import com.jwebmp.core.base.html.Italic;
+import com.jwebmp.core.base.html.interfaces.children.BodyChildren;
+import com.jwebmp.core.base.html.interfaces.children.ListItemChildren;
+import com.jwebmp.core.base.html.interfaces.children.PageChildren;
+import com.jwebmp.core.base.html.interfaces.children.generics.ParagraphChildren;
+import com.jwebmp.core.plugins.ComponentInformation;
 import com.jwebmp.plugins.fontawesome5.config.FontAwesome5PageConfigurator;
 import com.jwebmp.plugins.fontawesome5.icons.FontAwesomeBrandIcons;
 import com.jwebmp.plugins.fontawesome5.options.FontAwesomeDisplayOptions;
@@ -36,7 +36,7 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
-import static com.jwebmp.utilities.StaticStrings.*;
+import static com.jwebmp.core.utilities.StaticStrings.*;
 
 /**
  * The FontAwesome project.

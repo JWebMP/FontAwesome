@@ -1,3 +1,6 @@
+import com.jwebmp.guicedservlets.services.IGuiceSiteBinder;
+import com.jwebmp.plugins.fontawesome5.config.FontAwesome5BinderIGuiceSiteBinder;
+
 module com.jwebmp.plugins.fontawesome5 {
 	exports com.jwebmp.plugins.fontawesome5;
 	exports com.jwebmp.plugins.fontawesome5.config;
@@ -12,4 +15,6 @@ module com.jwebmp.plugins.fontawesome5 {
 	requires java.logging;
 	requires commons.lang3;
 	requires com.jwebmp.guicedservlets;
+
+	provides IGuiceSiteBinder with FontAwesome5BinderIGuiceSiteBinder;
 }
