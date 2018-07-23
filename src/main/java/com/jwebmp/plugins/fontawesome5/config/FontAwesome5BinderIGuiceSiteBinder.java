@@ -26,6 +26,6 @@ public class FontAwesome5BinderIGuiceSiteBinder
 	{
 		guiceSiteInjectorModule.serveRegex$("(" + FontAwesome5SiteBinding + ")" + QUERY_PARAMETERS_REGEX)
 		                       .with(FontAwesome5ConfigServlet.class);
-		log.log(Level.CONFIG, "Serving Font Awesome 5 Configuration at {0}", FontAwesome5SiteBinding);
+		log.log(Level.INFO, "Serving Font Awesome 5 Configuration at {0}", FontAwesome5SiteBinding);
 	}
 }

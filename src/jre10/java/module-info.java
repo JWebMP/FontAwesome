@@ -1,5 +1,7 @@
+import com.jwebmp.core.services.IPageConfigurator;
 import com.jwebmp.guicedservlets.services.IGuiceSiteBinder;
 import com.jwebmp.plugins.fontawesome5.config.FontAwesome5BinderIGuiceSiteBinder;
+import com.jwebmp.plugins.fontawesome5.config.FontAwesome5PageConfigurator;
 
 module com.jwebmp.plugins.fontawesome5 {
 	exports com.jwebmp.plugins.fontawesome5;
@@ -17,4 +19,6 @@ module com.jwebmp.plugins.fontawesome5 {
 	requires com.jwebmp.guicedservlets;
 
 	provides IGuiceSiteBinder with FontAwesome5BinderIGuiceSiteBinder;
+	provides IPageConfigurator with FontAwesome5PageConfigurator;
+
 }

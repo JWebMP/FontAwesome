@@ -17,10 +17,10 @@
 package com.jwebmp.plugins.fontawesome5.config;
 
 import com.jwebmp.core.Page;
-import com.jwebmp.core.PageConfigurator;
 import com.jwebmp.core.base.references.CSSReference;
 import com.jwebmp.core.base.references.JavascriptReference;
 import com.jwebmp.core.plugins.PluginInformation;
+import com.jwebmp.core.services.IPageConfigurator;
 import com.jwebmp.plugins.fontawesome5.options.FontAwesomeConfigOptions;
 
 /**
@@ -45,10 +45,8 @@ import com.jwebmp.plugins.fontawesome5.options.FontAwesomeConfigOptions;
 		pluginIconImageUrl = "bower_components/font-awesome/icon.png",
 		pluginLastUpdatedDate = "2018/07/04")
 public class FontAwesome5PageConfigurator
-		extends PageConfigurator
+		implements IPageConfigurator
 {
-
-	private static final long serialVersionUID = 1L;
 	private static final FontAwesomeConfigOptions configOptions = new FontAwesomeConfigOptions();
 	private static String rootReferenceDir = "bower_components/font-awesome5/svg-with-js/js/";
 	private static String rootCssReferenceDir = "bower_components/font-awesome5/web-fonts-with-css/css/";
