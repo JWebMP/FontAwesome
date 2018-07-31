@@ -21,8 +21,8 @@ module com.jwebmp.plugins.fontawesome5 {
 	provides IGuiceSiteBinder with FontAwesome5BinderIGuiceSiteBinder;
 	provides IPageConfigurator with FontAwesome5PageConfigurator;
 
-	opens com.jwebmp.plugins.fontawesome5.options to com.fasterxml.jackson.databind;
-	opens com.jwebmp.plugins.fontawesome5 to com.fasterxml.jackson.databind;
-	opens com.jwebmp.plugins.fontawesome5.icons to com.fasterxml.jackson.databind;
+	opens com.jwebmp.plugins.fontawesome5.options to com.fasterxml.jackson.databind,com.google.guice, com.jwebmp.core;
+	opens com.jwebmp.plugins.fontawesome5 to com.fasterxml.jackson.databind,com.google.guice, com.jwebmp.core;
+	opens com.jwebmp.plugins.fontawesome5.icons to com.fasterxml.jackson.databind,com.google.guice, com.jwebmp.core;
 
 }

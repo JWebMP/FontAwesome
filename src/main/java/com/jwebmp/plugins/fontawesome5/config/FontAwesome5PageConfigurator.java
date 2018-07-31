@@ -275,19 +275,19 @@ public class FontAwesome5PageConfigurator
 					{
 						if (includeBrands)
 						{
-							page.addCssReference(new CSSReference("FontAwesome5CSSWebFontsBrands", 5.013, rootCssReferenceDir + "fa-brands.min.css"));
+							page.addCssReference(new CSSReference("FontAwesome5CSSWebFontsBrands", 5.013, rootCssReferenceDir + "brands.min.css"));
 						}
 						if (includeLight)
 						{
-							page.addCssReference(new CSSReference("FontAwesome5CSSWebFontsLight", 5.013, rootCssReferenceDir + "fa-light.min.css"));
+							page.addCssReference(new CSSReference("FontAwesome5CSSWebFontsLight", 5.013, rootCssReferenceDir + "light.min.css"));
 						}
 						if (includeRegular)
 						{
-							page.addCssReference(new CSSReference("FontAwesome5CSSWebFontsRegular", 5.013, rootCssReferenceDir + "fa-regular.min.css"));
+							page.addCssReference(new CSSReference("FontAwesome5CSSWebFontsRegular", 5.013, rootCssReferenceDir + "regular.min.css"));
 						}
 						if (includeSolid)
 						{
-							page.addCssReference(new CSSReference("FontAwesome5CSSWebFontsSolid", 5.013, rootCssReferenceDir + "fa-solid.min.css"));
+							page.addCssReference(new CSSReference("FontAwesome5CSSWebFontsSolid", 5.013, rootCssReferenceDir + "solid.min.css"));
 						}
 					}
 
@@ -316,23 +316,23 @@ public class FontAwesome5PageConfigurator
 						                                                                                                                       .setDefer(true));
 						if (includeRegular)
 						{
-							page.addJavaScriptReference(new JavascriptReference("FontAwesome5Regular", 5.013, rootReferenceDir + "fa-regular.min.js").setSortOrder(7)
+							page.addJavaScriptReference(new JavascriptReference("FontAwesome5Regular", 5.013, rootReferenceDir + "regular.min.js").setSortOrder(7)
 							                                                                                                                         .setDefer(
 									                                                                                                                         true));
 						}
 						if (includeSolid)
 						{
-							page.addJavaScriptReference(new JavascriptReference("FontAwesome5Solid", 5.013, rootReferenceDir + "fa-solid.min.js").setSortOrder(7)
+							page.addJavaScriptReference(new JavascriptReference("FontAwesome5Solid", 5.013, rootReferenceDir + "solid.min.js").setSortOrder(7)
 							                                                                                                                     .setDefer(true));
 						}
 						if (includeLight)
 						{
-							page.addJavaScriptReference(new JavascriptReference("FontAwesome5Light", 5.013, rootReferenceDir + "fa-light.min.js").setSortOrder(7)
+							page.addJavaScriptReference(new JavascriptReference("FontAwesome5Light", 5.013, rootReferenceDir + "light.min.js").setSortOrder(7)
 							                                                                                                                     .setDefer(true));
 						}
 						if (includeBrands)
 						{
-							page.addJavaScriptReference(new JavascriptReference("FontAwesome5Brands", 5.013, rootReferenceDir + "fa-brands.min.js").setSortOrder(7)
+							page.addJavaScriptReference(new JavascriptReference("FontAwesome5Brands", 5.013, rootReferenceDir + "brands.min.js").setSortOrder(7)
 							                                                                                                                       .setDefer(true));
 						}
 					}
