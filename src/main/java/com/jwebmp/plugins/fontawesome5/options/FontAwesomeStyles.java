@@ -5,6 +5,7 @@ import com.jwebmp.core.base.interfaces.ICSSClassName;
 public enum FontAwesomeStyles
 		implements ICSSClassName
 {
+	Brand("fab"),
 	Solid("fas"),
 	Regular("far"),
 	Light("fal");

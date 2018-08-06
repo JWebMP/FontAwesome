@@ -24,6 +24,7 @@ import com.jwebmp.core.base.html.interfaces.children.generics.ParagraphChildren;
 import com.jwebmp.core.plugins.ComponentInformation;
 import com.jwebmp.plugins.fontawesome5.config.FontAwesome5PageConfigurator;
 import com.jwebmp.plugins.fontawesome5.icons.FontAwesomeBrandIcons;
+import com.jwebmp.plugins.fontawesome5.icons.FontAwesomeIcons;
 import com.jwebmp.plugins.fontawesome5.options.FontAwesomeDisplayOptions;
 import com.jwebmp.plugins.fontawesome5.options.FontAwesomeSizes;
 import com.jwebmp.plugins.fontawesome5.options.FontAwesomeStyles;
@@ -85,6 +86,17 @@ public class FontAwesome<J extends FontAwesome<J>>
 	{
 		if (!isConfigured())
 		{
+			if (icon != null)
+			{
+				if(FontAwesomeBrandIcons.class.isAssignableFrom(icon.getClass()))
+				{
+					style = FontAwesomeStyles.Brand;
+				}
+			}
+			if(style == null)
+			{
+				style = FontAwesomeStyles.Solid;
+			}
 			Set<String> clazzes = getClasses();
 			List<String> ordered = new ArrayList<>(clazzes);
 			if (icon != null)
@@ -117,6 +129,30 @@ public class FontAwesome<J extends FontAwesome<J>>
 			}
 		}
 		super.preConfigure();
+	}
+
+	/**
+	 * Creates a new icon with the given icon and size in the solid format
+	 * @param icon The icon to apply
+	 * @param size The size to use
+	 * @return The new font awesome icon
+	 */
+	public static FontAwesome icon(IFontAwesomeIcon icon, FontAwesomeSizes size)
+	{
+		return new FontAwesome().setSize(size)
+		                        .setIcon(icon)
+		                        .setStyle(FontAwesomeStyles.Solid);
+	}
+
+	/**
+	 * Creates a new icon with the given icon and size in the solid format
+	 * @param icon The icon to apply
+	 * @return The new font awesome icon
+	 */
+	public static FontAwesome icon(IFontAwesomeIcon icon)
+	{
+		return new FontAwesome().setIcon(icon)
+		                        .setStyle(FontAwesomeStyles.Solid);
 	}
 
 	/**

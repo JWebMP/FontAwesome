@@ -301,19 +301,22 @@ public class FontAwesome5PageConfigurator
 					                  .trim()
 					                  .isEmpty())
 					{
-						page.addJavaScriptReference(new JavascriptReference("FontAwesome5Configuration", 1.0, FontAwesome5BinderIGuiceSiteBinder.getFontAwesome5SiteBinding()
-						                                                                                                                        .replace("/", "")).setSortOrder(5));
+						/*page.addJavaScriptReference(new JavascriptReference("FontAwesome5Configuration", 1.0, FontAwesome5BinderIGuiceSiteBinder.getFontAwesome5SiteBinding()
+						                                                                                                                        .replace("/", "")).setSortOrder(5));*/
 					}
 
 					if (includeAll)
 					{
-						page.addJavaScriptReference(new JavascriptReference("FontAwesome5All", 5.013, rootReferenceDir + "fontawesome-all.min.js").setSortOrder(6)
-						                                                                                                                          .setDefer(true));
+						JavascriptReference coreReference = new JavascriptReference("FontAwesome5All", 5.013, rootReferenceDir + "fontawesome-all.min.js").setSortOrder(6)
+						                                                                                                                                  .setDefer(true);
+						configureCoreReference(coreReference);
+						page.addJavaScriptReference(coreReference);
 					}
 					else
 					{
-						page.addJavaScriptReference(new JavascriptReference("FontAwesome5Core", 5.013, rootReferenceDir + "fontawesome.min.js").setSortOrder(8)
-						                                                                                                                       .setDefer(true));
+						JavascriptReference coreReference = new JavascriptReference("FontAwesome5Core", 5.013, rootReferenceDir + "fontawesome.min.js").setSortOrder(8).setDefer(true);
+						//configureCoreReference(coreReference);
+						page.addJavaScriptReference(coreReference);
 						if (includeRegular)
 						{
 							page.addJavaScriptReference(new JavascriptReference("FontAwesome5Regular", 5.013, rootReferenceDir + "regular.min.js").setSortOrder(7)
@@ -343,5 +346,14 @@ public class FontAwesome5PageConfigurator
 		}
 		return page;
 
+	}
+
+	private void configureCoreReference(JavascriptReference ref)
+	{
+		if(getConfigOptions().getSearchPseudoElements())
+		{
+			ref.getAdditionalOptions()
+			   .add("data-search-pseudo-elements");
+		}
 	}
 }

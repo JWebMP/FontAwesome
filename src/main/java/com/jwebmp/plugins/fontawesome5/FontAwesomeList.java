@@ -25,6 +25,7 @@ public class FontAwesomeList<J extends FontAwesomeList<J, A, E>, A extends Enum 
 	{
 		super(orderedList);
 		addClass(FontAwesomeDisplayOptions.List);
+		addStyle("margin-bottom:0px;");
 	}
 
 	public ListItem<?> addItem(String textToAdd, FontAwesome<?> icon)
@@ -36,6 +37,7 @@ public class FontAwesomeList<J extends FontAwesomeList<J, A, E>, A extends Enum 
 		li.add(span);
 		li.setRenderTextBeforeChildren(false);
 		li.setText(textToAdd);
+		add(li);
 		return li;
 	}
 }

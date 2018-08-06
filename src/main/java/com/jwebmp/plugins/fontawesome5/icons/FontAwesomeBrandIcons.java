@@ -376,7 +376,7 @@ public enum FontAwesomeBrandIcons
 	@Override
 	public String toString()
 	{
-		return name().replace("\\$", "")
+		return "fa-" +  name().replace("\\$", "")
 		             .replace(CHAR_UNDERSCORE, CHAR_DASH);
 	}
 }
