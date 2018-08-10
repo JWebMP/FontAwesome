@@ -23,6 +23,8 @@ import com.jwebmp.core.plugins.PluginInformation;
 import com.jwebmp.core.services.IPageConfigurator;
 import com.jwebmp.plugins.fontawesome5.options.FontAwesomeConfigOptions;
 
+import javax.validation.constraints.NotNull;
+
 /**
  * @author GedMarc
  * @since 15 Feb 2017
@@ -254,6 +256,7 @@ public class FontAwesome5PageConfigurator
 		FontAwesome5PageConfigurator.rootCssReferenceDir = rootCssReferenceDir;
 	}
 
+	@NotNull
 	@Override
 	@SuppressWarnings("unchecked")
 	public Page configure(Page page)
@@ -320,23 +323,23 @@ public class FontAwesome5PageConfigurator
 						if (includeRegular)
 						{
 							page.addJavaScriptReference(new JavascriptReference("FontAwesome5Regular", 5.013, rootReferenceDir + "regular.min.js").setSortOrder(7)
-							                                                                                                                         .setDefer(
-									                                                                                                                         true));
+							                                                                                                                      .setDefer(
+									                                                                                                                      true));
 						}
 						if (includeSolid)
 						{
 							page.addJavaScriptReference(new JavascriptReference("FontAwesome5Solid", 5.013, rootReferenceDir + "solid.min.js").setSortOrder(7)
-							                                                                                                                     .setDefer(true));
+							                                                                                                                  .setDefer(true));
 						}
 						if (includeLight)
 						{
 							page.addJavaScriptReference(new JavascriptReference("FontAwesome5Light", 5.013, rootReferenceDir + "light.min.js").setSortOrder(7)
-							                                                                                                                     .setDefer(true));
+							                                                                                                                  .setDefer(true));
 						}
 						if (includeBrands)
 						{
 							page.addJavaScriptReference(new JavascriptReference("FontAwesome5Brands", 5.013, rootReferenceDir + "brands.min.js").setSortOrder(7)
-							                                                                                                                       .setDefer(true));
+							                                                                                                                    .setDefer(true));
 						}
 					}
 
