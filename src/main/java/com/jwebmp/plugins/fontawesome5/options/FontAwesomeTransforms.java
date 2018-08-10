@@ -1,6 +1,6 @@
 package com.jwebmp.plugins.fontawesome5.options;
 
-import com.jwebmp.core.base.interfaces.ICSSClassName;
+import com.jwebmp.core.base.interfaces.ICssClassName;
 
 import static com.jwebmp.core.utilities.StaticStrings.*;
 
@@ -24,7 +24,7 @@ import static com.jwebmp.core.utilities.StaticStrings.*;
  * example). For clarity in the example, we’ve added a background color on the icon so you can see the effect.
  */
 public enum FontAwesomeTransforms
-		implements ICSSClassName
+		implements ICssClassName
 {
 
 	Grow_1,

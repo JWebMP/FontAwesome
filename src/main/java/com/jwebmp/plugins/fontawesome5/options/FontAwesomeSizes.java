@@ -1,11 +1,11 @@
 package com.jwebmp.plugins.fontawesome5.options;
 
-import com.jwebmp.core.base.interfaces.ICSSClassName;
+import com.jwebmp.core.base.interfaces.ICssClassName;
 
 import static com.jwebmp.core.utilities.StaticStrings.*;
 
 public enum FontAwesomeSizes
-		implements ICSSClassName
+		implements ICssClassName
 {
 	Xs,
 	Sm,

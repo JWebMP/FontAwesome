@@ -1,7 +1,7 @@
 package com.jwebmp.plugins.fontawesome5;
 
-import com.jwebmp.core.base.interfaces.ICSSClassName;
+import com.jwebmp.core.base.interfaces.ICssClassName;
 
 public interface IFontAwesomeIcon
-		extends ICSSClassName
+		extends ICssClassName
 {}

@@ -1,9 +1,9 @@
 package com.jwebmp.plugins.fontawesome5.options;
 
-import com.jwebmp.core.base.interfaces.ICSSClassName;
+import com.jwebmp.core.base.interfaces.ICssClassName;
 
 public enum FontAwesomeStyles
-		implements ICSSClassName
+		implements ICssClassName
 {
 	Brand("fab"),
 	Solid("fas"),
