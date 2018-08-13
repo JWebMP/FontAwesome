@@ -21,9 +21,11 @@ import com.jwebmp.core.base.references.CSSReference;
 import com.jwebmp.core.base.references.JavascriptReference;
 import com.jwebmp.core.plugins.PluginInformation;
 import com.jwebmp.core.services.IPageConfigurator;
+import com.jwebmp.logger.LogFactory;
 import com.jwebmp.plugins.fontawesome5.options.FontAwesomeConfigOptions;
 
 import javax.validation.constraints.NotNull;
+import java.util.logging.Level;
 
 /**
  * The page configurator for Font Awesome 5
@@ -53,7 +55,7 @@ public class FontAwesome5PageConfigurator
 	/**
 	 * Field configOptions
 	 */
-	private static FontAwesomeConfigOptions configOptions;
+	private static final FontAwesomeConfigOptions configOptions = new FontAwesomeConfigOptions();
 	/**
 	 * Field rootReferenceDir
 	 */
@@ -396,11 +398,19 @@ public class FontAwesome5PageConfigurator
 	 */
 	private void configureCoreReference(JavascriptReference ref)
 	{
-		if (FontAwesome5PageConfigurator.getConfigOptions()
-		                                .getSearchPseudoElements())
+		try
 		{
-			ref.getAdditionalOptions()
-			   .add("data-search-pseudo-elements");
+			if (FontAwesome5PageConfigurator.getConfigOptions()
+			                                .getSearchPseudoElements())
+			{
+				ref.getAdditionalOptions()
+				   .add("data-search-pseudo-elements");
+			}
+		}
+		catch (NullPointerException npe)
+		{
+			LogFactory.getLog("FontAwesome5PageConfigurator")
+			          .log(Level.WARNING, "Unable to read config options");
 		}
 	}
 
@@ -411,10 +421,6 @@ public class FontAwesome5PageConfigurator
 	 */
 	public static FontAwesomeConfigOptions getConfigOptions()
 	{
-		if (FontAwesome5PageConfigurator.configOptions == null)
-		{
-			FontAwesome5PageConfigurator.configOptions = new FontAwesomeConfigOptions();
-		}
 		return FontAwesome5PageConfigurator.configOptions;
 	}
 }
