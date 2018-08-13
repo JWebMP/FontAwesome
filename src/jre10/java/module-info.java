@@ -13,7 +13,7 @@ module com.jwebmp.plugins.fontawesome5 {
 
 	requires java.validation;
 	requires java.logging;
-	requires commons.lang3;
+
 	requires com.jwebmp.guicedservlets;
 
 	provides IPageConfigurator with FontAwesome5PageConfigurator;
