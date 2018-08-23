@@ -15,6 +15,7 @@ module com.jwebmp.plugins.fontawesome5 {
 	requires java.logging;
 
 	requires com.jwebmp.guicedservlets;
+	requires org.apache.commons.lang3;
 
 	provides IPageConfigurator with FontAwesome5PageConfigurator;
 

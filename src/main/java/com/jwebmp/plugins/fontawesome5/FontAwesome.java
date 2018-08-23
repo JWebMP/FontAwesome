@@ -21,10 +21,10 @@ import com.jwebmp.core.base.html.interfaces.children.BodyChildren;
 import com.jwebmp.core.base.html.interfaces.children.ListItemChildren;
 import com.jwebmp.core.base.html.interfaces.children.PageChildren;
 import com.jwebmp.core.base.html.interfaces.children.generics.ParagraphChildren;
+import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.core.plugins.ComponentInformation;
 import com.jwebmp.plugins.fontawesome5.config.FontAwesome5PageConfigurator;
 import com.jwebmp.plugins.fontawesome5.icons.FontAwesomeBrandIcons;
-import com.jwebmp.plugins.fontawesome5.icons.FontAwesomeIcons;
 import com.jwebmp.plugins.fontawesome5.options.FontAwesomeDisplayOptions;
 import com.jwebmp.plugins.fontawesome5.options.FontAwesomeSizes;
 import com.jwebmp.plugins.fontawesome5.options.FontAwesomeStyles;
@@ -52,7 +52,7 @@ import static com.jwebmp.core.utilities.StaticStrings.*;
 		url = "www.fontawesome.com")
 public class FontAwesome<J extends FontAwesome<J>>
 		extends Italic<J>
-		implements ListItemChildren, ParagraphChildren, BodyChildren, PageChildren, IFontAwesome<J>
+		implements ListItemChildren<IComponentHierarchyBase, J>, ParagraphChildren<IComponentHierarchyBase, J>, BodyChildren<IComponentHierarchyBase, J>, PageChildren, IFontAwesome<J>
 {
 
 	private static final long serialVersionUID = 1L;
@@ -79,62 +79,13 @@ public class FontAwesome<J extends FontAwesome<J>>
 	}
 
 	/**
-	 * Inserts the icon and style classes
-	 */
-	@Override
-	public void preConfigure()
-	{
-		if (!isConfigured())
-		{
-			if (icon != null)
-			{
-				if(FontAwesomeBrandIcons.class.isAssignableFrom(icon.getClass()))
-				{
-					style = FontAwesomeStyles.Brand;
-				}
-			}
-			if(style == null)
-			{
-				style = FontAwesomeStyles.Solid;
-			}
-			Set<String> clazzes = getClasses();
-			List<String> ordered = new ArrayList<>(clazzes);
-			if (icon != null)
-			{
-				ordered.add(0, getIcon().toString());
-			}
-			if (style != null)
-			{
-				ordered.add(0, getStyle().toString());
-			}
-			setClasses(new LinkedHashSet<>(ordered));
-
-			switch (style)
-			{
-				case Light:
-					FontAwesome5PageConfigurator.setIncludeLight(true);
-					break;
-				case Regular:
-					FontAwesome5PageConfigurator.setIncludeRegular(true);
-					break;
-				case Solid:
-					FontAwesome5PageConfigurator.setIncludeSolid(true);
-					break;
-			}
-
-			if (icon.getClass()
-			        .isAssignableFrom(FontAwesomeBrandIcons.class))
-			{
-				FontAwesome5PageConfigurator.setIncludeBrands(true);
-			}
-		}
-		super.preConfigure();
-	}
-
-	/**
 	 * Creates a new icon with the given icon and size in the solid format
-	 * @param icon The icon to apply
-	 * @param size The size to use
+	 *
+	 * @param icon
+	 * 		The icon to apply
+	 * @param size
+	 * 		The size to use
+	 *
 	 * @return The new font awesome icon
 	 */
 	public static FontAwesome icon(IFontAwesomeIcon icon, FontAwesomeSizes size)
@@ -142,27 +93,6 @@ public class FontAwesome<J extends FontAwesome<J>>
 		return new FontAwesome().setSize(size)
 		                        .setIcon(icon)
 		                        .setStyle(FontAwesomeStyles.Solid);
-	}
-
-	/**
-	 * Creates a new icon with the given icon and size in the solid format
-	 * @param icon The icon to apply
-	 * @return The new font awesome icon
-	 */
-	public static FontAwesome icon(IFontAwesomeIcon icon)
-	{
-		return new FontAwesome().setIcon(icon)
-		                        .setStyle(FontAwesomeStyles.Solid);
-	}
-
-	/**
-	 * A smaller neater option for Font Awesome
-	 *
-	 * @return
-	 */
-	public IFontAwesome asMe()
-	{
-		return this;
 	}
 
 	@Override
@@ -272,15 +202,92 @@ public class FontAwesome<J extends FontAwesome<J>>
 		return (J) this;
 	}
 
-	@Override
-	public boolean equals(Object o)
+	/**
+	 * Creates a new icon with the given icon and size in the solid format
+	 *
+	 * @param icon
+	 * 		The icon to apply
+	 *
+	 * @return The new font awesome icon
+	 */
+	public static FontAwesome icon(IFontAwesomeIcon icon)
 	{
-		return false;
+		return new FontAwesome().setIcon(icon)
+		                        .setStyle(FontAwesomeStyles.Solid);
+	}
+
+	/**
+	 * Inserts the icon and style classes
+	 */
+	@Override
+	public void preConfigure()
+	{
+		if (!isConfigured())
+		{
+			if (icon != null)
+			{
+				if (FontAwesomeBrandIcons.class.isAssignableFrom(icon.getClass()))
+				{
+					style = FontAwesomeStyles.Brand;
+				}
+			}
+			if (style == null)
+			{
+				style = FontAwesomeStyles.Solid;
+			}
+			Set<String> clazzes = getClasses();
+			List<String> ordered = new ArrayList<>(clazzes);
+			if (icon != null)
+			{
+				ordered.add(0, getIcon().toString());
+			}
+			if (style != null)
+			{
+				ordered.add(0, getStyle().toString());
+			}
+			setClasses(new LinkedHashSet<>(ordered));
+
+			switch (style)
+			{
+				case Light:
+					FontAwesome5PageConfigurator.setIncludeLight(true);
+					break;
+				case Regular:
+					FontAwesome5PageConfigurator.setIncludeRegular(true);
+					break;
+				case Solid:
+					FontAwesome5PageConfigurator.setIncludeSolid(true);
+					break;
+			}
+
+			if (icon.getClass()
+			        .isAssignableFrom(FontAwesomeBrandIcons.class))
+			{
+				FontAwesome5PageConfigurator.setIncludeBrands(true);
+			}
+		}
+		super.preConfigure();
+	}
+
+	/**
+	 * A smaller neater option for Font Awesome
+	 *
+	 * @return
+	 */
+	public IFontAwesome asMe()
+	{
+		return this;
 	}
 
 	@Override
 	public int hashCode()
 	{
 		return super.hashCode();
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		return false;
 	}
 }

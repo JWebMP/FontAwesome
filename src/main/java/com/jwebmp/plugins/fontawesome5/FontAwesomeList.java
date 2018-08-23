@@ -4,9 +4,9 @@ import com.jwebmp.core.base.html.List;
 import com.jwebmp.core.base.html.ListItem;
 import com.jwebmp.core.base.html.Span;
 import com.jwebmp.core.base.html.interfaces.AttributeDefinitions;
-import com.jwebmp.core.base.html.interfaces.GlobalChildren;
 import com.jwebmp.core.base.html.interfaces.children.ListChildren;
 import com.jwebmp.core.base.html.interfaces.events.GlobalEvents;
+import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.plugins.fontawesome5.options.FontAwesomeDisplayOptions;
 
 /**
@@ -31,7 +31,7 @@ public class FontAwesomeList<J extends FontAwesomeList<J, A, E>, A extends Enum 
 	public ListItem<?> addItem(String textToAdd, FontAwesome<?> icon)
 	{
 		ListItem<?> li = new ListItem<>();
-		Span<GlobalChildren, ?, ?> span = new Span<>();
+		Span<IComponentHierarchyBase, ?, ?> span = new Span<>();
 		span.addClass(FontAwesomeDisplayOptions.ListItem);
 		span.add(icon);
 		li.add(span);
