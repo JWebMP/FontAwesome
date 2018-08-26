@@ -303,91 +303,93 @@ public class FontAwesome5PageConfigurator
 	@SuppressWarnings("unchecked")
 	public Page configure(Page page)
 	{
-
-		if (!page.isConfigured())
+		switch (FontAwesome5PageConfigurator.fontAwesomeReferenceType)
 		{
-
-			switch (FontAwesome5PageConfigurator.fontAwesomeReferenceType)
+			case WebFontCSS:
 			{
-				case WebFontCSS:
-				{
-
-					if (FontAwesome5PageConfigurator.includeAll)
-					{
-						page.addCssReference(new CSSReference("FontAwesome5CSSWebFontsAll", 5.013, FontAwesome5PageConfigurator.rootCssReferenceDir + "fontawesome-all.min.css"));
-					}
-					else
-					{
-						if (FontAwesome5PageConfigurator.includeBrands)
-						{
-							page.addCssReference(new CSSReference("FontAwesome5CSSWebFontsBrands", 5.013, FontAwesome5PageConfigurator.rootCssReferenceDir + "brands.min.css"));
-						}
-						if (FontAwesome5PageConfigurator.includeLight)
-						{
-							page.addCssReference(new CSSReference("FontAwesome5CSSWebFontsLight", 5.013, FontAwesome5PageConfigurator.rootCssReferenceDir + "light.min.css"));
-						}
-						if (FontAwesome5PageConfigurator.includeRegular)
-						{
-							page.addCssReference(new CSSReference("FontAwesome5CSSWebFontsRegular", 5.013, FontAwesome5PageConfigurator.rootCssReferenceDir + "regular.min.css"));
-						}
-						if (FontAwesome5PageConfigurator.includeSolid)
-						{
-							page.addCssReference(new CSSReference("FontAwesome5CSSWebFontsSolid", 5.013, FontAwesome5PageConfigurator.rootCssReferenceDir + "solid.min.css"));
-						}
-					}
-
-					break;
-				}
-				case JS:
-				{
-					if (FontAwesome5PageConfigurator.includeAll)
-					{
-						JavascriptReference coreReference = new JavascriptReference("FontAwesome5All", 5.013,
-						                                                            FontAwesome5PageConfigurator.rootReferenceDir + "fontawesome-all.min.js").setSortOrder(6)
-						                                                                                                                                     .setDefer(true);
-						configureCoreReference(coreReference);
-						page.addJavaScriptReference(coreReference);
-					}
-					else
-					{
-						JavascriptReference coreReference = new JavascriptReference("FontAwesome5Core", 5.013,
-						                                                            FontAwesome5PageConfigurator.rootReferenceDir + "fontawesome.min.js").setSortOrder(8)
-						                                                                                                                                 .setDefer(true);
-						//configureCoreReference(coreReference);
-						page.addJavaScriptReference(coreReference);
-						if (FontAwesome5PageConfigurator.includeRegular)
-						{
-							page.addJavaScriptReference(
-									new JavascriptReference("FontAwesome5Regular", 5.013, FontAwesome5PageConfigurator.rootReferenceDir + "regular.min.js").setSortOrder(7)
-									                                                                                                                       .setDefer(
-											                                                                                                                       true));
-						}
-						if (FontAwesome5PageConfigurator.includeSolid)
-						{
-							page.addJavaScriptReference(
-									new JavascriptReference("FontAwesome5Solid", 5.013, FontAwesome5PageConfigurator.rootReferenceDir + "solid.min.js").setSortOrder(7)
-									                                                                                                                   .setDefer(true));
-						}
-						if (FontAwesome5PageConfigurator.includeLight)
-						{
-							page.addJavaScriptReference(
-									new JavascriptReference("FontAwesome5Light", 5.013, FontAwesome5PageConfigurator.rootReferenceDir + "light.min.js").setSortOrder(7)
-									                                                                                                                   .setDefer(true));
-						}
-						if (FontAwesome5PageConfigurator.includeBrands)
-						{
-							page.addJavaScriptReference(
-									new JavascriptReference("FontAwesome5Brands", 5.013, FontAwesome5PageConfigurator.rootReferenceDir + "brands.min.js").setSortOrder(7)
-									                                                                                                                     .setDefer(true));
-						}
-					}
-
-					break;
-				}
+				configureWebCSS(page);
+				break;
+			}
+			case JS:
+			{
+				configureJS(page);
+				break;
 			}
 		}
 		return page;
+	}
 
+	private void configureWebCSS(Page<?> page)
+	{
+
+		if (FontAwesome5PageConfigurator.includeAll)
+		{
+			page.addCssReference(new CSSReference("FontAwesome5CSSWebFontsAll", 5.013, FontAwesome5PageConfigurator.rootCssReferenceDir + "fontawesome-all.min.css"));
+		}
+		else
+		{
+			if (FontAwesome5PageConfigurator.includeBrands)
+			{
+				page.addCssReference(new CSSReference("FontAwesome5CSSWebFontsBrands", 5.013, FontAwesome5PageConfigurator.rootCssReferenceDir + "brands.min.css"));
+			}
+			if (FontAwesome5PageConfigurator.includeLight)
+			{
+				page.addCssReference(new CSSReference("FontAwesome5CSSWebFontsLight", 5.013, FontAwesome5PageConfigurator.rootCssReferenceDir + "light.min.css"));
+			}
+			if (FontAwesome5PageConfigurator.includeRegular)
+			{
+				page.addCssReference(new CSSReference("FontAwesome5CSSWebFontsRegular", 5.013, FontAwesome5PageConfigurator.rootCssReferenceDir + "regular.min.css"));
+			}
+			if (FontAwesome5PageConfigurator.includeSolid)
+			{
+				page.addCssReference(new CSSReference("FontAwesome5CSSWebFontsSolid", 5.013, FontAwesome5PageConfigurator.rootCssReferenceDir + "solid.min.css"));
+			}
+		}
+	}
+
+	private void configureJS(Page<?> page)
+	{
+		if (FontAwesome5PageConfigurator.includeAll)
+		{
+			JavascriptReference coreReference = new JavascriptReference("FontAwesome5All", 5.013,
+			                                                            FontAwesome5PageConfigurator.rootReferenceDir + "fontawesome-all.min.js").setSortOrder(6)
+			                                                                                                                                     .setDefer(true);
+			configureCoreReference(coreReference);
+			page.addJavaScriptReference(coreReference);
+		}
+		else
+		{
+			JavascriptReference coreReference = new JavascriptReference("FontAwesome5Core", 5.013,
+			                                                            FontAwesome5PageConfigurator.rootReferenceDir + "fontawesome.min.js").setSortOrder(8)
+			                                                                                                                                 .setDefer(true);
+			//configureCoreReference(coreReference);
+			page.addJavaScriptReference(coreReference);
+			if (FontAwesome5PageConfigurator.includeRegular)
+			{
+				page.addJavaScriptReference(
+						new JavascriptReference("FontAwesome5Regular", 5.013, FontAwesome5PageConfigurator.rootReferenceDir + "regular.min.js").setSortOrder(7)
+						                                                                                                                       .setDefer(
+								                                                                                                                       true));
+			}
+			if (FontAwesome5PageConfigurator.includeSolid)
+			{
+				page.addJavaScriptReference(
+						new JavascriptReference("FontAwesome5Solid", 5.013, FontAwesome5PageConfigurator.rootReferenceDir + "solid.min.js").setSortOrder(7)
+						                                                                                                                   .setDefer(true));
+			}
+			if (FontAwesome5PageConfigurator.includeLight)
+			{
+				page.addJavaScriptReference(
+						new JavascriptReference("FontAwesome5Light", 5.013, FontAwesome5PageConfigurator.rootReferenceDir + "light.min.js").setSortOrder(7)
+						                                                                                                                   .setDefer(true));
+			}
+			if (FontAwesome5PageConfigurator.includeBrands)
+			{
+				page.addJavaScriptReference(
+						new JavascriptReference("FontAwesome5Brands", 5.013, FontAwesome5PageConfigurator.rootReferenceDir + "brands.min.js").setSortOrder(7)
+						                                                                                                                     .setDefer(true));
+			}
+		}
 	}
 
 	/**
@@ -410,7 +412,7 @@ public class FontAwesome5PageConfigurator
 		catch (NullPointerException npe)
 		{
 			LogFactory.getLog("FontAwesome5PageConfigurator")
-			          .log(Level.WARNING, "Unable to read config options");
+			          .log(Level.WARNING, "Unable to read config options", npe);
 		}
 	}
 

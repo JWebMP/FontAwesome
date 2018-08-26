@@ -224,12 +224,9 @@ public class FontAwesome<J extends FontAwesome<J>>
 	{
 		if (!isConfigured())
 		{
-			if (icon != null)
+			if (icon != null && FontAwesomeBrandIcons.class.isAssignableFrom(icon.getClass()))
 			{
-				if (FontAwesomeBrandIcons.class.isAssignableFrom(icon.getClass()))
-				{
-					style = FontAwesomeStyles.Brand;
-				}
+				style = FontAwesomeStyles.Brand;
 			}
 			if (style == null)
 			{
@@ -241,10 +238,7 @@ public class FontAwesome<J extends FontAwesome<J>>
 			{
 				ordered.add(0, getIcon().toString());
 			}
-			if (style != null)
-			{
-				ordered.add(0, getStyle().toString());
-			}
+			ordered.add(0, getStyle().toString());
 			setClasses(new LinkedHashSet<>(ordered));
 
 			switch (style)
@@ -258,6 +252,8 @@ public class FontAwesome<J extends FontAwesome<J>>
 				case Solid:
 					FontAwesome5PageConfigurator.setIncludeSolid(true);
 					break;
+				case Brand:
+					FontAwesome5PageConfigurator.setIncludeBrands(true);
 			}
 
 			if (icon.getClass()
