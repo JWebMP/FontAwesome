@@ -57,6 +57,10 @@ public class FontAwesome5PageConfigurator
 	 */
 	private static final FontAwesomeConfigOptions configOptions = new FontAwesomeConfigOptions();
 	/**
+	 * If this configurator is enabled
+	 */
+	private static boolean enabled = true;
+	/**
 	 * Field rootReferenceDir
 	 */
 	private static String rootReferenceDir = "bower_components/font-awesome5/svg-with-js/js/";
@@ -99,6 +103,31 @@ public class FontAwesome5PageConfigurator
 	public FontAwesome5PageConfigurator()
 	{
 		//Nothing Needed
+	}
+
+	/**
+	 * Method isEnabled returns the enabled of this AngularAnimatedChangePageConfigurator object.
+	 * <p>
+	 * If this configurator is enabled
+	 *
+	 * @return the enabled (type boolean) of this AngularAnimatedChangePageConfigurator object.
+	 */
+	public static boolean isEnabled()
+	{
+		return FontAwesome5PageConfigurator.enabled;
+	}
+
+	/**
+	 * Method setEnabled sets the enabled of this AngularAnimatedChangePageConfigurator object.
+	 * <p>
+	 * If this configurator is enabled
+	 *
+	 * @param mustEnable
+	 * 		the enabled of this AngularAnimatedChangePageConfigurator object.
+	 */
+	public static void setEnabled(boolean mustEnable)
+	{
+		FontAwesome5PageConfigurator.enabled = mustEnable;
 	}
 
 	/**
@@ -317,6 +346,12 @@ public class FontAwesome5PageConfigurator
 			}
 		}
 		return page;
+	}
+
+	@Override
+	public boolean enabled()
+	{
+		return FontAwesome5PageConfigurator.enabled;
 	}
 
 	private void configureWebCSS(Page<?> page)
