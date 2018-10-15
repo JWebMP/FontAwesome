@@ -50,7 +50,7 @@ import java.util.logging.Level;
 		pluginIconImageUrl = "bower_components/font-awesome/icon.png",
 		pluginLastUpdatedDate = "2018/07/04")
 public class FontAwesome5PageConfigurator
-		implements IPageConfigurator
+		implements IPageConfigurator<FontAwesome5PageConfigurator>
 {
 	/**
 	 * Field configOptions
