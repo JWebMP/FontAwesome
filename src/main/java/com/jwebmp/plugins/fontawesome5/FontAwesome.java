@@ -55,7 +55,7 @@ public class FontAwesome<J extends FontAwesome<J>>
 		implements ListItemChildren<IComponentHierarchyBase, J>, ParagraphChildren<IComponentHierarchyBase, J>, BodyChildren<IComponentHierarchyBase, J>, PageChildren, IFontAwesome<J>
 {
 
-	private static final long serialVersionUID = 1L;
+
 	private FontAwesomeStyles style;
 	private IFontAwesomeIcon icon;
 
