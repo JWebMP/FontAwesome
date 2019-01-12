@@ -356,6 +356,7 @@ public enum FontAwesomeIcons
 	exclamation_circle,
 	exclamation_square,
 	exclamation_triangle,
+	wind_warning,
 	expand,
 	expand_alt,
 	expand_arrows,
