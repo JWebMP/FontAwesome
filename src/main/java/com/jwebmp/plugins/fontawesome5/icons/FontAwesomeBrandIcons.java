@@ -371,12 +371,39 @@ public enum FontAwesomeBrandIcons
 	yoast,
 	youtube,
 	youtube_square,
+
+
+	//5.6
+	adobe,
+	artstation,
+	atlassian,
+	canadian_maple_leaf,
+	centos,
+	confluence,
+	dhl,
+	diaspora,
+	fedex,
+	fedora,
+	figma,
+	intercom,
+	invision,
+	jira,
+	mendeley,
+	raspberry_pi,
+	redhat,
+	sketch,
+	sourcetree,
+	suse,
+	ubuntu,
+	ups,
+	usps,
+	yarn,
 	;
 
 	@Override
 	public String toString()
 	{
-		return "fa-" +  name().replace("\\$", "")
-		             .replace(CHAR_UNDERSCORE, CHAR_DASH);
+		return "fa-" + name().replace("\\$", "")
+		                     .replace(CHAR_UNDERSCORE, CHAR_DASH);
 	}
 }

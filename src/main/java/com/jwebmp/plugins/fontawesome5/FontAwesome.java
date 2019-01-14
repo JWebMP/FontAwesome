@@ -243,6 +243,59 @@ public class FontAwesome<J extends FontAwesome<J>>
 	 *
 	 * @return The new font awesome icon
 	 */
+	public static String iconString(IFontAwesomeIcon icon)
+	{
+		return new FontAwesome().setIcon(icon)
+		                        .setStyle(FontAwesomeStyles.Solid)
+		                        .setTiny(true)
+		                        .toString(0);
+	}
+
+	/**
+	 * Creates a new icon with the given icon and size in the solid format
+	 *
+	 * @param icon
+	 * 		The icon to apply
+	 * @param styles
+	 * 		The size to use
+	 *
+	 * @return The new font awesome icon
+	 */
+	public static String iconString(IFontAwesomeIcon icon, FontAwesomeStyles styles)
+	{
+		return new FontAwesome().setIcon(icon)
+		                        .setStyle(styles)
+		                        .setTiny(true)
+		                        .toString(0);
+	}
+
+	/**
+	 * Creates a new icon with the given icon and size in the solid format
+	 *
+	 * @param icon
+	 * 		The icon to apply
+	 * @param size
+	 * 		The size to use
+	 *
+	 * @return The new font awesome icon
+	 */
+	public static String iconString(IFontAwesomeIcon icon, FontAwesomeSizes size, FontAwesomeStyles styles)
+	{
+		return new FontAwesome().setSize(size)
+		                        .setIcon(icon)
+		                        .setStyle(styles)
+		                        .setTiny(true)
+		                        .toString(0);
+	}
+
+	/**
+	 * Creates a new icon with the given icon and size in the solid format
+	 *
+	 * @param icon
+	 * 		The icon to apply
+	 *
+	 * @return The new font awesome icon
+	 */
 	public static FontAwesome icon(IFontAwesomeIcon icon)
 	{
 		return new FontAwesome().setIcon(icon)
