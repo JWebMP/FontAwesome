@@ -398,6 +398,11 @@ public enum FontAwesomeBrandIcons
 	ups,
 	usps,
 	yarn,
+
+	/** V5.7.0 **/
+	mailchimp,
+	markdown,
+	the_red_yeti,
 	;
 
 	@Override
