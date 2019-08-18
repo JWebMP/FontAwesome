@@ -16,12 +16,14 @@
  */
 package com.jwebmp.plugins.fontawesome5;
 
+import com.jwebmp.core.base.ComponentHierarchyBase;
 import com.jwebmp.core.base.html.Italic;
 import com.jwebmp.core.base.html.interfaces.children.BodyChildren;
 import com.jwebmp.core.base.html.interfaces.children.ListItemChildren;
 import com.jwebmp.core.base.html.interfaces.children.PageChildren;
 import com.jwebmp.core.base.html.interfaces.children.generics.ParagraphChildren;
 import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
+import com.jwebmp.core.base.interfaces.IIcon;
 import com.jwebmp.core.plugins.ComponentInformation;
 import com.jwebmp.plugins.fontawesome5.config.FontAwesome5PageConfigurator;
 import com.jwebmp.plugins.fontawesome5.icons.FontAwesomeBrandIcons;
@@ -47,12 +49,18 @@ import static com.jwebmp.core.utilities.StaticStrings.*;
  * @version 1.0
  * @since 21 May 2016
  */
+@SuppressWarnings("unused")
 @ComponentInformation(name = "Font Awesome 5",
 		description = "The font awesome tag",
 		url = "www.fontawesome.com")
 public class FontAwesome<J extends FontAwesome<J>>
 		extends Italic<J>
-		implements ListItemChildren<IComponentHierarchyBase, J>, ParagraphChildren<IComponentHierarchyBase, J>, BodyChildren<IComponentHierarchyBase, J>, PageChildren, IFontAwesome<J>
+		implements ListItemChildren<IComponentHierarchyBase, J>
+				           , ParagraphChildren<IComponentHierarchyBase, J>
+				           , BodyChildren<IComponentHierarchyBase, J>
+				           , PageChildren
+				           , IFontAwesome<J>
+	, IIcon<FontAwesome<J>>
 {
 
 
@@ -214,7 +222,7 @@ public class FontAwesome<J extends FontAwesome<J>>
 	 */
 	public static FontAwesome icon(IFontAwesomeIcon icon, FontAwesomeStyles styles)
 	{
-		return new FontAwesome().setIcon(icon)
+		return new FontAwesome<>().setIcon(icon)
 		                        .setStyle(styles);
 	}
 
@@ -230,7 +238,7 @@ public class FontAwesome<J extends FontAwesome<J>>
 	 */
 	public static FontAwesome icon(IFontAwesomeIcon icon, FontAwesomeSizes size, FontAwesomeStyles styles)
 	{
-		return new FontAwesome().setSize(size)
+		return new FontAwesome<>().setSize(size)
 		                        .setIcon(icon)
 		                        .setStyle(styles);
 	}
@@ -245,7 +253,7 @@ public class FontAwesome<J extends FontAwesome<J>>
 	 */
 	public static String iconString(IFontAwesomeIcon icon)
 	{
-		return new FontAwesome().setIcon(icon)
+		return new FontAwesome<>().setIcon(icon)
 		                        .setStyle(FontAwesomeStyles.Solid)
 		                        .setTiny(true)
 		                        .toString(0);
@@ -263,7 +271,7 @@ public class FontAwesome<J extends FontAwesome<J>>
 	 */
 	public static String iconString(IFontAwesomeIcon icon, FontAwesomeStyles styles)
 	{
-		return new FontAwesome().setIcon(icon)
+		return new FontAwesome<>().setIcon(icon)
 		                        .setStyle(styles)
 		                        .setTiny(true)
 		                        .toString(0);
@@ -281,7 +289,7 @@ public class FontAwesome<J extends FontAwesome<J>>
 	 */
 	public static String iconString(IFontAwesomeIcon icon, FontAwesomeSizes size, FontAwesomeStyles styles)
 	{
-		return new FontAwesome().setSize(size)
+		return new FontAwesome<>().setSize(size)
 		                        .setIcon(icon)
 		                        .setStyle(styles)
 		                        .setTiny(true)
@@ -298,7 +306,7 @@ public class FontAwesome<J extends FontAwesome<J>>
 	 */
 	public static FontAwesome icon(IFontAwesomeIcon icon)
 	{
-		return new FontAwesome().setIcon(icon)
+		return new FontAwesome<>().setIcon(icon)
 		                        .setStyle(FontAwesomeStyles.Solid);
 	}
 
@@ -371,5 +379,17 @@ public class FontAwesome<J extends FontAwesome<J>>
 	public boolean equals(Object o)
 	{
 		return false;
+	}
+
+	@Override
+	public String getClassName()
+	{
+		return this.style + " " + this.icon;
+	}
+
+	@Override
+	public ComponentHierarchyBase getIconComponent()
+	{
+		return this;
 	}
 }

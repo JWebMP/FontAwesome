@@ -7,6 +7,11 @@ public enum FontAwesomeStyles
 {
 	Brand("fab"),
 	Solid("fas"),
+	/**
+	 * The duo tone is set for pro only
+	 * Configure with FontAwesomePageConfigurator
+	 */
+	Duotone("fad"),
 	Regular("far"),
 	Light("fal");
 

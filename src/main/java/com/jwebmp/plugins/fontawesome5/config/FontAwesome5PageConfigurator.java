@@ -55,7 +55,7 @@ public class FontAwesome5PageConfigurator
 	/**
 	 * Field configOptions
 	 */
-	private static final FontAwesomeConfigOptions configOptions = new FontAwesomeConfigOptions();
+	private static FontAwesomeConfigOptions configOptions = new FontAwesomeConfigOptions();
 	/**
 	 * If this configurator is enabled
 	 */
@@ -63,11 +63,11 @@ public class FontAwesome5PageConfigurator
 	/**
 	 * Field rootReferenceDir
 	 */
-	private static String rootReferenceDir = "bower_components/font-awesome5/svg-with-js/js/";
+	private static String rootReferenceDir = "bower_components/font-awesome5/js/";
 	/**
 	 * Field rootCssReferenceDir
 	 */
-	private static String rootCssReferenceDir = "bower_components/font-awesome5/web-fonts-with-css/css/";
+	private static String rootCssReferenceDir = "bower_components/font-awesome5/css/";
 	/**
 	 * Field fontAwesomeReferenceType
 	 */
@@ -80,6 +80,10 @@ public class FontAwesome5PageConfigurator
 	 * Field includeSolid
 	 */
 	private static boolean includeSolid;
+	/**
+	 * Field includeSolid
+	 */
+	private static boolean includeDuotone;
 	/**
 	 * Field includeLight
 	 */
@@ -320,6 +324,27 @@ public class FontAwesome5PageConfigurator
 	}
 
 	/**
+	 * Whether or not to include the duotone font awesome set
+	 *
+	 * @return if it is enabled (false by default)
+	 */
+	public static boolean isIncludeDuotone()
+	{
+		return includeDuotone;
+	}
+
+	/**
+	 * Whether or not to include the duotone set
+	 *
+	 * @param includeDuotone
+	 * 		Sets if duotone should be included
+	 */
+	public static void setIncludeDuotone(boolean includeDuotone)
+	{
+		FontAwesome5PageConfigurator.includeDuotone = includeDuotone;
+	}
+
+	/**
 	 * Method configure ...
 	 *
 	 * @param page
@@ -329,8 +354,7 @@ public class FontAwesome5PageConfigurator
 	 */
 	@NotNull
 	@Override
-	@SuppressWarnings("unchecked")
-	public Page configure(Page page)
+	public Page configure(Page<?> page)
 	{
 		switch (FontAwesome5PageConfigurator.fontAwesomeReferenceType)
 		{
@@ -359,10 +383,12 @@ public class FontAwesome5PageConfigurator
 
 		if (FontAwesome5PageConfigurator.includeAll)
 		{
-			page.addCssReference(new CSSReference("FontAwesome5CSSWebFontsAll", 5.013, FontAwesome5PageConfigurator.rootCssReferenceDir + "fontawesome-all.min.css"));
+			page.addCssReference(new CSSReference("FontAwesome5CSSWebFontsAll", 5.013, FontAwesome5PageConfigurator.rootCssReferenceDir + "all.min.css"));
 		}
 		else
 		{
+			page.addCssReference(new CSSReference("FontAwesome5CSSWebFontsCore", 5.013, FontAwesome5PageConfigurator.rootCssReferenceDir + "fontawesome.min.css"));
+
 			if (FontAwesome5PageConfigurator.includeBrands)
 			{
 				page.addCssReference(new CSSReference("FontAwesome5CSSWebFontsBrands", 5.013, FontAwesome5PageConfigurator.rootCssReferenceDir + "brands.min.css"));
@@ -379,16 +405,29 @@ public class FontAwesome5PageConfigurator
 			{
 				page.addCssReference(new CSSReference("FontAwesome5CSSWebFontsSolid", 5.013, FontAwesome5PageConfigurator.rootCssReferenceDir + "solid.min.css"));
 			}
+			if (FontAwesome5PageConfigurator.includeDuotone)
+			{
+				page.addCssReference(new CSSReference("FontAwesome5CSSWebFontsDuotone", 5.013, FontAwesome5PageConfigurator.rootCssReferenceDir + "duotone.min.css"));
+			}
+			if (FontAwesome5PageConfigurator.includeShim)
+			{
+				page.addCssReference(new CSSReference("FontAwesome5CSSWebFontsShim", 5.013, FontAwesome5PageConfigurator.rootCssReferenceDir + "v4-shims.min.css"));
+			}
 		}
 	}
 
+	/**
+	 * Copy the fontawesome.js loader and whatever icon styles’ .js files you’d like to use into your project’s static assets directory (or where ever you prefer to keep front end assets or vendor stuff). We recommend referencing the fontawesome.js loader last.
+	 *https://fontawesome.com/how-to-use/on-the-web/setup/hosting-font-awesome-yourself
+	 *
+	 */
 	private void configureJS(Page<?> page)
 	{
 		if (FontAwesome5PageConfigurator.includeAll)
 		{
 			JavascriptReference coreReference = new JavascriptReference("FontAwesome5All", 5.013,
-			                                                            FontAwesome5PageConfigurator.rootReferenceDir + "fontawesome-all.min.js").setSortOrder(6)
-			                                                                                                                                     .setDefer(true);
+			                                                            FontAwesome5PageConfigurator.rootReferenceDir + "all.min.js").setSortOrder(6)
+			                                                                                                                         .setDefer(true);
 			configureCoreReference(coreReference);
 			page.addJavaScriptReference(coreReference);
 		}
@@ -397,7 +436,8 @@ public class FontAwesome5PageConfigurator
 			JavascriptReference coreReference = new JavascriptReference("FontAwesome5Core", 5.013,
 			                                                            FontAwesome5PageConfigurator.rootReferenceDir + "fontawesome.min.js").setSortOrder(8)
 			                                                                                                                                 .setDefer(true);
-			//configureCoreReference(coreReference);
+			configureCoreReference(coreReference);
+
 			page.addJavaScriptReference(coreReference);
 			if (FontAwesome5PageConfigurator.includeRegular)
 			{
@@ -424,6 +464,18 @@ public class FontAwesome5PageConfigurator
 						new JavascriptReference("FontAwesome5Brands", 5.013, FontAwesome5PageConfigurator.rootReferenceDir + "brands.min.js").setSortOrder(7)
 						                                                                                                                     .setDefer(true));
 			}
+			if (FontAwesome5PageConfigurator.includeDuotone)
+			{
+				page.addJavaScriptReference(
+						new JavascriptReference("FontAwesome5DuotonesJS", 5.013, FontAwesome5PageConfigurator.rootReferenceDir + "duotone.min.js").setSortOrder(7)
+						                                                                                                                          .setDefer(true));
+			}
+			if (FontAwesome5PageConfigurator.includeShim)
+			{
+				page.addJavaScriptReference(
+						new JavascriptReference("FontAwesome5ShimsJS", 5.013, FontAwesome5PageConfigurator.rootReferenceDir + "v4-shims.min.js").setSortOrder(7)
+						                                                                                                                        .setDefer(true));
+			}
 		}
 	}
 
@@ -435,20 +487,33 @@ public class FontAwesome5PageConfigurator
 	 */
 	private void configureCoreReference(JavascriptReference ref)
 	{
-		try
-		{
 			if (FontAwesome5PageConfigurator.getConfigOptions()
 			                                .getSearchPseudoElements())
 			{
 				ref.getAdditionalOptions()
 				   .add("data-search-pseudo-elements");
 			}
-		}
-		catch (NullPointerException npe)
-		{
-			LogFactory.getLog("FontAwesome5PageConfigurator")
-			          .log(Level.WARNING, "Unable to read config options", npe);
-		}
+			if (FontAwesome5PageConfigurator.getConfigOptions()
+			                                .getAutoReplaceSvg() != null &&
+			    FontAwesome5PageConfigurator.getConfigOptions().getAutoReplaceSvg().isEmpty())
+			{
+				ref.getAdditionalOptions()
+				   .add("data-auto-replace-svg");
+			}
+			else if (FontAwesome5PageConfigurator.getConfigOptions()
+			                                .getAutoReplaceSvg() != null &&
+			    FontAwesome5PageConfigurator.getConfigOptions().getAutoReplaceSvg().equals("nest"))
+			{
+				ref.getAdditionalOptions()
+				   .add("data-auto-replace-svg=\"nest\"");
+			}
+
+			if(!FontAwesome5PageConfigurator.getConfigOptions()
+			                                .getAutoAddCss())
+			{
+				ref.getAdditionalOptions()
+				   .add("autoAddCss=\"false\"");
+			}
 	}
 
 	/**
@@ -458,6 +523,10 @@ public class FontAwesome5PageConfigurator
 	 */
 	public static FontAwesomeConfigOptions getConfigOptions()
 	{
+		if (FontAwesome5PageConfigurator.configOptions == null)
+		{
+			FontAwesome5PageConfigurator.configOptions = new FontAwesomeConfigOptions();
+		}
 		return FontAwesome5PageConfigurator.configOptions;
 	}
 }

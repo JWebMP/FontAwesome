@@ -46,4 +46,41 @@ public class FontAwesome5PageConfiguratorTest
 
 	}
 
+	@Test
+	public void testSomeMethod2()
+	{
+		Page p = new Page();
+		FontAwesome5PageConfigurator.getConfigOptions()
+		                            .setNestSVG();
+		FontAwesome5PageConfigurator.setIncludeDuotone(true);
+		p.add(IFontAwesome.createIcon(FontAwesomeIcons.cog, FontAwesomeStyles.Duotone));
+
+		System.out.println(p.toString(true));
+	}
+
+	@Test
+	public void testSomeMethod3()
+	{
+		Page p = new Page();
+		FontAwesome5PageConfigurator.getConfigOptions()
+		                            .setAutoAddCss(false);
+		FontAwesome5PageConfigurator.setIncludeDuotone(true);
+		p.add(IFontAwesome.createIcon(FontAwesomeIcons.cog, FontAwesomeStyles.Duotone));
+
+		System.out.println(p.toString(true));
+
+	}
+
+	@Test
+	public void testSomeMethod4()
+	{
+		Page p = new Page();
+		FontAwesome5PageConfigurator.getConfigOptions()
+		                            .setAutoAddCss(false);
+		FontAwesome5PageConfigurator.setIncludeDuotone(true);
+		p.add(IFontAwesome.createIcon(FontAwesomeIcons.cog, FontAwesomeStyles.Duotone));
+
+		System.out.println(p.toString(true));
+
+	}
 }

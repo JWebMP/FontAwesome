@@ -26,7 +26,7 @@ public class FontAwesomeConfigOptions<J extends FontAwesomeConfigOptions<J>>
 	 * CSS has a powerful features known as Pseudo-elements. Font Awesome has leveraged the ::before pseudo-element to add icons to a page since the
 	 * very beginning.
 	 */
-	private Boolean searchPseudoElements;
+	private Boolean searchPseudoElements = false;
 
 	/**
 	 * Nest &lt;svg&gt; tags instead of replacing
@@ -40,11 +40,11 @@ public class FontAwesomeConfigOptions<J extends FontAwesomeConfigOptions<J>>
 	/**
 	 * Automatically add accessbility features like aria-hidden?
 	 */
-	private Boolean autoA11y;
+	private Boolean autoA11y = false;
 	/**
 	 * Insert the supporting CSS into the &lt;head&gt; of the HTML document?
 	 */
-	private Boolean autoAddCss;
+	private Boolean autoAddCss = true;
 	/**
 	 * Class prefix for icons and CSS styles like fa-spin
 	 */
@@ -52,15 +52,15 @@ public class FontAwesomeConfigOptions<J extends FontAwesomeConfigOptions<J>>
 	/**
 	 * If replacing with inline SVG keep an HTML comment with the original markup
 	 */
-	private Boolean keepOriginalSource;
+	private Boolean keepOriginalSource = false;
 	/**
 	 * For supporting browsers, add markers in the Performance section of developer tools?
 	 */
-	private Boolean measurePerformance;
+	private Boolean measurePerformance = false;
 	/**
 	 * Watch the DOM for any changes and add, replace, or modify icons on-the-fly
 	 */
-	private Boolean observeMutations;
+	private Boolean observeMutations = false;
 	/**
 	 * Main CSS class for &lt;svg&gt; tags replacements. All replacements will have this class.
 	 */
@@ -68,7 +68,7 @@ public class FontAwesomeConfigOptions<J extends FontAwesomeConfigOptions<J>>
 	/**
 	 * If an icon cannot be found show an animated “missing” icon in its place
 	 */
-	private Boolean showMissingIcons;
+	private Boolean showMissingIcons = true;
 
 	public FontAwesomeConfigOptions()
 	{
@@ -354,4 +354,6 @@ public class FontAwesomeConfigOptions<J extends FontAwesomeConfigOptions<J>>
 	{
 		return setAutoReplaceSvg("nest");
 	}
+
+
 }
