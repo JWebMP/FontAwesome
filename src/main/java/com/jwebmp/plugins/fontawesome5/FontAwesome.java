@@ -220,7 +220,7 @@ public class FontAwesome<J extends FontAwesome<J>>
 	 *
 	 * @return The new font awesome icon
 	 */
-	public static FontAwesome icon(IFontAwesomeIcon icon, FontAwesomeStyles styles)
+	public static FontAwesome<?> icon(IFontAwesomeIcon icon, FontAwesomeStyles styles)
 	{
 		return new FontAwesome<>().setIcon(icon)
 		                        .setStyle(styles);
@@ -236,7 +236,7 @@ public class FontAwesome<J extends FontAwesome<J>>
 	 *
 	 * @return The new font awesome icon
 	 */
-	public static FontAwesome icon(IFontAwesomeIcon icon, FontAwesomeSizes size, FontAwesomeStyles styles)
+	public static FontAwesome<?> icon(IFontAwesomeIcon icon, FontAwesomeSizes size, FontAwesomeStyles styles)
 	{
 		return new FontAwesome<>().setSize(size)
 		                        .setIcon(icon)
