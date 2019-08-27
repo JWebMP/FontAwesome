@@ -391,7 +391,7 @@ public class FontAwesome5PageConfigurator
 
 			if (FontAwesome5PageConfigurator.includeBrands)
 			{
-				page.addCssReference(new CSSReference("FontAwesome5CSSWebFontsBrands", 5.013, FontAwesome5PageConfigurator.rootCssReferenceDir + "brands.min.css"));
+				page.addCssReference(new CSSReference("FontAwesome5CSSWebFontzBrands", 5.013, FontAwesome5PageConfigurator.rootCssReferenceDir + "brands.min.css"));
 			}
 			if (FontAwesome5PageConfigurator.includeLight)
 			{
