@@ -993,7 +993,9 @@ public enum FontAwesomeIcons
 	truck_plow,
 	wreath,
 
-	/** 5.7.0 **/
+	/**
+	 * 5.7.0
+	 **/
 	bacon,
 	book_medical,
 	book_user,
@@ -1133,6 +1135,20 @@ public enum FontAwesomeIcons
 	wifi_2,
 	wine_glass_alt,
 
+	eclipse,
+	eclipse_alt,
+
+	atom,
+	atom_alt,
+	bullseye_arrow,
+	dharmachakra,
+	haykal,
+	slash,
+	spider_web,
+	steering_wheel,
+	tire,
+	tire_rugged,
+	yin_yang,
 	;
 
 	FontAwesomeIcons()
