@@ -5,20 +5,20 @@ module com.jwebmp.plugins.fontawesome5 {
 	exports com.jwebmp.plugins.fontawesome5.options;
 
 	requires com.jwebmp.core;
-	requires com.jwebmp.logmaster;
+	requires com.guicedee.logmaster;
 	requires com.fasterxml.jackson.annotation;
 
 	requires java.validation;
 	requires java.logging;
 
-	requires com.jwebmp.guicedservlets;
+	requires com.guicedee.guicedservlets;
 	requires org.apache.commons.lang3;
-	requires com.jwebmp.guicedinjection;
+	requires com.guicedee.guicedinjection;
 
 	provides com.jwebmp.core.services.IPageConfigurator with com.jwebmp.plugins.fontawesome5.config.FontAwesome5PageConfigurator;
 
-	provides com.jwebmp.guicedinjection.interfaces.IGuiceScanModuleExclusions with com.jwebmp.plugins.fontawesome5.implementations.FontAwesome5ExclusionsModule;
-	provides com.jwebmp.guicedinjection.interfaces.IGuiceScanJarExclusions with com.jwebmp.plugins.fontawesome5.implementations.FontAwesome5ExclusionsModule;
+	provides com.guicedee.guicedinjection.interfaces.IGuiceScanModuleExclusions with com.jwebmp.plugins.fontawesome5.implementations.FontAwesome5ExclusionsModule;
+	provides com.guicedee.guicedinjection.interfaces.IGuiceScanJarExclusions with com.jwebmp.plugins.fontawesome5.implementations.FontAwesome5ExclusionsModule;
 
 	opens com.jwebmp.plugins.fontawesome5.options to com.fasterxml.jackson.databind, com.google.guice, com.jwebmp.core;
 	opens com.jwebmp.plugins.fontawesome5 to com.fasterxml.jackson.databind, com.google.guice, com.jwebmp.core;

@@ -21,7 +21,7 @@ import com.jwebmp.core.base.references.CSSReference;
 import com.jwebmp.core.base.references.JavascriptReference;
 import com.jwebmp.core.plugins.PluginInformation;
 import com.jwebmp.core.services.IPageConfigurator;
-import com.jwebmp.logger.LogFactory;
+import com.guicedee.logger.LogFactory;
 import com.jwebmp.plugins.fontawesome5.options.FontAwesomeConfigOptions;
 
 import javax.validation.constraints.NotNull;
