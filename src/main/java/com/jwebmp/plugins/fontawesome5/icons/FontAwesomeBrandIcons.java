@@ -372,7 +372,6 @@ public enum FontAwesomeBrandIcons
 	youtube,
 	youtube_square,
 
-
 	//5.6
 	adobe,
 	artstation,
@@ -399,11 +398,19 @@ public enum FontAwesomeBrandIcons
 	usps,
 	yarn,
 
-	/** V5.7.0 **/
+	/**
+	 * V5.7.0
+	 **/
 	mailchimp,
 	markdown,
 	the_red_yeti,
-	;
+
+	//5.12
+	unity,
+	firefox_browser,
+	ideal,
+	microblog,
+	pied_piper_square,;
 
 	@Override
 	public String toString()
