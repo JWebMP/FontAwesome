@@ -384,6 +384,7 @@ public class FontAwesome5PageConfigurator
 		if (FontAwesome5PageConfigurator.includeAll)
 		{
 			page.addCssReference(new CSSReference("FontAwesome5CSSWebFontsAll", 5.013, FontAwesome5PageConfigurator.rootCssReferenceDir + "all.min.css"));
+			page.addCssReference(new CSSReference("FontAwesome5CSSWebFontsShim", 5.013, FontAwesome5PageConfigurator.rootCssReferenceDir + "v4-shims.min.css"));
 		}
 		else
 		{
@@ -417,9 +418,9 @@ public class FontAwesome5PageConfigurator
 	}
 
 	/**
-	 * Copy the fontawesome.js loader and whatever icon styles’ .js files you’d like to use into your project’s static assets directory (or where ever you prefer to keep front end assets or vendor stuff). We recommend referencing the fontawesome.js loader last.
-	 *https://fontawesome.com/how-to-use/on-the-web/setup/hosting-font-awesome-yourself
-	 *
+	 * Copy the fontawesome.js loader and whatever icon styles’ .js files you’d like to use into your project’s static assets directory (or where ever you prefer to keep front end
+	 * assets or vendor stuff). We recommend referencing the fontawesome.js loader last.
+	 * https://fontawesome.com/how-to-use/on-the-web/setup/hosting-font-awesome-yourself
 	 */
 	private void configureJS(Page<?> page)
 	{
@@ -430,6 +431,11 @@ public class FontAwesome5PageConfigurator
 			                                                                                                                         .setDefer(true);
 			configureCoreReference(coreReference);
 			page.addJavaScriptReference(coreReference);
+
+			page.addJavaScriptReference(
+					new JavascriptReference("FontAwesome5ShimsJS", 5.013, FontAwesome5PageConfigurator.rootReferenceDir + "v4-shims.min.js").setSortOrder(7)
+			                           );
+
 		}
 		else
 		{
@@ -487,33 +493,37 @@ public class FontAwesome5PageConfigurator
 	 */
 	private void configureCoreReference(JavascriptReference ref)
 	{
-			if (FontAwesome5PageConfigurator.getConfigOptions()
-			                                .getSearchPseudoElements())
-			{
-				ref.getAdditionalOptions()
-				   .add("data-search-pseudo-elements");
-			}
-			if (FontAwesome5PageConfigurator.getConfigOptions()
-			                                .getAutoReplaceSvg() != null &&
-			    FontAwesome5PageConfigurator.getConfigOptions().getAutoReplaceSvg().isEmpty())
-			{
-				ref.getAdditionalOptions()
-				   .add("data-auto-replace-svg");
-			}
-			else if (FontAwesome5PageConfigurator.getConfigOptions()
-			                                .getAutoReplaceSvg() != null &&
-			    FontAwesome5PageConfigurator.getConfigOptions().getAutoReplaceSvg().equals("nest"))
-			{
-				ref.getAdditionalOptions()
-				   .add("data-auto-replace-svg=\"nest\"");
-			}
+		if (FontAwesome5PageConfigurator.getConfigOptions()
+		                                .getSearchPseudoElements())
+		{
+			ref.getAdditionalOptions()
+			   .add("data-search-pseudo-elements");
+		}
+		if (FontAwesome5PageConfigurator.getConfigOptions()
+		                                .getAutoReplaceSvg() != null &&
+		    FontAwesome5PageConfigurator.getConfigOptions()
+		                                .getAutoReplaceSvg()
+		                                .isEmpty())
+		{
+			ref.getAdditionalOptions()
+			   .add("data-auto-replace-svg");
+		}
+		else if (FontAwesome5PageConfigurator.getConfigOptions()
+		                                     .getAutoReplaceSvg() != null &&
+		         FontAwesome5PageConfigurator.getConfigOptions()
+		                                     .getAutoReplaceSvg()
+		                                     .equals("nest"))
+		{
+			ref.getAdditionalOptions()
+			   .add("data-auto-replace-svg=\"nest\"");
+		}
 
-			if(!FontAwesome5PageConfigurator.getConfigOptions()
-			                                .getAutoAddCss())
-			{
-				ref.getAdditionalOptions()
-				   .add("autoAddCss=\"false\"");
-			}
+		if (!FontAwesome5PageConfigurator.getConfigOptions()
+		                                 .getAutoAddCss())
+		{
+			ref.getAdditionalOptions()
+			   .add("autoAddCss=\"false\"");
+		}
 	}
 
 	/**
