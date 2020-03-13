@@ -19,8 +19,8 @@ module com.jwebmp.plugins.fontawesome5 {
 
 	provides com.guicedee.guicedinjection.interfaces.IGuiceScanModuleExclusions with com.jwebmp.plugins.fontawesome5.implementations.FontAwesome5ExclusionsModule;
 
-	opens com.jwebmp.plugins.fontawesome5.options to com.fasterxml.jackson.databind, com.google.guice, com.jwebmp.core;
-	opens com.jwebmp.plugins.fontawesome5 to com.fasterxml.jackson.databind, com.google.guice, com.jwebmp.core;
-	opens com.jwebmp.plugins.fontawesome5.icons to com.fasterxml.jackson.databind, com.google.guice, com.jwebmp.core;
+	opens com.jwebmp.plugins.fontawesome5.options to com.fasterxml.jackson.databind,  com.jwebmp.core;
+	opens com.jwebmp.plugins.fontawesome5 to com.fasterxml.jackson.databind,  com.jwebmp.core;
+	opens com.jwebmp.plugins.fontawesome5.icons to com.fasterxml.jackson.databind,  com.jwebmp.core;
 
 }
