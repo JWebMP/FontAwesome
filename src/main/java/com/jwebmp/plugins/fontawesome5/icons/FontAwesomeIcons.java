@@ -1848,6 +1848,39 @@ public enum FontAwesomeIcons
 	yen_sign,
 	yin_yang,
 
+	//5.13
+	bacteria,
+	bacterium,
+	box_tissue,
+	hand_holding_medical,
+	hand_sparkles,
+	hands_wash,
+	handshake_alt_slash,
+	handshake_slash,
+	head_side_cough,
+	head_side_cough_slash,
+	head_side_mask,
+	head_side_virus,
+	house_user,
+	laptop_house,
+	lungs_virus,
+	people_arrows,
+	plane_slash,
+	pump_medical,
+	pump_soap,
+	shield_virus,
+	sink,
+	soap,
+	stopwatch_20,
+	store_alt_slash,
+	store_slash,
+	toilet_paper_slash,
+	users_slash,
+	virus,
+	virus_slash,
+	viruses,
+
+
 
 	;
 
