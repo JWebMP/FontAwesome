@@ -18,6 +18,8 @@ package com.jwebmp.plugins.fontawesome5.icons;
 
 import com.jwebmp.plugins.fontawesome5.IFontAwesomeIcon;
 
+import static com.guicedee.guicedinjection.json.StaticStrings.CHAR_DASH;
+import static com.guicedee.guicedinjection.json.StaticStrings.CHAR_UNDERSCORE;
 import static com.jwebmp.core.utilities.StaticStrings.*;
 
 /**

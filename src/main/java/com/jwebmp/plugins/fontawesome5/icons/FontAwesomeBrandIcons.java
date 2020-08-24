@@ -2,6 +2,7 @@ package com.jwebmp.plugins.fontawesome5.icons;
 
 import com.jwebmp.plugins.fontawesome5.IFontAwesomeIcon;
 
+import static com.guicedee.guicedinjection.json.StaticStrings.*;
 import static com.jwebmp.core.utilities.StaticStrings.*;
 
 public enum FontAwesomeBrandIcons
@@ -449,7 +450,7 @@ public enum FontAwesomeBrandIcons
 	@Override
 	public String toString()
 	{
-		return "fa-" + name().replace("\\$", "")
+		return "fa-" + name().replace(STRING_DOLLAR_ESCAPED,STRING_EMPTY)
 		                     .replace(CHAR_UNDERSCORE, CHAR_DASH);
 	}
 }

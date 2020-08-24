@@ -39,6 +39,7 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
+import static com.guicedee.guicedinjection.json.StaticStrings.STRING_SPACE;
 import static com.jwebmp.core.utilities.StaticStrings.*;
 
 /**
