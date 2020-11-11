@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.jwebmp.core.htmlbuilder.javascript.JavaScriptPart;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 
 @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY,
 		getterVisibility = JsonAutoDetect.Visibility.NONE,
@@ -66,7 +66,7 @@ public class FontAwesomeConfigOptions<J extends FontAwesomeConfigOptions<J>>
 	 */
 	private String replacementClass;
 	/**
-	 * If an icon cannot be found show an animated “missing” icon in its place
+	 * If an icon cannot be found show an animated “missing? icon in its place
 	 */
 	private Boolean showMissingIcons = true;
 
@@ -298,7 +298,7 @@ public class FontAwesomeConfigOptions<J extends FontAwesomeConfigOptions<J>>
 	}
 
 	/**
-	 * If an icon cannot be found show an animated “missing” icon in its place
+	 * If an icon cannot be found show an animated “missing? icon in its place
 	 *
 	 * @return
 	 */
@@ -308,7 +308,7 @@ public class FontAwesomeConfigOptions<J extends FontAwesomeConfigOptions<J>>
 	}
 
 	/**
-	 * If an icon cannot be found show an animated “missing” icon in its place
+	 * If an icon cannot be found show an animated “missing? icon in its place
 	 *
 	 * @param showMissingIcons
 	 *
