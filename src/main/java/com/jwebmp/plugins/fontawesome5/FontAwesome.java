@@ -97,9 +97,9 @@ public class FontAwesome<J extends FontAwesome<J>>
 	 *
 	 * @return The new font awesome icon
 	 */
-	public static FontAwesome icon(IFontAwesomeIcon icon, FontAwesomeSizes size)
+	public static FontAwesome<?> icon(IFontAwesomeIcon icon, FontAwesomeSizes size)
 	{
-		return new FontAwesome().setSize(size)
+		return new FontAwesome<>().setSize(size)
 		                        .setIcon(icon)
 		                        .setStyle(FontAwesomeStyles.Solid);
 	}
@@ -175,7 +175,7 @@ public class FontAwesome<J extends FontAwesome<J>>
 		StringBuilder attributeValue = new StringBuilder(StringUtils.trimToEmpty(getAttributes().get("data-fa-transform")));
 		for (FontAwesomeTransforms transform : transforms)
 		{
-			attributeValue.append(transform + STRING_SPACE);
+			attributeValue.append(transform).append(STRING_SPACE);
 		}
 		addAttribute("data-fa-transform", attributeValue.toString());
 		return (J) this;
@@ -305,7 +305,7 @@ public class FontAwesome<J extends FontAwesome<J>>
 	 *
 	 * @return The new font awesome icon
 	 */
-	public static FontAwesome icon(IFontAwesomeIcon icon)
+	public static FontAwesome<?> icon(IFontAwesomeIcon icon)
 	{
 		return new FontAwesome<>().setIcon(icon)
 		                        .setStyle(FontAwesomeStyles.Solid);
@@ -365,7 +365,7 @@ public class FontAwesome<J extends FontAwesome<J>>
 	 *
 	 * @return
 	 */
-	public IFontAwesome asMe()
+	public IFontAwesome<?> asMe()
 	{
 		return this;
 	}
@@ -389,7 +389,7 @@ public class FontAwesome<J extends FontAwesome<J>>
 	}
 
 	@Override
-	public ComponentHierarchyBase getIconComponent()
+	public ComponentHierarchyBase<?,?,?,?,?> getIconComponent()
 	{
 		return this;
 	}

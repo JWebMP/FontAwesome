@@ -39,7 +39,7 @@ import java.util.logging.Level;
 		pluginDescription = "Font Awesome gives you scalable vector icons that can instantly be customized — size, color, drop shadow, " +
 		                    "and" +
 		                    " anything that can be done with the power of CSS. ",
-		pluginVersion = "5.0.13",
+		pluginVersion = "5.15.1",
 		pluginCategories = "fonts, icons",
 		pluginSubtitle = "In a single collection, Font Awesome is a pictographic language of web-related actions. ",
 		pluginGitUrl = "https://github.com/GedMarc/JWebMP-FontAwesome5Plugin",
@@ -48,7 +48,7 @@ import java.util.logging.Level;
 		pluginDownloadUrl = "https://sourceforge.net/projects/jwebswing/files/plugins/FontAwesomePlugin.jar/download",
 		pluginIconUrl = "bower_components/font-awesome/icon.png",
 		pluginIconImageUrl = "bower_components/font-awesome/icon.png",
-		pluginLastUpdatedDate = "2018/07/04")
+		pluginLastUpdatedDate = "2020/11/24")
 public class FontAwesome5PageConfigurator
 		implements IPageConfigurator<FontAwesome5PageConfigurator>
 {
@@ -383,36 +383,36 @@ public class FontAwesome5PageConfigurator
 
 		if (FontAwesome5PageConfigurator.includeAll)
 		{
-			page.addCssReference(new CSSReference("FontAwesome5CSSWebFontsAll", 5.013, FontAwesome5PageConfigurator.rootCssReferenceDir + "all.min.css"));
-			page.addCssReference(new CSSReference("FontAwesome5CSSWebFontsShim", 5.013, FontAwesome5PageConfigurator.rootCssReferenceDir + "v4-shims.min.css"));
+			page.addCssReference(new CSSReference("FontAwesome5CSSWebFontsAll", 5.151, FontAwesome5PageConfigurator.rootCssReferenceDir + "all.min.css"));
+			page.addCssReference(new CSSReference("FontAwesome5CSSWebFontsShim", 5.151, FontAwesome5PageConfigurator.rootCssReferenceDir + "v4-shims.min.css"));
 		}
 		else
 		{
-			page.addCssReference(new CSSReference("FontAwesome5CSSWebFontsCore", 5.013, FontAwesome5PageConfigurator.rootCssReferenceDir + "fontawesome.min.css"));
+			page.addCssReference(new CSSReference("FontAwesome5CSSWebFontsCore", 5.151, FontAwesome5PageConfigurator.rootCssReferenceDir + "fontawesome.min.css"));
 
 			if (FontAwesome5PageConfigurator.includeBrands)
 			{
-				page.addCssReference(new CSSReference("FontAwesome5CSSWebFontzBrands", 5.013, FontAwesome5PageConfigurator.rootCssReferenceDir + "brands.min.css"));
+				page.addCssReference(new CSSReference("FontAwesome5CSSWebFontzBrands", 5.151, FontAwesome5PageConfigurator.rootCssReferenceDir + "brands.min.css"));
 			}
 			if (FontAwesome5PageConfigurator.includeLight)
 			{
-				page.addCssReference(new CSSReference("FontAwesome5CSSWebFontsLight", 5.013, FontAwesome5PageConfigurator.rootCssReferenceDir + "light.min.css"));
+				page.addCssReference(new CSSReference("FontAwesome5CSSWebFontsLight", 5.151, FontAwesome5PageConfigurator.rootCssReferenceDir + "light.min.css"));
 			}
 			if (FontAwesome5PageConfigurator.includeRegular)
 			{
-				page.addCssReference(new CSSReference("FontAwesome5CSSWebFontsRegular", 5.013, FontAwesome5PageConfigurator.rootCssReferenceDir + "regular.min.css"));
+				page.addCssReference(new CSSReference("FontAwesome5CSSWebFontsRegular", 5.151, FontAwesome5PageConfigurator.rootCssReferenceDir + "regular.min.css"));
 			}
 			if (FontAwesome5PageConfigurator.includeSolid)
 			{
-				page.addCssReference(new CSSReference("FontAwesome5CSSWebFontsSolid", 5.013, FontAwesome5PageConfigurator.rootCssReferenceDir + "solid.min.css"));
+				page.addCssReference(new CSSReference("FontAwesome5CSSWebFontsSolid", 5.151, FontAwesome5PageConfigurator.rootCssReferenceDir + "solid.min.css"));
 			}
 			if (FontAwesome5PageConfigurator.includeDuotone)
 			{
-				page.addCssReference(new CSSReference("FontAwesome5CSSWebFontsDuotone", 5.013, FontAwesome5PageConfigurator.rootCssReferenceDir + "duotone.min.css"));
+				page.addCssReference(new CSSReference("FontAwesome5CSSWebFontsDuotone", 5.151, FontAwesome5PageConfigurator.rootCssReferenceDir + "duotone.min.css"));
 			}
 			if (FontAwesome5PageConfigurator.includeShim)
 			{
-				page.addCssReference(new CSSReference("FontAwesome5CSSWebFontsShim", 5.013, FontAwesome5PageConfigurator.rootCssReferenceDir + "v4-shims.min.css"));
+				page.addCssReference(new CSSReference("FontAwesome5CSSWebFontsShim", 5.151, FontAwesome5PageConfigurator.rootCssReferenceDir + "v4-shims.min.css"));
 			}
 		}
 	}
@@ -426,20 +426,20 @@ public class FontAwesome5PageConfigurator
 	{
 		if (FontAwesome5PageConfigurator.includeAll)
 		{
-			JavascriptReference coreReference = new JavascriptReference("FontAwesome5All", 5.013,
+			JavascriptReference coreReference = new JavascriptReference("FontAwesome5All", 5.151,
 			                                                            FontAwesome5PageConfigurator.rootReferenceDir + "all.min.js").setSortOrder(6)
 			                                                                                                                         .setDefer(true);
 			configureCoreReference(coreReference);
 			page.addJavaScriptReference(coreReference);
 
 			page.addJavaScriptReference(
-					new JavascriptReference("FontAwesome5ShimsJS", 5.013, FontAwesome5PageConfigurator.rootReferenceDir + "v4-shims.min.js").setSortOrder(7)
+					new JavascriptReference("FontAwesome5ShimsJS", 5.151, FontAwesome5PageConfigurator.rootReferenceDir + "v4-shims.min.js").setSortOrder(7)
 			                           );
 
 		}
 		else
 		{
-			JavascriptReference coreReference = new JavascriptReference("FontAwesome5Core", 5.013,
+			JavascriptReference coreReference = new JavascriptReference("FontAwesome5Core", 5.151,
 			                                                            FontAwesome5PageConfigurator.rootReferenceDir + "fontawesome.min.js").setSortOrder(8)
 			                                                                                                                                 .setDefer(true);
 			configureCoreReference(coreReference);
@@ -448,38 +448,38 @@ public class FontAwesome5PageConfigurator
 			if (FontAwesome5PageConfigurator.includeRegular)
 			{
 				page.addJavaScriptReference(
-						new JavascriptReference("FontAwesome5Regular", 5.013, FontAwesome5PageConfigurator.rootReferenceDir + "regular.min.js").setSortOrder(7)
+						new JavascriptReference("FontAwesome5Regular", 5.151, FontAwesome5PageConfigurator.rootReferenceDir + "regular.min.js").setSortOrder(7)
 						                                                                                                                       .setDefer(
 								                                                                                                                       true));
 			}
 			if (FontAwesome5PageConfigurator.includeSolid)
 			{
 				page.addJavaScriptReference(
-						new JavascriptReference("FontAwesome5Solid", 5.013, FontAwesome5PageConfigurator.rootReferenceDir + "solid.min.js").setSortOrder(7)
+						new JavascriptReference("FontAwesome5Solid", 5.151, FontAwesome5PageConfigurator.rootReferenceDir + "solid.min.js").setSortOrder(7)
 						                                                                                                                   .setDefer(true));
 			}
 			if (FontAwesome5PageConfigurator.includeLight)
 			{
 				page.addJavaScriptReference(
-						new JavascriptReference("FontAwesome5Light", 5.013, FontAwesome5PageConfigurator.rootReferenceDir + "light.min.js").setSortOrder(7)
+						new JavascriptReference("FontAwesome5Light", 5.151, FontAwesome5PageConfigurator.rootReferenceDir + "light.min.js").setSortOrder(7)
 						                                                                                                                   .setDefer(true));
 			}
 			if (FontAwesome5PageConfigurator.includeBrands)
 			{
 				page.addJavaScriptReference(
-						new JavascriptReference("FontAwesome5Brands", 5.013, FontAwesome5PageConfigurator.rootReferenceDir + "brands.min.js").setSortOrder(7)
+						new JavascriptReference("FontAwesome5Brands", 5.151, FontAwesome5PageConfigurator.rootReferenceDir + "brands.min.js").setSortOrder(7)
 						                                                                                                                     .setDefer(true));
 			}
 			if (FontAwesome5PageConfigurator.includeDuotone)
 			{
 				page.addJavaScriptReference(
-						new JavascriptReference("FontAwesome5DuotonesJS", 5.013, FontAwesome5PageConfigurator.rootReferenceDir + "duotone.min.js").setSortOrder(7)
+						new JavascriptReference("FontAwesome5DuotonesJS", 5.151, FontAwesome5PageConfigurator.rootReferenceDir + "duotone.min.js").setSortOrder(7)
 						                                                                                                                          .setDefer(true));
 			}
 			if (FontAwesome5PageConfigurator.includeShim)
 			{
 				page.addJavaScriptReference(
-						new JavascriptReference("FontAwesome5ShimsJS", 5.013, FontAwesome5PageConfigurator.rootReferenceDir + "v4-shims.min.js").setSortOrder(7)
+						new JavascriptReference("FontAwesome5ShimsJS", 5.151, FontAwesome5PageConfigurator.rootReferenceDir + "v4-shims.min.js").setSortOrder(7)
 						                                                                                                                        .setDefer(true));
 			}
 		}
