@@ -18,10 +18,6 @@ package com.jwebmp.plugins.fontawesome5;
 
 import com.jwebmp.core.base.ComponentHierarchyBase;
 import com.jwebmp.core.base.html.Italic;
-import com.jwebmp.core.base.html.interfaces.children.BodyChildren;
-import com.jwebmp.core.base.html.interfaces.children.ListItemChildren;
-import com.jwebmp.core.base.html.interfaces.children.PageChildren;
-import com.jwebmp.core.base.html.interfaces.children.generics.ParagraphChildren;
 import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.core.base.interfaces.IIcon;
 import com.jwebmp.core.plugins.ComponentInformation;
@@ -31,16 +27,15 @@ import com.jwebmp.plugins.fontawesome5.options.FontAwesomeDisplayOptions;
 import com.jwebmp.plugins.fontawesome5.options.FontAwesomeSizes;
 import com.jwebmp.plugins.fontawesome5.options.FontAwesomeStyles;
 import com.jwebmp.plugins.fontawesome5.options.FontAwesomeTransforms;
+import jakarta.validation.constraints.NotNull;
 import org.apache.commons.lang3.StringUtils;
 
-import jakarta.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
 import static com.guicedee.guicedinjection.json.StaticStrings.STRING_SPACE;
-import static com.jwebmp.core.utilities.StaticStrings.*;
 
 /**
  * The FontAwesome project.
@@ -56,12 +51,7 @@ import static com.jwebmp.core.utilities.StaticStrings.*;
 		url = "www.fontawesome.com")
 public class FontAwesome<J extends FontAwesome<J>>
 		extends Italic<J>
-		implements ListItemChildren<IComponentHierarchyBase, J>
-				           , ParagraphChildren<IComponentHierarchyBase, J>
-				           , BodyChildren<IComponentHierarchyBase, J>
-				           , PageChildren
-				           , IFontAwesome<J>
-	, IIcon<FontAwesome<J>>
+		implements IFontAwesome<J>,IIcon<IComponentHierarchyBase, J>
 {
 
 
