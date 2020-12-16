@@ -4,11 +4,9 @@ import com.jwebmp.plugins.fontawesome5.options.FontAwesomeDisplayOptions;
 import com.jwebmp.plugins.fontawesome5.options.FontAwesomeSizes;
 import com.jwebmp.plugins.fontawesome5.options.FontAwesomeStyles;
 import com.jwebmp.plugins.fontawesome5.options.FontAwesomeTransforms;
-
 import jakarta.validation.constraints.NotNull;
 
 import static com.guicedee.guicedinjection.json.StaticStrings.STRING_SPACE;
-import static com.jwebmp.core.utilities.StaticStrings.*;
 
 public interface IFontAwesome<J extends FontAwesome<J>>
 {
@@ -38,7 +36,7 @@ public interface IFontAwesome<J extends FontAwesome<J>>
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
 	static FontAwesome<?> createMaskIcon(
 			@NotNull IFontAwesomeIcon icon,
@@ -74,47 +72,47 @@ public interface IFontAwesome<J extends FontAwesome<J>>
 		return new FontAwesome<>(iconStyle, icon);
 	}
 
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
 	J setSize(FontAwesomeSizes size);
 
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
 	J spin();
 
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
 	J pulse();
 
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
 	J pullRight();
 
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
 	J pullLeft();
 
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
 	J border();
 
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
 	J fixedWidth();
 
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
 	J transform(FontAwesomeTransforms... transforms);
 
 	FontAwesomeStyles getStyle();
 
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
 	J setStyle(FontAwesomeStyles style);
 
 	IFontAwesomeIcon getIcon();
 
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
 	J setIcon(IFontAwesomeIcon icon);
 }

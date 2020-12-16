@@ -5,5 +5,5 @@ import com.jwebmp.core.base.interfaces.ICssClassName;
 import java.io.Serializable;
 
 public interface IFontAwesomeIcon
-		extends ICssClassName, Serializable
+		extends ICssClassName
 {}

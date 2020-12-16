@@ -20,11 +20,13 @@ import com.jwebmp.core.Page;
 import com.jwebmp.core.base.references.CSSReference;
 import com.jwebmp.core.base.references.JavascriptReference;
 import com.jwebmp.core.plugins.PluginInformation;
+import com.jwebmp.core.plugins.PluginStatus;
 import com.jwebmp.core.services.IPageConfigurator;
 import com.guicedee.logger.LogFactory;
 import com.jwebmp.plugins.fontawesome5.options.FontAwesomeConfigOptions;
 
 import jakarta.validation.constraints.NotNull;
+
 import java.util.logging.Level;
 
 /**
@@ -37,25 +39,30 @@ import java.util.logging.Level;
 @PluginInformation(pluginName = "Font Awesome 5",
 		pluginUniqueName = "font-awesome5",
 		pluginDescription = "Font Awesome gives you scalable vector icons that can instantly be customized — size, color, drop shadow, " +
-		                    "and" +
-		                    " anything that can be done with the power of CSS. ",
+				"and" +
+				" anything that can be done with the power of CSS. ",
 		pluginVersion = "5.15.1",
 		pluginCategories = "fonts, icons",
 		pluginSubtitle = "In a single collection, Font Awesome is a pictographic language of web-related actions. ",
 		pluginGitUrl = "https://github.com/GedMarc/JWebMP-FontAwesome5Plugin",
 		pluginWikiUrl = "https://github.com/GedMarc/JWebMP-FontAwesome5Plugin/wiki",
 		pluginOriginalHomepage = "http://fontawesome.io/",
-		pluginDownloadUrl = "https://sourceforge.net/projects/jwebswing/files/plugins/FontAwesomePlugin.jar/download",
-		pluginIconUrl = "bower_components/font-awesome/icon.png",
-		pluginIconImageUrl = "bower_components/font-awesome/icon.png",
-		pluginLastUpdatedDate = "2020/11/24")
+		pluginDownloadUrl = "https://mvnrepository.com/artifact/com.jwebmp.plugins.iconsets/jwebmp-font-awesome5",
+		pluginIconUrl = "",
+		pluginIconImageUrl = "",
+		pluginLastUpdatedDate = "2020/11/24",
+		pluginGroupId = "com.jwebmp.plugins.iconsets",
+		pluginArtifactId = "jwebmp-font-awesome5",
+		pluginModuleName = "com.jwebmp.plugins.fontawesome5",
+		pluginStatus = PluginStatus.Released
+)
 public class FontAwesome5PageConfigurator
 		implements IPageConfigurator<FontAwesome5PageConfigurator>
 {
 	/**
 	 * Field configOptions
 	 */
-	private static FontAwesomeConfigOptions configOptions = new FontAwesomeConfigOptions();
+	private static FontAwesomeConfigOptions<?> configOptions = new FontAwesomeConfigOptions<>();
 	/**
 	 * If this configurator is enabled
 	 */
@@ -100,7 +107,7 @@ public class FontAwesome5PageConfigurator
 	 * Field includeShim
 	 */
 	private static boolean includeShim;
-
+	
 	/**
 	 * Constructor FontAwesome5PageConfigurator creates a new FontAwesome5PageConfigurator instance.
 	 */
@@ -108,7 +115,7 @@ public class FontAwesome5PageConfigurator
 	{
 		//Nothing Needed
 	}
-
+	
 	/**
 	 * Method isEnabled returns the enabled of this AngularAnimatedChangePageConfigurator object.
 	 * <p>
@@ -120,20 +127,19 @@ public class FontAwesome5PageConfigurator
 	{
 		return FontAwesome5PageConfigurator.enabled;
 	}
-
+	
 	/**
 	 * Method setEnabled sets the enabled of this AngularAnimatedChangePageConfigurator object.
 	 * <p>
 	 * If this configurator is enabled
 	 *
-	 * @param mustEnable
-	 * 		the enabled of this AngularAnimatedChangePageConfigurator object.
+	 * @param mustEnable the enabled of this AngularAnimatedChangePageConfigurator object.
 	 */
 	public static void setEnabled(boolean mustEnable)
 	{
 		FontAwesome5PageConfigurator.enabled = mustEnable;
 	}
-
+	
 	/**
 	 * Updates the referenced root (from bower_components/fontawesome5) to a reference in resources/META-INF/resources
 	 *
@@ -143,18 +149,17 @@ public class FontAwesome5PageConfigurator
 	{
 		return FontAwesome5PageConfigurator.rootReferenceDir;
 	}
-
+	
 	/**
 	 * Updates the referenced root (from bower_components/fontawesome5) to a reference in resources/META-INF/resources
 	 *
-	 * @param rootReferenceDir
-	 * 		The reference path to the library. files are reference as fa-regular etc
+	 * @param rootReferenceDir The reference path to the library. files are reference as fa-regular etc
 	 */
 	public static void setRootReferenceDir(String rootReferenceDir)
 	{
 		FontAwesome5PageConfigurator.rootReferenceDir = rootReferenceDir;
 	}
-
+	
 	/**
 	 * Which rendering engine should it use
 	 *
@@ -164,18 +169,17 @@ public class FontAwesome5PageConfigurator
 	{
 		return FontAwesome5PageConfigurator.fontAwesomeReferenceType;
 	}
-
+	
 	/**
 	 * Which rendering engine to use
 	 *
-	 * @param fontAwesomeReferenceType
-	 * 		The reference type to use
+	 * @param fontAwesomeReferenceType The reference type to use
 	 */
 	public static void setFontAwesomeReferenceType(FontAwesomeReferenceType fontAwesomeReferenceType)
 	{
 		FontAwesome5PageConfigurator.fontAwesomeReferenceType = fontAwesomeReferenceType;
 	}
-
+	
 	/**
 	 * Is regular should be included
 	 *
@@ -185,18 +189,17 @@ public class FontAwesome5PageConfigurator
 	{
 		return FontAwesome5PageConfigurator.includeRegular;
 	}
-
+	
 	/**
 	 * If the regular library should be included
 	 *
-	 * @param includeRegular
-	 * 		if regular must be included
+	 * @param includeRegular if regular must be included
 	 */
 	public static void setIncludeRegular(boolean includeRegular)
 	{
 		FontAwesome5PageConfigurator.includeRegular = includeRegular;
 	}
-
+	
 	/**
 	 * If the solid library should be included
 	 *
@@ -206,18 +209,17 @@ public class FontAwesome5PageConfigurator
 	{
 		return FontAwesome5PageConfigurator.includeSolid;
 	}
-
+	
 	/**
 	 * If the solid library should be included
 	 *
-	 * @param includeSolid
-	 * 		if solid must be included
+	 * @param includeSolid if solid must be included
 	 */
 	public static void setIncludeSolid(boolean includeSolid)
 	{
 		FontAwesome5PageConfigurator.includeSolid = includeSolid;
 	}
-
+	
 	/**
 	 * If the light library should be included
 	 *
@@ -227,18 +229,17 @@ public class FontAwesome5PageConfigurator
 	{
 		return FontAwesome5PageConfigurator.includeLight;
 	}
-
+	
 	/**
 	 * If the light library should be used
 	 *
-	 * @param includeLight
-	 * 		if light must be included
+	 * @param includeLight if light must be included
 	 */
 	public static void setIncludeLight(boolean includeLight)
 	{
 		FontAwesome5PageConfigurator.includeLight = includeLight;
 	}
-
+	
 	/**
 	 * If the brands library should be used
 	 *
@@ -248,18 +249,17 @@ public class FontAwesome5PageConfigurator
 	{
 		return FontAwesome5PageConfigurator.includeBrands;
 	}
-
+	
 	/**
 	 * If the brands library should be used
 	 *
-	 * @param includeBrands
-	 * 		if brands must be inlcuded
+	 * @param includeBrands if brands must be inlcuded
 	 */
 	public static void setIncludeBrands(boolean includeBrands)
 	{
 		FontAwesome5PageConfigurator.includeBrands = includeBrands;
 	}
-
+	
 	/**
 	 * If all libraries should be included
 	 *
@@ -269,18 +269,17 @@ public class FontAwesome5PageConfigurator
 	{
 		return FontAwesome5PageConfigurator.includeAll;
 	}
-
+	
 	/**
 	 * If all libraries should be included
 	 *
-	 * @param includeAll
-	 * 		if all must be included
+	 * @param includeAll if all must be included
 	 */
 	public static void setIncludeAll(boolean includeAll)
 	{
 		FontAwesome5PageConfigurator.includeAll = includeAll;
 	}
-
+	
 	/**
 	 * If the shim library should be included (Defaults to solid)
 	 *
@@ -290,18 +289,17 @@ public class FontAwesome5PageConfigurator
 	{
 		return FontAwesome5PageConfigurator.includeShim;
 	}
-
+	
 	/**
 	 * If the shim library should be included (Defaults to solid)
 	 *
-	 * @param includeShim
-	 * 		If the v4 shim library must be included
+	 * @param includeShim If the v4 shim library must be included
 	 */
 	public static void setIncludeShim(boolean includeShim)
 	{
 		FontAwesome5PageConfigurator.includeShim = includeShim;
 	}
-
+	
 	/**
 	 * Returns the root reference for the css files if in css mode
 	 *
@@ -311,18 +309,17 @@ public class FontAwesome5PageConfigurator
 	{
 		return FontAwesome5PageConfigurator.rootCssReferenceDir;
 	}
-
+	
 	/**
 	 * Sets the css root reference dir for when in css mode
 	 *
-	 * @param rootCssReferenceDir
-	 * 		The root directory for the css references
+	 * @param rootCssReferenceDir The root directory for the css references
 	 */
 	public static void setRootCssReferenceDir(String rootCssReferenceDir)
 	{
 		FontAwesome5PageConfigurator.rootCssReferenceDir = rootCssReferenceDir;
 	}
-
+	
 	/**
 	 * Whether or not to include the duotone font awesome set
 	 *
@@ -332,24 +329,21 @@ public class FontAwesome5PageConfigurator
 	{
 		return includeDuotone;
 	}
-
+	
 	/**
 	 * Whether or not to include the duotone set
 	 *
-	 * @param includeDuotone
-	 * 		Sets if duotone should be included
+	 * @param includeDuotone Sets if duotone should be included
 	 */
 	public static void setIncludeDuotone(boolean includeDuotone)
 	{
 		FontAwesome5PageConfigurator.includeDuotone = includeDuotone;
 	}
-
+	
 	/**
 	 * Method configure ...
 	 *
-	 * @param page
-	 * 		of type Page
-	 *
+	 * @param page of type Page
 	 * @return Page
 	 */
 	@NotNull
@@ -371,16 +365,16 @@ public class FontAwesome5PageConfigurator
 		}
 		return page;
 	}
-
+	
 	@Override
 	public boolean enabled()
 	{
 		return FontAwesome5PageConfigurator.enabled;
 	}
-
+	
 	private void configureWebCSS(Page<?> page)
 	{
-
+		
 		if (FontAwesome5PageConfigurator.includeAll)
 		{
 			page.addCssReference(new CSSReference("FontAwesome5CSSWebFontsAll", 5.151, FontAwesome5PageConfigurator.rootCssReferenceDir + "all.min.css"));
@@ -389,7 +383,7 @@ public class FontAwesome5PageConfigurator
 		else
 		{
 			page.addCssReference(new CSSReference("FontAwesome5CSSWebFontsCore", 5.151, FontAwesome5PageConfigurator.rootCssReferenceDir + "fontawesome.min.css"));
-
+			
 			if (FontAwesome5PageConfigurator.includeBrands)
 			{
 				page.addCssReference(new CSSReference("FontAwesome5CSSWebFontzBrands", 5.151, FontAwesome5PageConfigurator.rootCssReferenceDir + "brands.min.css"));
@@ -416,7 +410,7 @@ public class FontAwesome5PageConfigurator
 			}
 		}
 	}
-
+	
 	/**
 	 * Copy the fontawesome.js loader and whatever icon styles’ .js files you’d like to use into your project’s static assets directory (or where ever you prefer to keep front end
 	 * assets or vendor stuff). We recommend referencing the fontawesome.js loader last.
@@ -431,11 +425,11 @@ public class FontAwesome5PageConfigurator
 			                                                                                                                         .setDefer(true);
 			configureCoreReference(coreReference);
 			page.addJavaScriptReference(coreReference);
-
+			
 			page.addJavaScriptReference(
 					new JavascriptReference("FontAwesome5ShimsJS", 5.151, FontAwesome5PageConfigurator.rootReferenceDir + "v4-shims.min.js").setSortOrder(7)
-			                           );
-
+			);
+			
 		}
 		else
 		{
@@ -443,7 +437,7 @@ public class FontAwesome5PageConfigurator
 			                                                            FontAwesome5PageConfigurator.rootReferenceDir + "fontawesome.min.js").setSortOrder(8)
 			                                                                                                                                 .setDefer(true);
 			configureCoreReference(coreReference);
-
+			
 			page.addJavaScriptReference(coreReference);
 			if (FontAwesome5PageConfigurator.includeRegular)
 			{
@@ -484,12 +478,11 @@ public class FontAwesome5PageConfigurator
 			}
 		}
 	}
-
+	
 	/**
 	 * Method configureCoreReference ...
 	 *
-	 * @param ref
-	 * 		of type JavascriptReference
+	 * @param ref of type JavascriptReference
 	 */
 	private void configureCoreReference(JavascriptReference ref)
 	{
@@ -501,23 +494,23 @@ public class FontAwesome5PageConfigurator
 		}
 		if (FontAwesome5PageConfigurator.getConfigOptions()
 		                                .getAutoReplaceSvg() != null &&
-		    FontAwesome5PageConfigurator.getConfigOptions()
-		                                .getAutoReplaceSvg()
-		                                .isEmpty())
+				FontAwesome5PageConfigurator.getConfigOptions()
+				                            .getAutoReplaceSvg()
+				                            .isEmpty())
 		{
 			ref.getAdditionalOptions()
 			   .add("data-auto-replace-svg");
 		}
 		else if (FontAwesome5PageConfigurator.getConfigOptions()
 		                                     .getAutoReplaceSvg() != null &&
-		         FontAwesome5PageConfigurator.getConfigOptions()
-		                                     .getAutoReplaceSvg()
-		                                     .equals("nest"))
+				FontAwesome5PageConfigurator.getConfigOptions()
+				                            .getAutoReplaceSvg()
+				                            .equals("nest"))
 		{
 			ref.getAdditionalOptions()
 			   .add("data-auto-replace-svg=\"nest\"");
 		}
-
+		
 		if (!FontAwesome5PageConfigurator.getConfigOptions()
 		                                 .getAutoAddCss())
 		{
@@ -525,17 +518,17 @@ public class FontAwesome5PageConfigurator
 			   .add("autoAddCss=\"false\"");
 		}
 	}
-
+	
 	/**
 	 * Returns the configuration options for font awesome at a javascript level
 	 *
 	 * @return The config options currently set (only search pseudo currently enabled)
 	 */
-	public static FontAwesomeConfigOptions getConfigOptions()
+	public static FontAwesomeConfigOptions<?> getConfigOptions()
 	{
 		if (FontAwesome5PageConfigurator.configOptions == null)
 		{
-			FontAwesome5PageConfigurator.configOptions = new FontAwesomeConfigOptions();
+			FontAwesome5PageConfigurator.configOptions = new FontAwesomeConfigOptions<>();
 		}
 		return FontAwesome5PageConfigurator.configOptions;
 	}

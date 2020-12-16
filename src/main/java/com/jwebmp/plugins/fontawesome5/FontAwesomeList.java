@@ -12,7 +12,7 @@ import com.jwebmp.plugins.fontawesome5.options.FontAwesomeDisplayOptions;
 /**
  * A List styled with Font Awesome Icons
  */
-public class FontAwesomeList<J extends FontAwesomeList<J, A, E>, A extends Enum & AttributeDefinitions, E extends GlobalEvents>
+public class FontAwesomeList<J extends FontAwesomeList<J, A, E>, A extends Enum<?> & AttributeDefinitions, E extends GlobalEvents>
 		extends List<ListChildren, A, E, J>
 {
 
@@ -31,7 +31,7 @@ public class FontAwesomeList<J extends FontAwesomeList<J, A, E>, A extends Enum 
 	public ListItem<?> addItem(String textToAdd, FontAwesome<?> icon)
 	{
 		ListItem<?> li = new ListItem<>();
-		Span<IComponentHierarchyBase, ?, ?> span = new Span<>();
+		Span<IComponentHierarchyBase<?,?>, ?, ?> span = new Span<>();
 		span.addClass(FontAwesomeDisplayOptions.ListItem);
 		span.add(icon);
 		li.add(span);

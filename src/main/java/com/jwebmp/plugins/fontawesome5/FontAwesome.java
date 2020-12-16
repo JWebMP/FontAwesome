@@ -51,7 +51,7 @@ import static com.guicedee.guicedinjection.json.StaticStrings.STRING_SPACE;
 		url = "www.fontawesome.com")
 public class FontAwesome<J extends FontAwesome<J>>
 		extends Italic<J>
-		implements IFontAwesome<J>,IIcon<IComponentHierarchyBase, J>
+		implements IFontAwesome<J>,IIcon<IComponentHierarchyBase<?,?>, J>
 {
 
 
