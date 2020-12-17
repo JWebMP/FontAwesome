@@ -75,7 +75,7 @@ public class FontAwesomeTest
 		System.out.println(faLight.toString(true));
 		System.out.println(faMask.toString(true));
 
-		Page p = new Page();
+		Page<?> p = new Page();
 		p.getBody()
 		 .add(fa);
 		System.out.println(p.toString(true));

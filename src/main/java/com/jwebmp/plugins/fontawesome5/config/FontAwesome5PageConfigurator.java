@@ -36,8 +36,8 @@ import java.util.logging.Level;
  * @since 15 Feb 2017
  */
 @SuppressWarnings("unused")
-@PluginInformation(pluginName = "Font Awesome 5",
-		pluginUniqueName = "font-awesome5",
+@PluginInformation(pluginName = "Font Awesome",
+		pluginUniqueName = "font-awesome",
 		pluginDescription = "Font Awesome gives you scalable vector icons that can instantly be customized — size, color, drop shadow, " +
 				"and" +
 				" anything that can be done with the power of CSS. ",
@@ -348,7 +348,7 @@ public class FontAwesome5PageConfigurator
 	 */
 	@NotNull
 	@Override
-	public Page configure(Page<?> page)
+	 public Page<?> configure(Page<?> page)
 	{
 		switch (FontAwesome5PageConfigurator.fontAwesomeReferenceType)
 		{

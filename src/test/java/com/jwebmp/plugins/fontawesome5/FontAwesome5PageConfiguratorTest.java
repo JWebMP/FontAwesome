@@ -36,7 +36,7 @@ public class FontAwesome5PageConfiguratorTest
 	@Test
 	public void testSomeMethod()
 	{
-		Page p = new Page();
+		Page<?> p = new Page();
 		FontAwesome5PageConfigurator.getConfigOptions()
 		                            .setNestSVG();
 		FontAwesome5PageConfigurator.setIncludeAll(true);
@@ -49,7 +49,7 @@ public class FontAwesome5PageConfiguratorTest
 	@Test
 	public void testSomeMethod2()
 	{
-		Page p = new Page();
+		Page<?> p = new Page();
 		FontAwesome5PageConfigurator.getConfigOptions()
 		                            .setNestSVG();
 		FontAwesome5PageConfigurator.setIncludeDuotone(true);
@@ -61,7 +61,7 @@ public class FontAwesome5PageConfiguratorTest
 	@Test
 	public void testSomeMethod3()
 	{
-		Page p = new Page();
+		Page<?> p = new Page();
 		FontAwesome5PageConfigurator.getConfigOptions()
 		                            .setAutoAddCss(false);
 		FontAwesome5PageConfigurator.setIncludeDuotone(true);
@@ -74,7 +74,7 @@ public class FontAwesome5PageConfiguratorTest
 	@Test
 	public void testSomeMethod4()
 	{
-		Page p = new Page();
+		Page<?> p = new Page();
 		FontAwesome5PageConfigurator.getConfigOptions()
 		                            .setAutoAddCss(false);
 		FontAwesome5PageConfigurator.setIncludeDuotone(true);
