@@ -28,12 +28,25 @@ public class FontAwesomeList<J extends FontAwesomeList<J, A, E>, A extends Enum<
 		addStyle("margin-bottom:0px;");
 	}
 
-	public ListItem<?> addItem(String textToAdd, FontAwesome<?> icon)
+	public J addItem(String textToAdd, FontAwesome<?> icon)
 	{
 		ListItem<?> li = new ListItem<>();
 		Span<IComponentHierarchyBase<?,?>, ?, ?> span = new Span<>();
 		span.addClass(FontAwesomeDisplayOptions.ListItem);
 		span.add(icon);
+		li.add(span);
+		li.setRenderTextBeforeChildren(false);
+		li.setText(textToAdd);
+		add(li);
+		//noinspection unchecked
+		return (J)this;
+	}
+	
+	public ListItem<?> addItem(String textToAdd)
+	{
+		ListItem<?> li = new ListItem<>();
+		Span<IComponentHierarchyBase<?,?>, ?, ?> span = new Span<>();
+		span.addClass(FontAwesomeDisplayOptions.ListItem);
 		li.add(span);
 		li.setRenderTextBeforeChildren(false);
 		li.setText(textToAdd);
