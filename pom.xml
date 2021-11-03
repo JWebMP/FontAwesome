@@ -10,7 +10,7 @@
     <groupId>com.jwebmp.plugins.iconsets</groupId>
     <artifactId>jwebmp-font-awesome5</artifactId>
     <packaging>jar</packaging>
-
+    <version>0.0.0_0-SNAPSHOT</version>
     <name>Font Awesome 5</name>
     <description>The JWebSwing implementation for the Font Awesome 5 Icon Set</description>
     <url>https://github.com/GedMarc/JWebMP-FontAwesome5Plugin</url>
