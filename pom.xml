@@ -7,6 +7,7 @@
         <version>0.0.0_0-SNAPSHOT</version>
         <relativePath>../../../../../../</relativePath>
     </parent>
+
     <groupId>com.jwebmp.plugins.iconsets</groupId>
     <artifactId>jwebmp-font-awesome5</artifactId>
     <packaging>jar</packaging>
@@ -21,11 +22,13 @@
     </issueManagement>
 
     <dependencies>
+
         <dependency>
-            <groupId>com.jwebmp.core</groupId>
-            <artifactId>jwebmp-core</artifactId>
-            <type>jar</type>
+            <groupId>com.jwebmp.plugins.angular</groupId>
+            <artifactId>angularts</artifactId>
         </dependency>
+
+
     </dependencies>
     <scm>
         <url>https://github.com/GedMarc?tab=repositories</url>

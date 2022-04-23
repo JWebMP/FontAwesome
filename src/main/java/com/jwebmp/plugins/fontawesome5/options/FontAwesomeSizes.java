@@ -1,11 +1,8 @@
 package com.jwebmp.plugins.fontawesome5.options;
 
-import com.guicedee.guicedinjection.json.StaticStrings;
-import com.jwebmp.core.base.interfaces.ICssClassName;
+import com.jwebmp.core.base.interfaces.*;
 
-import static com.guicedee.guicedinjection.json.StaticStrings.STRING_DOLLAR_ESCAPED;
-import static com.guicedee.guicedinjection.json.StaticStrings.STRING_EMPTY;
-import static com.jwebmp.core.utilities.StaticStrings.*;
+import static com.guicedee.guicedinjection.json.StaticStrings.*;
 
 public enum FontAwesomeSizes
 		implements ICssClassName
@@ -22,11 +19,11 @@ public enum FontAwesomeSizes
 	$8x,
 	$9x,
 	$10x;
-
+	
 	@Override
 	public String toString()
 	{
-		return "fa-" + name().replaceAll(STRING_DOLLAR_ESCAPED, STRING_EMPTY)
-		                     .toLowerCase();
+		return name().replaceAll(STRING_DOLLAR_ESCAPED, STRING_EMPTY)
+		             .toLowerCase();
 	}
 }

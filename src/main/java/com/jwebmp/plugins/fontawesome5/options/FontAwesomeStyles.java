@@ -13,7 +13,8 @@ public enum FontAwesomeStyles
 	 */
 	Duotone("fad"),
 	Regular("far"),
-	Light("fal");
+	Light("fal"),
+	Thin("fat");
 
 	private String text;
 
@@ -21,7 +22,12 @@ public enum FontAwesomeStyles
 	{
 		this.text = text;
 	}
-
+	
+	public String getText()
+	{
+		return text;
+	}
+	
 	@Override
 	public String toString()
 	{

@@ -16,26 +16,23 @@
  */
 package com.jwebmp.plugins.fontawesome5;
 
-import com.jwebmp.core.base.ComponentHierarchyBase;
-import com.jwebmp.core.base.html.Italic;
-import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
-import com.jwebmp.core.base.interfaces.IIcon;
-import com.jwebmp.core.plugins.ComponentInformation;
-import com.jwebmp.plugins.fontawesome5.config.FontAwesome5PageConfigurator;
-import com.jwebmp.plugins.fontawesome5.icons.FontAwesomeBrandIcons;
-import com.jwebmp.plugins.fontawesome5.options.FontAwesomeDisplayOptions;
-import com.jwebmp.plugins.fontawesome5.options.FontAwesomeSizes;
-import com.jwebmp.plugins.fontawesome5.options.FontAwesomeStyles;
-import com.jwebmp.plugins.fontawesome5.options.FontAwesomeTransforms;
-import jakarta.validation.constraints.NotNull;
-import org.apache.commons.lang3.StringUtils;
+import com.jwebmp.core.base.*;
+import com.jwebmp.core.base.angular.services.interfaces.*;
+import com.jwebmp.core.base.html.*;
+import com.jwebmp.core.base.interfaces.*;
+import com.jwebmp.core.htmlbuilder.css.*;
+import com.jwebmp.core.plugins.*;
+import com.jwebmp.plugins.fontawesome5.icons.*;
+import com.jwebmp.plugins.fontawesome5.options.*;
+import jakarta.validation.constraints.*;
+import org.apache.commons.lang3.*;
 
-import java.util.ArrayList;
-import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.Set;
+import java.util.Map;
+import java.util.*;
 
-import static com.guicedee.guicedinjection.json.StaticStrings.STRING_SPACE;
+import static com.guicedee.guicedinjection.json.StaticStrings.*;
+import static com.jwebmp.plugins.fontawesome5.config.FontAwesome5PageConfigurator.*;
 
 /**
  * The FontAwesome project.
@@ -47,17 +44,15 @@ import static com.guicedee.guicedinjection.json.StaticStrings.STRING_SPACE;
  */
 @SuppressWarnings("unused")
 @ComponentInformation(name = "Font Awesome 5",
-		description = "The font awesome tag",
-		url = "www.fontawesome.com")
+                      description = "The font awesome tag",
+                      url = "www.fontawesome.com")
 public class FontAwesome<J extends FontAwesome<J>>
 		extends Italic<J>
-		implements IFontAwesome<J>,IIcon<IComponentHierarchyBase<?,?>, J>
+		implements IFontAwesome<J>, IIcon<IComponentHierarchyBase<?, ?>, J>, INgComponent<J>
 {
-
-
 	private FontAwesomeStyles style;
 	private IFontAwesomeIcon icon;
-
+	
 	/**
 	 * Construct a new instant of a font awesome icon
 	 *
@@ -65,242 +60,52 @@ public class FontAwesome<J extends FontAwesome<J>>
 	 */
 	public FontAwesome(FontAwesomeStyles style, IFontAwesomeIcon icon)
 	{
+		this();
 		this.style = style;
 		this.icon = icon;
 	}
-
+	
 	/**
 	 * A blank no icon italic tag
 	 */
 	public FontAwesome()
 	{
-		//No config required
+		setTag("fa-icon");
 	}
-
-	/**
-	 * Creates a new icon with the given icon and size in the solid format
-	 *
-	 * @param icon
-	 * 		The icon to apply
-	 * @param size
-	 * 		The size to use
-	 *
-	 * @return The new font awesome icon
-	 */
-	public static FontAwesome<?> icon(IFontAwesomeIcon icon, FontAwesomeSizes size)
-	{
-		return new FontAwesome<>().setSize(size)
-		                        .setIcon(icon)
-		                        .setStyle(FontAwesomeStyles.Solid);
-	}
-
+	
 	@Override
-	@SuppressWarnings("unchecked")
-	@NotNull
-	public J setSize(FontAwesomeSizes size)
+	public Map<String, String> imports()
 	{
-		addClass(size);
-		return (J) this;
+		Map<String, String> sr = new HashMap<>();
+		sr.put("FaIconLibrary", "@fortawesome/angular-fontawesome");
+		sr.put(icon.toAngularIcon() + " as " + getFieldIdentifier(), tsDependencies.get(style));
+		return sr;
 	}
-
+	
+	public String getFieldIdentifier()
+	{
+		return style.getText() + icon.toAngularIcon();
+	}
+	
 	@Override
-	@SuppressWarnings("unchecked")
-	@NotNull
-	public J spin()
+	public List<String> fields()
 	{
-		addClass(FontAwesomeDisplayOptions.Spin);
-		return (J) this;
+		return List.of();
+		//return List.of(style.getText() + icon.toAngularIcon() + " = " + icon.toAngularIcon() + ";");
 	}
-
+	
 	@Override
-	@SuppressWarnings("unchecked")
-	@NotNull
-	public J pulse()
+	public List<String> constructorParameters()
 	{
-		addClass(FontAwesomeDisplayOptions.Pulse);
-		return (J) this;
+		return List.of("library: FaIconLibrary");
 	}
-
+	
 	@Override
-	@SuppressWarnings("unchecked")
-	@NotNull
-	public J pullRight()
+	public List<String> constructorBody()
 	{
-		addClass(FontAwesomeDisplayOptions.PullRight);
-		return (J) this;
+		return List.of(" library.addIcons(" + getFieldIdentifier() + ");");
 	}
-
-	@Override
-	@SuppressWarnings("unchecked")
-	@NotNull
-	public J pullLeft()
-	{
-		addClass(FontAwesomeDisplayOptions.PullLeft);
-		return (J) this;
-	}
-
-	@Override
-	@SuppressWarnings("unchecked")
-	@NotNull
-	public J border()
-	{
-		addClass(FontAwesomeDisplayOptions.Border);
-		return (J) this;
-	}
-
-	@Override
-	@SuppressWarnings("unchecked")
-	@NotNull
-	public J fixedWidth()
-	{
-		addClass(FontAwesomeDisplayOptions.FixedWidth);
-		return (J) this;
-	}
-
-	@Override
-	@SuppressWarnings("unchecked")
-	@NotNull
-	public J transform(FontAwesomeTransforms... transforms)
-	{
-		StringBuilder attributeValue = new StringBuilder(StringUtils.trimToEmpty(getAttributes().get("data-fa-transform")));
-		for (FontAwesomeTransforms transform : transforms)
-		{
-			attributeValue.append(transform).append(STRING_SPACE);
-		}
-		addAttribute("data-fa-transform", attributeValue.toString());
-		return (J) this;
-	}
-
-	@Override
-	public FontAwesomeStyles getStyle()
-	{
-		return style;
-	}
-
-	@Override
-	@SuppressWarnings("unchecked")
-	@NotNull
-	public J setStyle(FontAwesomeStyles style)
-	{
-		this.style = style;
-		return (J) this;
-	}
-
-	@Override
-	public IFontAwesomeIcon getIcon()
-	{
-		return icon;
-	}
-
-	@Override
-	@SuppressWarnings("unchecked")
-	@NotNull
-	public J setIcon(IFontAwesomeIcon icon)
-	{
-		this.icon = icon;
-		return (J) this;
-	}
-
-	/**
-	 * Creates a new icon with the given icon and size in the solid format
-	 *
-	 * @param icon
-	 * 		The icon to apply
-	 * @param styles
-	 * 		The size to use
-	 *
-	 * @return The new font awesome icon
-	 */
-	public static FontAwesome<?> icon(IFontAwesomeIcon icon, FontAwesomeStyles styles)
-	{
-		return new FontAwesome<>().setIcon(icon)
-		                        .setStyle(styles);
-	}
-
-	/**
-	 * Creates a new icon with the given icon and size in the solid format
-	 *
-	 * @param icon
-	 * 		The icon to apply
-	 * @param size
-	 * 		The size to use
-	 *
-	 * @return The new font awesome icon
-	 */
-	public static FontAwesome<?> icon(IFontAwesomeIcon icon, FontAwesomeSizes size, FontAwesomeStyles styles)
-	{
-		return new FontAwesome<>().setSize(size)
-		                        .setIcon(icon)
-		                        .setStyle(styles);
-	}
-
-	/**
-	 * Creates a new icon with the given icon and size in the solid format
-	 *
-	 * @param icon
-	 * 		The icon to apply
-	 *
-	 * @return The new font awesome icon
-	 */
-	public static String iconString(IFontAwesomeIcon icon)
-	{
-		return new FontAwesome<>().setIcon(icon)
-		                        .setStyle(FontAwesomeStyles.Solid)
-		                        .setTiny(true)
-		                        .toString(0);
-	}
-
-	/**
-	 * Creates a new icon with the given icon and size in the solid format
-	 *
-	 * @param icon
-	 * 		The icon to apply
-	 * @param styles
-	 * 		The size to use
-	 *
-	 * @return The new font awesome icon
-	 */
-	public static String iconString(IFontAwesomeIcon icon, FontAwesomeStyles styles)
-	{
-		return new FontAwesome<>().setIcon(icon)
-		                        .setStyle(styles)
-		                        .setTiny(true)
-		                        .toString(0);
-	}
-
-	/**
-	 * Creates a new icon with the given icon and size in the solid format
-	 *
-	 * @param icon
-	 * 		The icon to apply
-	 * @param size
-	 * 		The size to use
-	 *
-	 * @return The new font awesome icon
-	 */
-	public static String iconString(IFontAwesomeIcon icon, FontAwesomeSizes size, FontAwesomeStyles styles)
-	{
-		return new FontAwesome<>().setSize(size)
-		                        .setIcon(icon)
-		                        .setStyle(styles)
-		                        .setTiny(true)
-		                        .toString(0);
-	}
-
-	/**
-	 * Creates a new icon with the given icon and size in the solid format
-	 *
-	 * @param icon
-	 * 		The icon to apply
-	 *
-	 * @return The new font awesome icon
-	 */
-	public static FontAwesome<?> icon(IFontAwesomeIcon icon)
-	{
-		return new FontAwesome<>().setIcon(icon)
-		                        .setStyle(FontAwesomeStyles.Solid);
-	}
-
+	
 	/**
 	 * Inserts the icon and style classes
 	 */
@@ -309,7 +114,7 @@ public class FontAwesome<J extends FontAwesome<J>>
 	{
 		if (!isConfigured())
 		{
-			if (icon != null && FontAwesomeBrandIcons.class.isAssignableFrom(icon.getClass()))
+			if (icon != null && FontAwesomeBrandIcons.class.isAssignableFrom(icon.getClass()) && style == null)
 			{
 				style = FontAwesomeStyles.Brand;
 			}
@@ -317,39 +122,246 @@ public class FontAwesome<J extends FontAwesome<J>>
 			{
 				style = FontAwesomeStyles.Solid;
 			}
-			Set<String> clazzes = getClasses();
-			List<String> ordered = new ArrayList<>(clazzes);
 			if (icon != null)
 			{
-				ordered.add(0, getIcon().toString());
-			}
-			ordered.add(0, getStyle().toString());
-			setClasses(new LinkedHashSet<>(ordered));
-
-			switch (style)
-			{
-				case Light:
-					FontAwesome5PageConfigurator.setIncludeLight(true);
-					break;
-				case Regular:
-					FontAwesome5PageConfigurator.setIncludeRegular(true);
-					break;
-				case Solid:
-					FontAwesome5PageConfigurator.setIncludeSolid(true);
-					break;
-				case Brand:
-					FontAwesome5PageConfigurator.setIncludeBrands(true);
-			}
-
-			if (icon.getClass()
-			        .isAssignableFrom(FontAwesomeBrandIcons.class))
-			{
-				FontAwesome5PageConfigurator.setIncludeBrands(true);
+				addAttribute("[icon]", "['" + style.getText() + "','" + icon.toAngularIconAttributeName() + "']");
+				//addAttribute("[icon]", icon.toAngularIcon());
 			}
 		}
 		super.preConfigure();
 	}
-
+	
+	/**
+	 * Creates a new icon with the given icon and size in the solid format
+	 *
+	 * @param icon The icon to apply
+	 * @param size The size to use
+	 * @return The new font awesome icon
+	 */
+	public static FontAwesome<?> icon(IFontAwesomeIcon icon, FontAwesomeSizes size)
+	{
+		return new FontAwesome<>().setSize(size)
+		                          .setIcon(icon)
+		                          .setStyle(FontAwesomeStyles.Solid);
+	}
+	
+	@Override
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setSize(FontAwesomeSizes size)
+	{
+		addAttribute("size", size.toString());
+		return (J) this;
+	}
+	
+	@Override
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J spin()
+	{
+		addAttribute("[spin]", "true");
+		return (J) this;
+	}
+	
+	@Override
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J pulse()
+	{
+		addAttribute("[pulse]", "true");
+		return (J) this;
+	}
+	
+	@Override
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J pullRight()
+	{
+		addAttribute("pull", "right");
+		return (J) this;
+	}
+	
+	@Override
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J pullLeft()
+	{
+		addAttribute("pull", "left");
+		return (J) this;
+	}
+	
+	@Override
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J border()
+	{
+		addAttribute("[border]", "true");
+		return (J) this;
+	}
+	
+	public J inverse()
+	{
+		addAttribute("[inverse]", "true");
+		return (J) this;
+	}
+	
+	public J style(CSSImpl css)
+	{
+		addAttribute("[styles]", "{" + css.toString() + "}");
+		return (J) this;
+	}
+	
+	public J primaryColour(String primary)
+	{
+		addAttribute("primaryColor", primary);
+		return (J) this;
+	}
+	
+	public J secondaryColour(String secondary)
+	{
+		addAttribute("secondaryColor", secondary);
+		return (J) this;
+	}
+	
+	@Override
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J fixedWidth()
+	{
+		addAttribute("[fixedWidth]", "true");
+		return (J) this;
+	}
+	
+	@Override
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J transform(FontAwesomeTransforms... transforms)
+	{
+		StringBuilder attributeValue = new StringBuilder(StringUtils.trimToEmpty(getAttributes().get("data-fa-transform")));
+		for (FontAwesomeTransforms transform : transforms)
+		{
+			attributeValue.append(transform)
+			              .append(STRING_SPACE);
+		}
+		addAttribute("transform", attributeValue.toString());
+		return (J) this;
+	}
+	
+	@Override
+	public FontAwesomeStyles getStyle()
+	{
+		return style;
+	}
+	
+	@Override
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setStyle(FontAwesomeStyles style)
+	{
+		this.style = style;
+		return (J) this;
+	}
+	
+	@Override
+	public IFontAwesomeIcon getIcon()
+	{
+		return icon;
+	}
+	
+	@Override
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setIcon(IFontAwesomeIcon icon)
+	{
+		this.icon = icon;
+		return (J) this;
+	}
+	
+	/**
+	 * Creates a new icon with the given icon and size in the solid format
+	 *
+	 * @param icon   The icon to apply
+	 * @param styles The size to use
+	 * @return The new font awesome icon
+	 */
+	public static FontAwesome<?> icon(IFontAwesomeIcon icon, FontAwesomeStyles styles)
+	{
+		return new FontAwesome<>().setIcon(icon)
+		                          .setStyle(styles);
+	}
+	
+	/**
+	 * Creates a new icon with the given icon and size in the solid format
+	 *
+	 * @param icon The icon to apply
+	 * @param size The size to use
+	 * @return The new font awesome icon
+	 */
+	public static FontAwesome<?> icon(IFontAwesomeIcon icon, FontAwesomeSizes size, FontAwesomeStyles styles)
+	{
+		return new FontAwesome<>().setSize(size)
+		                          .setIcon(icon)
+		                          .setStyle(styles);
+	}
+	
+	/**
+	 * Creates a new icon with the given icon and size in the solid format
+	 *
+	 * @param icon The icon to apply
+	 * @return The new font awesome icon
+	 */
+	public static String iconString(IFontAwesomeIcon icon)
+	{
+		return new FontAwesome<>().setIcon(icon)
+		                          .setStyle(FontAwesomeStyles.Solid)
+		                          .setTiny(true)
+		                          .toString(0);
+	}
+	
+	/**
+	 * Creates a new icon with the given icon and size in the solid format
+	 *
+	 * @param icon   The icon to apply
+	 * @param styles The size to use
+	 * @return The new font awesome icon
+	 */
+	public static String iconString(IFontAwesomeIcon icon, FontAwesomeStyles styles)
+	{
+		return new FontAwesome<>().setIcon(icon)
+		                          .setStyle(styles)
+		                          .setTiny(true)
+		                          .toString(0);
+	}
+	
+	/**
+	 * Creates a new icon with the given icon and size in the solid format
+	 *
+	 * @param icon The icon to apply
+	 * @param size The size to use
+	 * @return The new font awesome icon
+	 */
+	public static String iconString(IFontAwesomeIcon icon, FontAwesomeSizes size, FontAwesomeStyles styles)
+	{
+		return new FontAwesome<>().setSize(size)
+		                          .setIcon(icon)
+		                          .setStyle(styles)
+		                          .setTiny(true)
+		                          .toString(0);
+	}
+	
+	/**
+	 * Creates a new icon with the given icon and size in the solid format
+	 *
+	 * @param icon The icon to apply
+	 * @return The new font awesome icon
+	 */
+	public static FontAwesome<?> icon(IFontAwesomeIcon icon)
+	{
+		return new FontAwesome<>().setIcon(icon)
+		                          .setStyle(FontAwesomeStyles.Solid);
+	}
+	
+	
 	/**
 	 * A smaller neater option for Font Awesome
 	 *
@@ -359,27 +371,27 @@ public class FontAwesome<J extends FontAwesome<J>>
 	{
 		return this;
 	}
-
+	
 	@Override
 	public int hashCode()
 	{
 		return super.hashCode();
 	}
-
+	
 	@Override
 	public boolean equals(Object o)
 	{
 		return false;
 	}
-
+	
 	@Override
 	public String getClassName()
 	{
 		return this.style + " " + this.icon;
 	}
-
+	
 	@Override
-	public ComponentHierarchyBase<?,?,?,?,?> getIconComponent()
+	public ComponentHierarchyBase<?, ?, ?, ?, ?> getIconComponent()
 	{
 		return this;
 	}

@@ -16,7 +16,10 @@
  */
 package com.jwebmp.plugins.fontawesome5;
 
+import com.guicedee.guicedinjection.*;
 import com.jwebmp.core.Page;
+import com.jwebmp.core.base.angular.services.compiler.*;
+import com.jwebmp.core.base.angular.services.interfaces.*;
 import com.jwebmp.plugins.fontawesome5.config.FontAwesome5PageConfigurator;
 import com.jwebmp.plugins.fontawesome5.config.FontAwesomeReferenceType;
 import com.jwebmp.plugins.fontawesome5.icons.FontAwesomeIcons;
@@ -24,6 +27,10 @@ import com.jwebmp.plugins.fontawesome5.options.FontAwesomeSizes;
 import com.jwebmp.plugins.fontawesome5.options.FontAwesomeStyles;
 import com.jwebmp.plugins.fontawesome5.options.FontAwesomeTransforms;
 import org.junit.jupiter.api.Test;
+
+import java.io.*;
+
+import static com.jwebmp.core.base.angular.services.interfaces.ITSComponent.*;
 
 /**
  * @author GedMarc
@@ -34,24 +41,6 @@ public class FontAwesomeTest
 
 	public FontAwesomeTest()
 	{
-	}
-
-	@Test
-	public void testIcon_FontAwesomeIcons_FontAwesomePropertiesArr()
-	{
-		FontAwesome5PageConfigurator.getConfigOptions()
-		                            .setKeepOriginalSource(true)
-		                            .setNestSVG();
-
-		FontAwesome5PageConfigurator.setIncludeBrands(true);
-		FontAwesome5PageConfigurator.setIncludeLight(true);
-		FontAwesome5PageConfigurator.setIncludeRegular(true);
-		FontAwesome5PageConfigurator.setIncludeSolid(true);
-		FontAwesome5PageConfigurator.setIncludeAll(true);
-		//Config for your pro
-		FontAwesome5PageConfigurator.setRootReferenceDir("path/to/pro/directory");
-		//Use CSS instead of new SVG
-		FontAwesome5PageConfigurator.setFontAwesomeReferenceType(FontAwesomeReferenceType.WebFontCSS);
 	}
 
 	@Test
@@ -80,10 +69,20 @@ public class FontAwesomeTest
 		 .add(fa);
 		System.out.println(p.toString(true));
 	}
-
+	
 	@Test
-	public void testSetSize()
+	public void testAppSearch() throws IOException
 	{
+		GuiceContext.inject();
+		for (INgApp<?> app : JWebMPTypeScriptCompiler.getAllApps())
+		{
+			JWebMPTypeScriptCompiler compiler = new JWebMPTypeScriptCompiler(app);
+			
+			System.out.println("Generating @NgApp (" + getTsFilename(app.getClass()) + ") " +
+			                   "in folder " + getClassDirectory(app.getClass()));
+			System.out.println("================");
+			//	compiler.renderAppTS(app);
+			System.out.println("================");
+		}
 	}
-
 }
