@@ -33,7 +33,7 @@ public class FontAwesomeIconsTest
 	@Test
 	public void testToString()
 	{
-		FontAwesomeIcons icon = FontAwesomeIcons.utensils_alt;
+		FontAwesomeIcons icon = FontAwesomeIcons.utensils;
 		System.out.println(icon);
 		Assertions.assertEquals("fa-utensils-alt", icon.toString());
 	}
