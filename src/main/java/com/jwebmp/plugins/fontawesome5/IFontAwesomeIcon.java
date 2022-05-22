@@ -27,9 +27,7 @@ public interface IFontAwesomeIcon
 	default String toAngularIconAttributeName()
 	{
 		String str = name();
-		str = Pattern.compile("_([a-z])")
-		             .matcher(str)
-		             .replaceAll(m -> m.group(1).toUpperCase());
+		str = str.replace('_', '-');
 		return str;
 	}
 }
