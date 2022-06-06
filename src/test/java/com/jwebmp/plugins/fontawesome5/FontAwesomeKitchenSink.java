@@ -1,7 +1,7 @@
 package com.jwebmp.plugins.fontawesome5;
 
-import com.jwebmp.core.base.angular.services.annotations.*;
-import com.jwebmp.core.base.angular.services.interfaces.*;
+import com.jwebmp.core.base.angular.client.annotations.angular.*;
+import com.jwebmp.core.base.angular.client.services.interfaces.*;
 import com.jwebmp.core.base.html.*;
 import com.jwebmp.plugins.fontawesome5.icons.*;
 import com.jwebmp.plugins.fontawesome5.options.*;

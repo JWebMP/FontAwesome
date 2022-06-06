@@ -18,10 +18,8 @@ package com.jwebmp.plugins.fontawesome5;
 
 import com.guicedee.guicedinjection.*;
 import com.jwebmp.core.Page;
+import com.jwebmp.core.base.angular.client.services.interfaces.*;
 import com.jwebmp.core.base.angular.services.compiler.*;
-import com.jwebmp.core.base.angular.services.interfaces.*;
-import com.jwebmp.plugins.fontawesome5.config.FontAwesome5PageConfigurator;
-import com.jwebmp.plugins.fontawesome5.config.FontAwesomeReferenceType;
 import com.jwebmp.plugins.fontawesome5.icons.FontAwesomeIcons;
 import com.jwebmp.plugins.fontawesome5.options.FontAwesomeSizes;
 import com.jwebmp.plugins.fontawesome5.options.FontAwesomeStyles;
@@ -30,7 +28,8 @@ import org.junit.jupiter.api.Test;
 
 import java.io.*;
 
-import static com.jwebmp.core.base.angular.services.interfaces.ITSComponent.*;
+import static com.jwebmp.core.base.angular.client.services.interfaces.AnnotationUtils.*;
+import static com.jwebmp.core.base.angular.client.services.interfaces.IComponent.*;
 
 /**
  * @author GedMarc

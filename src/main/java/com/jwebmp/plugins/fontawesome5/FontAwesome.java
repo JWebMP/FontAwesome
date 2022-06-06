@@ -17,7 +17,8 @@
 package com.jwebmp.plugins.fontawesome5;
 
 import com.jwebmp.core.base.*;
-import com.jwebmp.core.base.angular.services.interfaces.*;
+import com.jwebmp.core.base.angular.client.annotations.references.*;
+import com.jwebmp.core.base.angular.client.services.interfaces.*;
 import com.jwebmp.core.base.html.*;
 import com.jwebmp.core.base.interfaces.*;
 import com.jwebmp.core.htmlbuilder.css.*;
@@ -32,6 +33,7 @@ import java.util.Map;
 import java.util.*;
 
 import static com.guicedee.guicedinjection.json.StaticStrings.*;
+import static com.jwebmp.core.base.angular.client.services.interfaces.AnnotationUtils.*;
 import static com.jwebmp.plugins.fontawesome5.config.FontAwesome5PageConfigurator.*;
 
 /**
@@ -46,6 +48,8 @@ import static com.jwebmp.plugins.fontawesome5.config.FontAwesome5PageConfigurato
 @ComponentInformation(name = "Font Awesome 5",
                       description = "The font awesome tag",
                       url = "www.fontawesome.com")
+
+@NgImportReference(value = "FaIconLibrary",reference = "@fortawesome/angular-fontawesome",onParent = true)
 public class FontAwesome<J extends FontAwesome<J>>
 		extends Italic<J>
 		implements IFontAwesome<J>, IIcon<IComponentHierarchyBase<?, ?>, J>, INgComponent<J>
@@ -74,12 +78,11 @@ public class FontAwesome<J extends FontAwesome<J>>
 	}
 	
 	@Override
-	public Map<String, String> imports()
+	public List<NgImportReference> getAllImportAnnotations()
 	{
-		Map<String, String> sr = new HashMap<>();
-		sr.put("FaIconLibrary", "@fortawesome/angular-fontawesome");
-		sr.put(icon.toAngularIcon() + " as " + getFieldIdentifier(), tsDependencies.get(style));
-		return sr;
+		List<NgImportReference> out = INgComponent.super.getAllImportAnnotations();
+		out.add(getNgImportReference(icon.toAngularIcon() + " as " + getFieldIdentifier(), tsDependencies.get(style)));
+		return out;
 	}
 	
 	public String getFieldIdentifier()
@@ -88,24 +91,20 @@ public class FontAwesome<J extends FontAwesome<J>>
 	}
 	
 	@Override
-	public List<String> fields()
-	{
-		return List.of();
-		//return List.of(style.getText() + icon.toAngularIcon() + " = " + icon.toAngularIcon() + ";");
-	}
-	
-	@Override
 	public List<String> constructorParameters()
 	{
-		return List.of("library: FaIconLibrary");
+		List<String> out = INgComponent.super.constructorParameters();
+		out.add("library: FaIconLibrary");
+		return out;
 	}
 	
 	@Override
 	public List<String> constructorBody()
 	{
-		return List.of(" library.addIcons(" + getFieldIdentifier() + ");");
+		List<String> out = INgComponent.super.constructorBody();
+		out.add(" library.addIcons(" + getFieldIdentifier() + ");");
+		return out;
 	}
-	
 	/**
 	 * Inserts the icon and style classes
 	 */
