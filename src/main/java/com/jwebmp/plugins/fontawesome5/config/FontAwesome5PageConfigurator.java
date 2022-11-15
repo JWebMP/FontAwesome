@@ -55,9 +55,9 @@ import java.util.*;
 )
 
 
-@TsDependency(value = "@fortawesome/fontawesome-svg-core", version = "^6.0.0")
-@TsDependency(value = "@fortawesome/free-solid-svg-icons", version = "^6.0.0", name = "fontawesome-svg-solid")
-@TsDependency(value = "@fortawesome/free-brands-svg-icons", version = "^6.0.0", name = "fontawesome-svg-brands")
+@TsDependency(value = "@fortawesome/fontawesome-svg-core", version = "^6.1.2")
+@TsDependency(value = "@fortawesome/free-solid-svg-icons", version = "^6.1.2", name = "fontawesome-svg-solid")
+@TsDependency(value = "@fortawesome/free-brands-svg-icons", version = "^6.1.2", name = "fontawesome-svg-brands")
 @TsDependency(value = "@fortawesome/angular-fontawesome", version = "^0.10.0", name = "fontawesome-angular")
 
 
