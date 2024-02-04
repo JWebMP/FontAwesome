@@ -20,8 +20,8 @@ import com.jwebmp.plugins.fontawesome5.IFontAwesomeIcon;
 
 import java.util.regex.*;
 
-import static com.guicedee.guicedinjection.json.StaticStrings.CHAR_DASH;
-import static com.guicedee.guicedinjection.json.StaticStrings.CHAR_UNDERSCORE;
+import static com.guicedee.services.jsonrepresentation.json.StaticStrings.CHAR_DASH;
+import static com.guicedee.services.jsonrepresentation.json.StaticStrings.CHAR_UNDERSCORE;
 import static com.jwebmp.core.utilities.StaticStrings.*;
 
 /**

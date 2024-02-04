@@ -32,7 +32,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.*;
 
-import static com.guicedee.guicedinjection.json.StaticStrings.*;
+import static com.guicedee.services.jsonrepresentation.json.StaticStrings.*;
 import static com.jwebmp.core.base.angular.client.services.interfaces.AnnotationUtils.*;
 import static com.jwebmp.plugins.fontawesome5.config.FontAwesome5PageConfigurator.*;
 

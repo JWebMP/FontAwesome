@@ -2,7 +2,7 @@ package com.jwebmp.plugins.fontawesome5.options;
 
 import com.jwebmp.core.base.interfaces.*;
 
-import static com.guicedee.guicedinjection.json.StaticStrings.*;
+import static com.guicedee.services.jsonrepresentation.json.StaticStrings.*;
 
 public enum FontAwesomeSizes
 		implements ICssClassName

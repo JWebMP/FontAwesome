@@ -5,7 +5,7 @@ import com.jwebmp.plugins.fontawesome5.options.*;
 import jakarta.validation.constraints.*;
 import org.apache.commons.lang3.*;
 
-import static com.guicedee.guicedinjection.json.StaticStrings.*;
+import static com.guicedee.services.jsonrepresentation.json.StaticStrings.*;
 
 public class FontAwesomeLayerCounter extends DivSimple<FontAwesomeLayerCounter>
 {

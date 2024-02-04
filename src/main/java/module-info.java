@@ -9,7 +9,8 @@ module com.jwebmp.plugins.fontawesome5 {
 	requires transitive com.jwebmp.core.angular;
 	
 	requires org.apache.commons.lang3;
-
+	requires com.guicedee.jsonrepresentation;
+	
 	provides com.jwebmp.core.services.IPageConfigurator with com.jwebmp.plugins.fontawesome5.config.FontAwesome5PageConfigurator;
 
 	provides com.guicedee.guicedinjection.interfaces.IGuiceScanModuleInclusions with FA5InclusionModule;

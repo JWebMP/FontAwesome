@@ -6,7 +6,7 @@ import com.jwebmp.plugins.fontawesome5.options.FontAwesomeStyles;
 import com.jwebmp.plugins.fontawesome5.options.FontAwesomeTransforms;
 import jakarta.validation.constraints.NotNull;
 
-import static com.guicedee.guicedinjection.json.StaticStrings.STRING_SPACE;
+import static com.guicedee.services.jsonrepresentation.json.StaticStrings.STRING_SPACE;
 
 public interface IFontAwesome<J extends FontAwesome<J>>
 {
