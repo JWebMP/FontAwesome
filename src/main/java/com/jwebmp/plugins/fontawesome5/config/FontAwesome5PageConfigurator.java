@@ -16,15 +16,20 @@
  */
 package com.jwebmp.plugins.fontawesome5.config;
 
-import com.jwebmp.core.*;
-import com.jwebmp.core.base.angular.client.annotations.boot.*;
-import com.jwebmp.core.base.angular.client.annotations.typescript.*;
-import com.jwebmp.core.plugins.*;
-import com.jwebmp.core.services.*;
-import com.jwebmp.plugins.fontawesome5.options.*;
-import jakarta.validation.constraints.*;
+import com.jwebmp.core.base.angular.client.annotations.boot.NgBootConstructorParameter;
+import com.jwebmp.core.base.angular.client.annotations.boot.NgBootImportReference;
+import com.jwebmp.core.base.angular.client.annotations.boot.NgBootModuleImport;
+import com.jwebmp.core.base.angular.client.annotations.typescript.TsDependency;
+import com.jwebmp.core.plugins.PluginInformation;
+import com.jwebmp.core.plugins.PluginStatus;
+import com.jwebmp.core.services.IPage;
+import com.jwebmp.core.services.IPageConfigurator;
+import com.jwebmp.plugins.fontawesome5.options.FontAwesomeConfigOptions;
+import com.jwebmp.plugins.fontawesome5.options.FontAwesomeStyles;
+import jakarta.validation.constraints.NotNull;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * The page configurator for Font Awesome 5
@@ -34,24 +39,24 @@ import java.util.*;
  */
 @SuppressWarnings("unused")
 @PluginInformation(pluginName = "Font Awesome",
-                   pluginUniqueName = "font-awesome",
-                   pluginDescription = "Font Awesome gives you scalable vector icons that can instantly be customized — size, color, drop shadow, " +
-                                       "and" +
-                                       " anything that can be done with the power of CSS. ",
-                   pluginVersion = "5.15.1",
-                   pluginCategories = "fonts, icons",
-                   pluginSubtitle = "In a single collection, Font Awesome is a pictographic language of web-related actions. ",
-                   pluginGitUrl = "https://github.com/GedMarc/JWebMP-FontAwesome5Plugin",
-                   pluginWikiUrl = "https://github.com/GedMarc/JWebMP-FontAwesome5Plugin/wiki",
-                   pluginOriginalHomepage = "http://fontawesome.io/",
-                   pluginDownloadUrl = "https://mvnrepository.com/artifact/com.jwebmp.plugins.iconsets/jwebmp-font-awesome5",
-                   pluginIconUrl = "",
-                   pluginIconImageUrl = "",
-                   pluginLastUpdatedDate = "2020/11/24",
-                   pluginGroupId = "com.jwebmp.plugins.iconsets",
-                   pluginArtifactId = "jwebmp-font-awesome5",
-                   pluginModuleName = "com.jwebmp.plugins.fontawesome5",
-                   pluginStatus = PluginStatus.Released
+        pluginUniqueName = "font-awesome",
+        pluginDescription = "Font Awesome gives you scalable vector icons that can instantly be customized — size, color, drop shadow, " +
+                "and" +
+                " anything that can be done with the power of CSS. ",
+        pluginVersion = "5.15.1",
+        pluginCategories = "fonts, icons",
+        pluginSubtitle = "In a single collection, Font Awesome is a pictographic language of web-related actions. ",
+        pluginGitUrl = "https://github.com/GedMarc/JWebMP-FontAwesome5Plugin",
+        pluginWikiUrl = "https://github.com/GedMarc/JWebMP-FontAwesome5Plugin/wiki",
+        pluginOriginalHomepage = "http://fontawesome.io/",
+        pluginDownloadUrl = "https://mvnrepository.com/artifact/com.jwebmp.plugins.iconsets/jwebmp-font-awesome5",
+        pluginIconUrl = "",
+        pluginIconImageUrl = "",
+        pluginLastUpdatedDate = "2020/11/24",
+        pluginGroupId = "com.jwebmp.plugins.iconsets",
+        pluginArtifactId = "jwebmp-font-awesome5",
+        pluginModuleName = "com.jwebmp.plugins.fontawesome5",
+        pluginStatus = PluginStatus.Released
 )
 
 
@@ -61,7 +66,7 @@ import java.util.*;
 @TsDependency(value = "@fortawesome/angular-fontawesome", version = "^0.10.0", name = "fontawesome-angular")
 
 
-@NgBootImportReference(name = "FontAwesomeModule, FaIconLibrary, FaConfig", reference = "@fortawesome/angular-fontawesome")
+@NgBootImportReference(value = "FontAwesomeModule, FaIconLibrary, FaConfig", reference = "@fortawesome/angular-fontawesome")
 
 //@NgBootImportReference(name = "fas", reference = "@fortawesome/free-solid-svg-icons")
 //@NgBootImportReference(name = "fab", reference = "@fortawesome/free-brands-svg-icons")
@@ -75,57 +80,59 @@ import java.util.*;
 @NgBootModuleImport("FontAwesomeModule")
 
 public class FontAwesome5PageConfigurator
-		implements IPageConfigurator<FontAwesome5PageConfigurator>
+        implements IPageConfigurator<FontAwesome5PageConfigurator>
 {
-	/**
-	 * Field configOptions
-	 */
-	private static FontAwesomeConfigOptions<?> configOptions = new FontAwesomeConfigOptions<>();
-	
-	public static Map<FontAwesomeStyles, String> tsDependencies = new HashMap<>();
-	static {
-		tsDependencies.putIfAbsent(FontAwesomeStyles.Solid,"@fortawesome/free-solid-svg-icons");
-		tsDependencies.putIfAbsent(FontAwesomeStyles.Brand,"@fortawesome/free-brands-svg-icons");
-	}
-	
-	/**
-	 * Constructor FontAwesome5PageConfigurator creates a new FontAwesome5PageConfigurator instance.
-	 */
-	public FontAwesome5PageConfigurator()
-	{
-		//Nothing Needed
-	}
-	
-	/**
-	 * Method configure ...
-	 *
-	 * @param page of type Page
-	 * @return Page
-	 */
-	@NotNull
-	@Override
-	public Page<?> configure(Page<?> page)
-	{
-		return page;
-	}
-	
-	@Override
-	public boolean enabled()
-	{
-		return true;
-	}
-	
-	/**
-	 * Returns the configuration options for font awesome at a javascript level
-	 *
-	 * @return The config options currently set (only search pseudo currently enabled)
-	 */
-	public static FontAwesomeConfigOptions<?> getConfigOptions()
-	{
-		if (FontAwesome5PageConfigurator.configOptions == null)
-		{
-			FontAwesome5PageConfigurator.configOptions = new FontAwesomeConfigOptions<>();
-		}
-		return FontAwesome5PageConfigurator.configOptions;
-	}
+    /**
+     * Field configOptions
+     */
+    private static FontAwesomeConfigOptions<?> configOptions = new FontAwesomeConfigOptions<>();
+
+    public static Map<FontAwesomeStyles, String> tsDependencies = new HashMap<>();
+
+    static
+    {
+        tsDependencies.putIfAbsent(FontAwesomeStyles.Solid, "@fortawesome/free-solid-svg-icons");
+        tsDependencies.putIfAbsent(FontAwesomeStyles.Brand, "@fortawesome/free-brands-svg-icons");
+    }
+
+    /**
+     * Constructor FontAwesome5PageConfigurator creates a new FontAwesome5PageConfigurator instance.
+     */
+    public FontAwesome5PageConfigurator()
+    {
+        //Nothing Needed
+    }
+
+    /**
+     * Method configure ...
+     *
+     * @param page of type Page
+     * @return Page
+     */
+    @NotNull
+    @Override
+    public IPage<?> configure(IPage<?> page)
+    {
+        return page;
+    }
+
+    @Override
+    public boolean enabled()
+    {
+        return true;
+    }
+
+    /**
+     * Returns the configuration options for font awesome at a javascript level
+     *
+     * @return The config options currently set (only search pseudo currently enabled)
+     */
+    public static FontAwesomeConfigOptions<?> getConfigOptions()
+    {
+        if (FontAwesome5PageConfigurator.configOptions == null)
+        {
+            FontAwesome5PageConfigurator.configOptions = new FontAwesomeConfigOptions<>();
+        }
+        return FontAwesome5PageConfigurator.configOptions;
+    }
 }

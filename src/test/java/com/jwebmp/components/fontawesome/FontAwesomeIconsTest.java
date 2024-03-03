@@ -26,16 +26,16 @@ import org.junit.jupiter.api.Test;
 public class FontAwesomeIconsTest
 {
 
-	public FontAwesomeIconsTest()
-	{
-	}
+    public FontAwesomeIconsTest()
+    {
+    }
 
-	@Test
-	public void testToString()
-	{
-		FontAwesomeIcons icon = FontAwesomeIcons.utensils;
-		System.out.println(icon);
-		Assertions.assertEquals("fa-utensils-alt", icon.toString());
-	}
+    @Test
+    public void testToString()
+    {
+        FontAwesomeIcons icon = FontAwesomeIcons.utensils;
+        System.out.println(icon);
+        Assertions.assertEquals("fa-utensils", icon.toString());
+    }
 
 }
