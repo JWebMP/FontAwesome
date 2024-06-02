@@ -39,34 +39,35 @@ import java.util.Map;
  */
 @SuppressWarnings("unused")
 @PluginInformation(pluginName = "Font Awesome",
-        pluginUniqueName = "font-awesome",
-        pluginDescription = "Font Awesome gives you scalable vector icons that can instantly be customized — size, color, drop shadow, " +
-                "and" +
-                " anything that can be done with the power of CSS. ",
-        pluginVersion = "5.15.1",
-        pluginCategories = "fonts, icons",
-        pluginSubtitle = "In a single collection, Font Awesome is a pictographic language of web-related actions. ",
-        pluginGitUrl = "https://github.com/GedMarc/JWebMP-FontAwesome5Plugin",
-        pluginWikiUrl = "https://github.com/GedMarc/JWebMP-FontAwesome5Plugin/wiki",
-        pluginOriginalHomepage = "http://fontawesome.io/",
-        pluginDownloadUrl = "https://mvnrepository.com/artifact/com.jwebmp.plugins.iconsets/jwebmp-font-awesome5",
-        pluginIconUrl = "",
-        pluginIconImageUrl = "",
-        pluginLastUpdatedDate = "2020/11/24",
-        pluginGroupId = "com.jwebmp.plugins.iconsets",
-        pluginArtifactId = "jwebmp-font-awesome5",
-        pluginModuleName = "com.jwebmp.plugins.fontawesome5",
-        pluginStatus = PluginStatus.Released
+                   pluginUniqueName = "font-awesome",
+                   pluginDescription = "Font Awesome gives you scalable vector icons that can instantly be customized — size, color, drop shadow, " +
+                           "and" +
+                           " anything that can be done with the power of CSS. ",
+                   pluginVersion = "5.15.1",
+                   pluginCategories = "fonts, icons",
+                   pluginSubtitle = "In a single collection, Font Awesome is a pictographic language of web-related actions. ",
+                   pluginGitUrl = "https://github.com/GedMarc/JWebMP-FontAwesome5Plugin",
+                   pluginWikiUrl = "https://github.com/GedMarc/JWebMP-FontAwesome5Plugin/wiki",
+                   pluginOriginalHomepage = "http://fontawesome.io/",
+                   pluginDownloadUrl = "https://mvnrepository.com/artifact/com.jwebmp.plugins.iconsets/jwebmp-font-awesome5",
+                   pluginIconUrl = "",
+                   pluginIconImageUrl = "",
+                   pluginLastUpdatedDate = "2020/11/24",
+                   pluginGroupId = "com.jwebmp.plugins.iconsets",
+                   pluginArtifactId = "jwebmp-font-awesome5",
+                   pluginModuleName = "com.jwebmp.plugins.fontawesome5",
+                   pluginStatus = PluginStatus.Released
 )
 
 
-@TsDependency(value = "@fortawesome/fontawesome-svg-core", version = "^6.1.2")
-@TsDependency(value = "@fortawesome/free-solid-svg-icons", version = "^6.1.2", name = "fontawesome-svg-solid")
-@TsDependency(value = "@fortawesome/free-brands-svg-icons", version = "^6.1.2", name = "fontawesome-svg-brands")
-@TsDependency(value = "@fortawesome/angular-fontawesome", version = "^0.10.0", name = "fontawesome-angular")
+@TsDependency(value = "@fortawesome/fontawesome-svg-core", version = "^6.5.2")
+@TsDependency(value = "@fortawesome/free-solid-svg-icons", version = "^6.5.2", name = "fontawesome-svg-solid")
+@TsDependency(value = "@fortawesome/free-brands-svg-icons", version = "^6.5.2", name = "fontawesome-svg-brands")
+@TsDependency(value = "@fortawesome/angular-fontawesome", version = "^0.15.0", name = "fontawesome-angular")
 
 
-@NgBootImportReference(value = "FontAwesomeModule, FaIconLibrary, FaConfig", reference = "@fortawesome/angular-fontawesome")
+@NgBootImportReference(value = "FontAwesomeModule, FaIconLibrary, FaConfig",
+                       reference = "@fortawesome/angular-fontawesome")
 
 //@NgBootImportReference(name = "fas", reference = "@fortawesome/free-solid-svg-icons")
 //@NgBootImportReference(name = "fab", reference = "@fortawesome/free-brands-svg-icons")
