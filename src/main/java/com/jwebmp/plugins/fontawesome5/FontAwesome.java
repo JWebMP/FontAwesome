@@ -18,6 +18,7 @@ package com.jwebmp.plugins.fontawesome5;
 
 import com.jwebmp.core.base.ComponentHierarchyBase;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
+import com.jwebmp.core.base.angular.client.services.interfaces.AnnotationUtils;
 import com.jwebmp.core.base.angular.client.services.interfaces.INgComponent;
 import com.jwebmp.core.base.html.Italic;
 import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
@@ -51,14 +52,15 @@ import static com.jwebmp.plugins.fontawesome5.config.FontAwesome5PageConfigurato
                       description = "The font awesome tag",
                       url = "www.fontawesome.com")
 
-@NgImportReference(value = "FaIconLibrary", reference = "@fortawesome/angular-fontawesome", onParent = true)
-@NgImportReference(value = "FaIconComponent", reference = "@fortawesome/angular-fontawesome", onParent = true)
+@NgImportReference(value = "FaIconLibrary", reference = "@fortawesome/angular-fontawesome")
+@NgImportReference(value = "FaIconComponent", reference = "@fortawesome/angular-fontawesome")
 public class FontAwesome<J extends FontAwesome<J>>
         extends Italic<J>
         implements IFontAwesome<J>, IIcon<IComponentHierarchyBase<?, ?>, J>, INgComponent<J>
 {
     private FontAwesomeStyles style;
     private IFontAwesomeIcon icon;
+
 
     /**
      * Construct a new instant of a font awesome icon
@@ -78,14 +80,6 @@ public class FontAwesome<J extends FontAwesome<J>>
     public FontAwesome()
     {
         setTag("fa-icon");
-    }
-
-    @Override
-    public List<NgImportReference> getAllImportAnnotations()
-    {
-        List<NgImportReference> out = INgComponent.super.getAllImportAnnotations();
-        out.add(getNgImportReference(icon.toAngularIcon() + " as " + getFieldIdentifier(), tsDependencies.get(style)));
-        return out;
     }
 
     public String getFieldIdentifier()
@@ -109,11 +103,26 @@ public class FontAwesome<J extends FontAwesome<J>>
         return out;
     }
 
+    @Override
+    protected void init()
+    {
+        if (!isInitialized())
+        {
+            List<NgImportReference> out = INgComponent.super.getAllImportAnnotations();
+            out.add(getNgImportReference(icon.toAngularIcon() + " as " + getFieldIdentifier(), tsDependencies.get(style)));
+            for (NgImportReference ngImportReference : out)
+            {
+                addConfiguration(AnnotationUtils.getNgImportReference(ngImportReference.value(), ngImportReference.reference()));
+            }
+        }
+        super.init();
+    }
+
     /**
      * Inserts the icon and style classes
      */
     @Override
-    public void preConfigure()
+    protected void preConfigure()
     {
         if (!isConfigured())
         {
@@ -400,9 +409,9 @@ public class FontAwesome<J extends FontAwesome<J>>
     }
 
     @Override
-    public Set<String> importModules()
+    public Set<String> moduleImports()
     {
-        Set<String> strings = INgComponent.super.importModules();
+        Set<String> strings = INgComponent.super.moduleImports();
         strings.add("FaIconComponent");
         return strings;
     }
