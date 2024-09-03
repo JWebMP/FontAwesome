@@ -16,8 +16,6 @@
  */
 package com.jwebmp.plugins.fontawesome5.config;
 
-import com.jwebmp.core.base.angular.client.annotations.boot.NgBootConstructorParameter;
-import com.jwebmp.core.base.angular.client.annotations.boot.NgBootImportReference;
 import com.jwebmp.core.base.angular.client.annotations.boot.NgBootModuleImport;
 import com.jwebmp.core.base.angular.client.annotations.typescript.TsDependency;
 import com.jwebmp.core.plugins.PluginInformation;
@@ -66,14 +64,16 @@ import java.util.Map;
 @TsDependency(value = "@fortawesome/angular-fontawesome", version = "^0.15.0", name = "fontawesome-angular")
 
 
+/*
 @NgBootImportReference(value = "FontAwesomeModule, FaIconLibrary, FaConfig",
                        reference = "@fortawesome/angular-fontawesome")
+*/
 
 //@NgBootImportReference(name = "fas", reference = "@fortawesome/free-solid-svg-icons")
 //@NgBootImportReference(name = "fab", reference = "@fortawesome/free-brands-svg-icons")
 
-@NgBootConstructorParameter("library: FaIconLibrary")
-@NgBootConstructorParameter("faConfig: FaConfig")
+/*@NgBootConstructorParameter("library: FaIconLibrary")
+@NgBootConstructorParameter("faConfig: FaConfig")*/
 
 //@NgBootConstructorBody("library.addIconPacks(fas);")
 //@NgBootConstructorBody("library.addIconPacks(fab);")
