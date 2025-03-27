@@ -48,15 +48,11 @@ import static com.jwebmp.plugins.fontawesome5.config.FontAwesome5PageConfigurato
  * @since 21 May 2016
  */
 @SuppressWarnings("unused")
-@ComponentInformation(name = "Font Awesome 5",
-                      description = "The font awesome tag",
-                      url = "www.fontawesome.com")
+@ComponentInformation(name = "Font Awesome 5", description = "The font awesome tag", url = "www.fontawesome.com")
 
 @NgImportReference(value = "FaIconLibrary", reference = "@fortawesome/angular-fontawesome")
 @NgImportReference(value = "FaIconComponent", reference = "@fortawesome/angular-fontawesome")
-public class FontAwesome<J extends FontAwesome<J>>
-        extends Italic<J>
-        implements IFontAwesome<J>, IIcon<IComponentHierarchyBase<?, ?>, J>, INgComponent<J>
+public class FontAwesome<J extends FontAwesome<J>> extends Italic<J> implements IFontAwesome<J>, IIcon<IComponentHierarchyBase<?, ?>, J>, INgComponent<J>
 {
     private FontAwesomeStyles style;
     private IFontAwesomeIcon icon;
@@ -88,33 +84,18 @@ public class FontAwesome<J extends FontAwesome<J>>
     }
 
     @Override
-    public List<String> constructorParameters()
-    {
-        List<String> out = INgComponent.super.constructorParameters();
-        out.add("library: FaIconLibrary");
-        return out;
-    }
-
-    @Override
-    public List<String> constructorBody()
-    {
-        List<String> out = INgComponent.super.constructorBody();
-        out.add(" library.addIcons(" + getFieldIdentifier() + ");");
-        return out;
-    }
-
-    @Override
     protected void init()
     {
-        if (!isInitialized())
+        List<NgImportReference> out = INgComponent.super.getAllImportAnnotations();
+        out.add(getNgImportReference(icon.toAngularIcon() + " as " + getFieldIdentifier(), tsDependencies.get(style)));
+        for (NgImportReference ngImportReference : out)
         {
-            List<NgImportReference> out = INgComponent.super.getAllImportAnnotations();
-            out.add(getNgImportReference(icon.toAngularIcon() + " as " + getFieldIdentifier(), tsDependencies.get(style)));
-            for (NgImportReference ngImportReference : out)
-            {
-                addConfiguration(AnnotationUtils.getNgImportReference(ngImportReference.value(), ngImportReference.reference()));
-            }
+            addConfiguration(AnnotationUtils.getNgImportReference(ngImportReference.value(), ngImportReference.reference()));
         }
+        addConfiguration(AnnotationUtils.getNgImportReference("FaIconComponent", "@fortawesome/angular-fontawesome"));
+        addConfiguration(AnnotationUtils.getNgImportReference("FaIconLibrary", "@fortawesome/angular-fontawesome"));
+
+        addConfiguration(AnnotationUtils.getNgConstructorParameter("library: FaIconLibrary"));
         super.init();
     }
 
@@ -136,6 +117,10 @@ public class FontAwesome<J extends FontAwesome<J>>
             }
             if (icon != null)
             {
+                addConfiguration(AnnotationUtils.getNgConstructorBody(" library.addIcons(" + getFieldIdentifier() + ");"));
+            }
+            if (icon != null)
+            {
                 addAttribute("[icon]", "['" + style.getText() + "','" + icon.toAngularIconAttributeName() + "']");
                 //addAttribute("[icon]", icon.toAngularIcon());
             }
@@ -152,9 +137,7 @@ public class FontAwesome<J extends FontAwesome<J>>
      */
     public static FontAwesome<?> icon(IFontAwesomeIcon icon, FontAwesomeSizes size)
     {
-        return new FontAwesome<>().setSize(size)
-                                  .setIcon(icon)
-                                  .setStyle(FontAwesomeStyles.Solid);
+        return new FontAwesome<>().setSize(size).setIcon(icon).setStyle(FontAwesomeStyles.Solid);
     }
 
     @Override
@@ -252,8 +235,7 @@ public class FontAwesome<J extends FontAwesome<J>>
         StringBuilder attributeValue = new StringBuilder(StringUtils.trimToEmpty(getAttributes().get("data-fa-transform")));
         for (FontAwesomeTransforms transform : transforms)
         {
-            attributeValue.append(transform)
-                          .append(STRING_SPACE);
+            attributeValue.append(transform).append(STRING_SPACE);
         }
         addAttribute("transform", attributeValue.toString());
         return (J) this;
@@ -298,8 +280,7 @@ public class FontAwesome<J extends FontAwesome<J>>
      */
     public static FontAwesome<?> icon(IFontAwesomeIcon icon, FontAwesomeStyles styles)
     {
-        return new FontAwesome<>().setIcon(icon)
-                                  .setStyle(styles);
+        return new FontAwesome<>().setIcon(icon).setStyle(styles);
     }
 
     /**
@@ -311,9 +292,7 @@ public class FontAwesome<J extends FontAwesome<J>>
      */
     public static FontAwesome<?> icon(IFontAwesomeIcon icon, FontAwesomeSizes size, FontAwesomeStyles styles)
     {
-        return new FontAwesome<>().setSize(size)
-                                  .setIcon(icon)
-                                  .setStyle(styles);
+        return new FontAwesome<>().setSize(size).setIcon(icon).setStyle(styles);
     }
 
     /**
@@ -324,10 +303,7 @@ public class FontAwesome<J extends FontAwesome<J>>
      */
     public static String iconString(IFontAwesomeIcon icon)
     {
-        return new FontAwesome<>().setIcon(icon)
-                                  .setStyle(FontAwesomeStyles.Solid)
-                                  .setTiny(true)
-                                  .toString(0);
+        return new FontAwesome<>().setIcon(icon).setStyle(FontAwesomeStyles.Solid).setTiny(true).toString(0);
     }
 
     /**
@@ -339,10 +315,7 @@ public class FontAwesome<J extends FontAwesome<J>>
      */
     public static String iconString(IFontAwesomeIcon icon, FontAwesomeStyles styles)
     {
-        return new FontAwesome<>().setIcon(icon)
-                                  .setStyle(styles)
-                                  .setTiny(true)
-                                  .toString(0);
+        return new FontAwesome<>().setIcon(icon).setStyle(styles).setTiny(true).toString(0);
     }
 
     /**
@@ -354,11 +327,7 @@ public class FontAwesome<J extends FontAwesome<J>>
      */
     public static String iconString(IFontAwesomeIcon icon, FontAwesomeSizes size, FontAwesomeStyles styles)
     {
-        return new FontAwesome<>().setSize(size)
-                                  .setIcon(icon)
-                                  .setStyle(styles)
-                                  .setTiny(true)
-                                  .toString(0);
+        return new FontAwesome<>().setSize(size).setIcon(icon).setStyle(styles).setTiny(true).toString(0);
     }
 
     /**
@@ -369,8 +338,7 @@ public class FontAwesome<J extends FontAwesome<J>>
      */
     public static FontAwesome<?> icon(IFontAwesomeIcon icon)
     {
-        return new FontAwesome<>().setIcon(icon)
-                                  .setStyle(FontAwesomeStyles.Solid);
+        return new FontAwesome<>().setIcon(icon).setStyle(FontAwesomeStyles.Solid);
     }
 
 
