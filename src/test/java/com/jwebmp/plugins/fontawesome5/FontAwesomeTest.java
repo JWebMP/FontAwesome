@@ -27,6 +27,7 @@ import com.jwebmp.plugins.fontawesome5.options.FontAwesomeTransforms;
 import org.junit.jupiter.api.Test;
 
 import java.io.*;
+import java.util.concurrent.TimeUnit;
 
 import static com.jwebmp.core.base.angular.client.services.interfaces.AnnotationUtils.*;
 import static com.jwebmp.core.base.angular.client.services.interfaces.IComponent.*;
@@ -53,10 +54,10 @@ public class FontAwesomeTest
         FontAwesome faMask = IFontAwesome.createMaskIcon(FontAwesomeIcons.cog, FontAwesomeStyles.Light, FontAwesomeIcons.comment_alt, FontAwesomeStyles.Regular);
 
         faSolid.spin()
-               .transform(FontAwesomeTransforms.Grow_3, FontAwesomeTransforms.Up_4)
-               .setStyle(FontAwesomeStyles.Regular)
-               .setSize(FontAwesomeSizes.$4x)
-               .setIcon(FontAwesomeIcons.cogs);
+                .transform(FontAwesomeTransforms.Grow_3, FontAwesomeTransforms.Up_4)
+                .setStyle(FontAwesomeStyles.Regular)
+                .setSize(FontAwesomeSizes.$4x)
+                .setIcon(FontAwesomeIcons.cogs);
 
         System.out.println(fa.toString(true));
         System.out.println(faSolid.toString(true));
@@ -65,15 +66,15 @@ public class FontAwesomeTest
 
         Page<?> p = new Page();
         p.getBody()
-         .add(fa);
+                .add(fa);
         System.out.println(p.toString(true));
     }
 
     @Test
-    public void testAppSearch() throws IOException
+    public void testAppSearch() throws IOException, InterruptedException
     {
         GuiceContext.instance()
-                    .inject();
+                .inject();
         for (INgApp<?> app : JWebMPTypeScriptCompiler.getAllApps())
         {
             JWebMPTypeScriptCompiler compiler = new JWebMPTypeScriptCompiler(app);
@@ -84,5 +85,6 @@ public class FontAwesomeTest
             //	compiler.renderAppTS(app);
             System.out.println("================");
         }
+        TimeUnit.SECONDS.sleep(2L);
     }
 }

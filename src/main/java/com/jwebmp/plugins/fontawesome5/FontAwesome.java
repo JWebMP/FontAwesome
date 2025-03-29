@@ -154,7 +154,7 @@ public class FontAwesome<J extends FontAwesome<J>> extends Italic<J> implements 
     @NotNull
     public J spin()
     {
-        addAttribute("[spin]", "true");
+        addAttribute("animation", "spin");
         return (J) this;
     }
 
@@ -163,7 +163,7 @@ public class FontAwesome<J extends FontAwesome<J>> extends Italic<J> implements 
     @NotNull
     public J pulse()
     {
-        addAttribute("[pulse]", "true");
+        addAttribute("animation", "pulse");
         return (J) this;
     }
 
