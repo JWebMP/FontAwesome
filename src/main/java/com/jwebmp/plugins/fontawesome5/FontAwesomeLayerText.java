@@ -9,7 +9,7 @@ import org.apache.commons.lang3.*;
 
 import static com.guicedee.services.jsonrepresentation.json.StaticStrings.*;
 
-@NgImportReference(value = "FaLayersCounterComponent", reference = "@fortawesome/angular-fontawesome")
+@NgImportReference(value = "FaLayersTextComponent", reference = "@fortawesome/angular-fontawesome")
 @NgImportModule("FaLayersTextComponent")
 
 public class FontAwesomeLayerText extends DivSimple<FontAwesomeLayerText>

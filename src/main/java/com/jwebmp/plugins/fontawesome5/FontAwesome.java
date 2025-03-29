@@ -127,6 +127,8 @@ public class FontAwesome<J extends FontAwesome<J>> extends Italic<J> implements 
             if (style == FontAwesomeStyles.Duotone)
             {
                 setTag("fa-duotone-icon");
+                addConfiguration(AnnotationUtils.getNgImportReference("FaDuotoneIconComponent", "@fortawesome/angular-fontawesome"));
+                addConfiguration(AnnotationUtils.getNgImportModule("FaDuotoneIconComponent"));
             }
         }
         super.preConfigure();
