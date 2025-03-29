@@ -124,6 +124,10 @@ public class FontAwesome<J extends FontAwesome<J>> extends Italic<J> implements 
                 addAttribute("[icon]", "['" + style.getText() + "','" + icon.toAngularIconAttributeName() + "']");
                 //addAttribute("[icon]", icon.toAngularIcon());
             }
+            if (style == FontAwesomeStyles.Duotone)
+            {
+                setTag("fa-duotone-icon");
+            }
         }
         super.preConfigure();
     }

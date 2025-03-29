@@ -1,5 +1,6 @@
 package com.jwebmp.plugins.fontawesome5;
 
+import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
 import com.jwebmp.core.base.html.*;
 import com.jwebmp.plugins.fontawesome5.options.*;
@@ -9,6 +10,8 @@ import org.apache.commons.lang3.*;
 import static com.guicedee.services.jsonrepresentation.json.StaticStrings.*;
 
 @NgImportReference(value = "FaLayersCounterComponent", reference = "@fortawesome/angular-fontawesome")
+@NgImportModule("FaLayersTextComponent")
+
 public class FontAwesomeLayerText extends DivSimple<FontAwesomeLayerText>
 {
     public FontAwesomeLayerText()
