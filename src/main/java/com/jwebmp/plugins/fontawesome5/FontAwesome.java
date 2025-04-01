@@ -17,6 +17,7 @@
 package com.jwebmp.plugins.fontawesome5;
 
 import com.jwebmp.core.base.ComponentHierarchyBase;
+import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
 import com.jwebmp.core.base.angular.client.services.interfaces.AnnotationUtils;
 import com.jwebmp.core.base.angular.client.services.interfaces.INgComponent;
@@ -52,6 +53,7 @@ import static com.jwebmp.plugins.fontawesome5.config.FontAwesome5PageConfigurato
 
 @NgImportReference(value = "FaIconLibrary", reference = "@fortawesome/angular-fontawesome")
 @NgImportReference(value = "FaIconComponent", reference = "@fortawesome/angular-fontawesome")
+@NgImportModule("FaIconComponent")
 public class FontAwesome<J extends FontAwesome<J>> extends Italic<J> implements IFontAwesome<J>, IIcon<IComponentHierarchyBase<?, ?>, J>, INgComponent<J>
 {
     private FontAwesomeStyles style;
@@ -382,11 +384,4 @@ public class FontAwesome<J extends FontAwesome<J>> extends Italic<J> implements 
         return this;
     }
 
-    @Override
-    public Set<String> moduleImports()
-    {
-        Set<String> strings = INgComponent.super.moduleImports();
-        strings.add("FaIconComponent");
-        return strings;
-    }
 }

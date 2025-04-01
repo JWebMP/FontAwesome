@@ -1,5 +1,6 @@
 package com.jwebmp.plugins.fontawesome5;
 
+import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
 import com.jwebmp.core.base.angular.client.services.interfaces.INgComponent;
 import com.jwebmp.core.base.html.DivSimple;
@@ -12,20 +13,12 @@ import java.util.Set;
 import static com.guicedee.services.jsonrepresentation.json.StaticStrings.STRING_SPACE;
 
 @NgImportReference(value = "FaLayersCounterComponent", reference = "@fortawesome/angular-fontawesome")
+@NgImportModule("FaLayersCounterComponent")
 public class FontAwesomeLayerCounter extends DivSimple<FontAwesomeLayerCounter> implements INgComponent<FontAwesomeLayerCounter>
 {
     public FontAwesomeLayerCounter()
     {
         setTag("fa-layers-counter");
-    }
-
-
-    @Override
-    public Set<String> moduleImports()
-    {
-        var s = INgComponent.super.moduleImports();
-        s.add("FaLayersCounterComponent");
-        return s;
     }
 
     @Override
@@ -41,7 +34,7 @@ public class FontAwesomeLayerCounter extends DivSimple<FontAwesomeLayerCounter> 
         for (FontAwesomeTransforms transform : transforms)
         {
             attributeValue.append(transform)
-                          .append(STRING_SPACE);
+                    .append(STRING_SPACE);
         }
         addAttribute("transform", attributeValue.toString());
         return this;
