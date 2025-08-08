@@ -2,19 +2,16 @@ package com.jwebmp.plugins.fontawesome5.options;
 
 import com.jwebmp.core.base.interfaces.ICssClassName;
 
-public enum FontAwesomeStyles
-        implements ICssClassName, IFontAwesomeStyle<FontAwesomeStyles>
+public enum FontAwesomeFamily
+        implements ICssClassName, IFontAwesomeFamilies<FontAwesomeFamily>
 {
-    Classic("fac", "classic"),
-    Duotone("fad", "duotone"),
-    Brand("fab", "brand"),
-    Filled("far", "filled");
-
+    Brand("fab", "brands"),
+    Classic("fac", "classic");
 
     private String angularText;
     private String familyName;
 
-    FontAwesomeStyles(String angularText, String familyName)
+    FontAwesomeFamily(String angularText, String familyName)
     {
         this.angularText = angularText;
         this.familyName = familyName;
@@ -35,6 +32,6 @@ public enum FontAwesomeStyles
     @Override
     public String toString()
     {
-        return familyName;
+        return angularText;
     }
 }

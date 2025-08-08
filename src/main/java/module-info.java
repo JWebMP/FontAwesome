@@ -8,9 +8,10 @@ module com.jwebmp.plugins.fontawesome5 {
     exports com.jwebmp.plugins.fontawesome5.options;
 
     requires transitive com.jwebmp.core.base.angular.client;
-    requires com.jwebmp.core.angular;
-    requires com.jwebmp.client;
-    requires com.jwebmp.core;
+    requires static com.jwebmp.core.angular;
+    requires transitive com.jwebmp.client;
+    requires transitive com.jwebmp.core;
+    requires transitive jakarta.activation;
 
     requires org.apache.commons.lang3;
     requires com.guicedee.jsonrepresentation;

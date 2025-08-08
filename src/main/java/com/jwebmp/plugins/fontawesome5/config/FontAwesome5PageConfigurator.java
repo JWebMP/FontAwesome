@@ -92,7 +92,7 @@ public class FontAwesome5PageConfigurator
 
     static
     {
-        tsDependencies.putIfAbsent(FontAwesomeStyles.Solid, "@fortawesome/free-solid-svg-icons");
+        tsDependencies.putIfAbsent(FontAwesomeStyles.Classic, "@fortawesome/free-classic-svg-icons");
         tsDependencies.putIfAbsent(FontAwesomeStyles.Brand, "@fortawesome/free-brands-svg-icons");
     }
 

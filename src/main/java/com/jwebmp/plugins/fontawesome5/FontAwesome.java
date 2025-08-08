@@ -34,7 +34,6 @@ import jakarta.validation.constraints.NotNull;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.List;
-import java.util.Set;
 
 import static com.guicedee.services.jsonrepresentation.json.StaticStrings.STRING_SPACE;
 import static com.jwebmp.core.base.angular.client.services.interfaces.AnnotationUtils.getNgImportReference;
@@ -82,7 +81,7 @@ public class FontAwesome<J extends FontAwesome<J>> extends Italic<J> implements 
 
     public String getFieldIdentifier()
     {
-        return style.getText() + icon.toAngularIcon();
+        return style.getAngularText() + icon.toAngularIcon();
     }
 
     @Override
@@ -115,7 +114,7 @@ public class FontAwesome<J extends FontAwesome<J>> extends Italic<J> implements 
             }
             if (style == null)
             {
-                style = FontAwesomeStyles.Solid;
+                style = FontAwesomeStyles.Classic;
             }
             if (icon != null)
             {
@@ -123,7 +122,7 @@ public class FontAwesome<J extends FontAwesome<J>> extends Italic<J> implements 
             }
             if (icon != null)
             {
-                addAttribute("[icon]", "['" + style.getText() + "','" + icon.toAngularIconAttributeName() + "']");
+                addAttribute("[icon]", "['" + style.getAngularText() + "','" + icon.toAngularIconAttributeName() + "']");
                 //addAttribute("[icon]", icon.toAngularIcon());
             }
             if (style == FontAwesomeStyles.Duotone)
@@ -145,7 +144,9 @@ public class FontAwesome<J extends FontAwesome<J>> extends Italic<J> implements 
      */
     public static FontAwesome<?> icon(IFontAwesomeIcon icon, FontAwesomeSizes size)
     {
-        return new FontAwesome<>().setSize(size).setIcon(icon).setStyle(FontAwesomeStyles.Solid);
+        return new FontAwesome<>().setSize(size)
+                                  .setIcon(icon)
+                                  .setStyle(FontAwesomeStyles.Classic);
     }
 
     @Override
@@ -243,7 +244,8 @@ public class FontAwesome<J extends FontAwesome<J>> extends Italic<J> implements 
         StringBuilder attributeValue = new StringBuilder(StringUtils.trimToEmpty(getAttributes().get("data-fa-transform")));
         for (FontAwesomeTransforms transform : transforms)
         {
-            attributeValue.append(transform).append(STRING_SPACE);
+            attributeValue.append(transform)
+                          .append(STRING_SPACE);
         }
         addAttribute("transform", attributeValue.toString());
         return (J) this;
@@ -288,7 +290,8 @@ public class FontAwesome<J extends FontAwesome<J>> extends Italic<J> implements 
      */
     public static FontAwesome<?> icon(IFontAwesomeIcon icon, FontAwesomeStyles styles)
     {
-        return new FontAwesome<>().setIcon(icon).setStyle(styles);
+        return new FontAwesome<>().setIcon(icon)
+                                  .setStyle(styles);
     }
 
     /**
@@ -300,7 +303,9 @@ public class FontAwesome<J extends FontAwesome<J>> extends Italic<J> implements 
      */
     public static FontAwesome<?> icon(IFontAwesomeIcon icon, FontAwesomeSizes size, FontAwesomeStyles styles)
     {
-        return new FontAwesome<>().setSize(size).setIcon(icon).setStyle(styles);
+        return new FontAwesome<>().setSize(size)
+                                  .setIcon(icon)
+                                  .setStyle(styles);
     }
 
     /**
@@ -311,7 +316,10 @@ public class FontAwesome<J extends FontAwesome<J>> extends Italic<J> implements 
      */
     public static String iconString(IFontAwesomeIcon icon)
     {
-        return new FontAwesome<>().setIcon(icon).setStyle(FontAwesomeStyles.Solid).setTiny(true).toString(0);
+        return new FontAwesome<>().setIcon(icon)
+                                  .setStyle(FontAwesomeStyles.Classic)
+                                  .setTiny(true)
+                                  .toString(0);
     }
 
     /**
@@ -323,7 +331,10 @@ public class FontAwesome<J extends FontAwesome<J>> extends Italic<J> implements 
      */
     public static String iconString(IFontAwesomeIcon icon, FontAwesomeStyles styles)
     {
-        return new FontAwesome<>().setIcon(icon).setStyle(styles).setTiny(true).toString(0);
+        return new FontAwesome<>().setIcon(icon)
+                                  .setStyle(styles)
+                                  .setTiny(true)
+                                  .toString(0);
     }
 
     /**
@@ -335,7 +346,11 @@ public class FontAwesome<J extends FontAwesome<J>> extends Italic<J> implements 
      */
     public static String iconString(IFontAwesomeIcon icon, FontAwesomeSizes size, FontAwesomeStyles styles)
     {
-        return new FontAwesome<>().setSize(size).setIcon(icon).setStyle(styles).setTiny(true).toString(0);
+        return new FontAwesome<>().setSize(size)
+                                  .setIcon(icon)
+                                  .setStyle(styles)
+                                  .setTiny(true)
+                                  .toString(0);
     }
 
     /**
@@ -346,7 +361,8 @@ public class FontAwesome<J extends FontAwesome<J>> extends Italic<J> implements 
      */
     public static FontAwesome<?> icon(IFontAwesomeIcon icon)
     {
-        return new FontAwesome<>().setIcon(icon).setStyle(FontAwesomeStyles.Solid);
+        return new FontAwesome<>().setIcon(icon)
+                                  .setStyle(FontAwesomeStyles.Classic);
     }
 
 
