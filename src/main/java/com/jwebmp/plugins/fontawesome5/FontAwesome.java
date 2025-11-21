@@ -96,7 +96,7 @@ public class FontAwesome<J extends FontAwesome<J>> extends Italic<J> implements 
         addConfiguration(AnnotationUtils.getNgImportReference("FaIconComponent", "@fortawesome/angular-fontawesome"));
         addConfiguration(AnnotationUtils.getNgImportReference("FaIconLibrary", "@fortawesome/angular-fontawesome"));
 
-        addConfiguration(AnnotationUtils.getNgConstructorParameter("library: FaIconLibrary"));
+        addConfiguration(AnnotationUtils.getNgConstructorParameter("library: FaIconLibrary",false,true,false));
         super.init();
     }
 
@@ -118,7 +118,7 @@ public class FontAwesome<J extends FontAwesome<J>> extends Italic<J> implements 
             }
             if (icon != null)
             {
-                addConfiguration(AnnotationUtils.getNgConstructorBody(" library.addIcons(" + getFieldIdentifier() + ");"));
+                addConfiguration(AnnotationUtils.getNgConstructorBody(" library.addIcons(" + getFieldIdentifier() + ");",false,true));
             }
             if (icon != null)
             {
@@ -152,7 +152,7 @@ public class FontAwesome<J extends FontAwesome<J>> extends Italic<J> implements 
     @Override
     @SuppressWarnings("unchecked")
     @NotNull
-    public J setSize(FontAwesomeSizes size)
+    public @org.jspecify.annotations.NonNull J setSize(FontAwesomeSizes size)
     {
         addAttribute("size", size.toString());
         return (J) this;
@@ -260,7 +260,7 @@ public class FontAwesome<J extends FontAwesome<J>> extends Italic<J> implements 
     @Override
     @SuppressWarnings("unchecked")
     @NotNull
-    public J setStyle(FontAwesomeStyles style)
+    public @org.jspecify.annotations.NonNull J setStyle(FontAwesomeStyles style)
     {
         this.style = style;
         return (J) this;
@@ -275,7 +275,7 @@ public class FontAwesome<J extends FontAwesome<J>> extends Italic<J> implements 
     @Override
     @SuppressWarnings("unchecked")
     @NotNull
-    public J setIcon(IFontAwesomeIcon icon)
+    public @org.jspecify.annotations.NonNull J setIcon(IFontAwesomeIcon icon)
     {
         this.icon = icon;
         return (J) this;

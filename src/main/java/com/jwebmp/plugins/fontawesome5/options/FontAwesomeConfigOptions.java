@@ -108,7 +108,7 @@ public class FontAwesomeConfigOptions<J extends FontAwesomeConfigOptions<J>>
 	 */
 	@SuppressWarnings("unchecked")
 	@NotNull
-	public J setSearchPseudoElements(Boolean searchPseudoElements)
+	public @org.jspecify.annotations.NonNull J setSearchPseudoElements(Boolean searchPseudoElements)
 	{
 		this.searchPseudoElements = searchPseudoElements;
 		return (J) this;
@@ -141,7 +141,7 @@ public class FontAwesomeConfigOptions<J extends FontAwesomeConfigOptions<J>>
 	 */
 	@SuppressWarnings("unchecked")
 	@NotNull
-	public J setAutoReplaceSvg(String autoReplaceSvg)
+	public @org.jspecify.annotations.NonNull J setAutoReplaceSvg(String autoReplaceSvg)
 	{
 		this.autoReplaceSvg = autoReplaceSvg;
 		return (J) this;
@@ -166,7 +166,7 @@ public class FontAwesomeConfigOptions<J extends FontAwesomeConfigOptions<J>>
 	 */
 	@SuppressWarnings("unchecked")
 	@NotNull
-	public J setAutoAddCss(Boolean autoAddCss)
+	public @org.jspecify.annotations.NonNull J setAutoAddCss(Boolean autoAddCss)
 	{
 		this.autoAddCss = autoAddCss;
 		return (J) this;
@@ -191,7 +191,7 @@ public class FontAwesomeConfigOptions<J extends FontAwesomeConfigOptions<J>>
 	 */
 	@SuppressWarnings("unchecked")
 	@NotNull
-	public J setFamilyPrefix(String familyPrefix)
+	public @org.jspecify.annotations.NonNull J setFamilyPrefix(String familyPrefix)
 	{
 		this.familyPrefix = familyPrefix;
 		return (J) this;
@@ -216,7 +216,7 @@ public class FontAwesomeConfigOptions<J extends FontAwesomeConfigOptions<J>>
 	 */
 	@SuppressWarnings("unchecked")
 	@NotNull
-	public J setKeepOriginalSource(Boolean keepOriginalSource)
+	public @org.jspecify.annotations.NonNull J setKeepOriginalSource(Boolean keepOriginalSource)
 	{
 		this.keepOriginalSource = keepOriginalSource;
 		return (J) this;
@@ -241,7 +241,7 @@ public class FontAwesomeConfigOptions<J extends FontAwesomeConfigOptions<J>>
 	 */
 	@SuppressWarnings("unchecked")
 	@NotNull
-	public J setMeasurePerformance(Boolean measurePerformance)
+	public @org.jspecify.annotations.NonNull J setMeasurePerformance(Boolean measurePerformance)
 	{
 		this.measurePerformance = measurePerformance;
 		return (J) this;
@@ -266,7 +266,7 @@ public class FontAwesomeConfigOptions<J extends FontAwesomeConfigOptions<J>>
 	 */
 	@SuppressWarnings("unchecked")
 	@NotNull
-	public J setObserveMutations(Boolean observeMutations)
+	public @org.jspecify.annotations.NonNull J setObserveMutations(Boolean observeMutations)
 	{
 		this.observeMutations = observeMutations;
 		return (J) this;
@@ -291,7 +291,7 @@ public class FontAwesomeConfigOptions<J extends FontAwesomeConfigOptions<J>>
 	 */
 	@SuppressWarnings("unchecked")
 	@NotNull
-	public J setReplacementClass(String replacementClass)
+	public @org.jspecify.annotations.NonNull J setReplacementClass(String replacementClass)
 	{
 		this.replacementClass = replacementClass;
 		return (J) this;
@@ -316,7 +316,7 @@ public class FontAwesomeConfigOptions<J extends FontAwesomeConfigOptions<J>>
 	 */
 	@SuppressWarnings("unchecked")
 	@NotNull
-	public J setShowMissingIcons(Boolean showMissingIcons)
+	public @org.jspecify.annotations.NonNull J setShowMissingIcons(Boolean showMissingIcons)
 	{
 		this.showMissingIcons = showMissingIcons;
 		return (J) this;
@@ -339,7 +339,7 @@ public class FontAwesomeConfigOptions<J extends FontAwesomeConfigOptions<J>>
 	 */
 	@SuppressWarnings("unchecked")
 	@NotNull
-	public J setAutoA11y(Boolean autoA11y)
+	public @org.jspecify.annotations.NonNull J setAutoA11y(Boolean autoA11y)
 	{
 		this.autoA11y = autoA11y;
 		return (J) this;
@@ -350,7 +350,7 @@ public class FontAwesomeConfigOptions<J extends FontAwesomeConfigOptions<J>>
 	 *
 	 * @return
 	 */
-	public J setNestSVG()
+	public @org.jspecify.annotations.NonNull J setNestSVG()
 	{
 		return setAutoReplaceSvg("nest");
 	}
