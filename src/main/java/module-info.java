@@ -1,4 +1,4 @@
-import com.jwebmp.core.databind.IOnComponentAdded;
+import com.guicedee.client.services.config.IGuiceScanModuleInclusions;
 import com.jwebmp.plugins.fontawesome5.implementations.FA5InclusionModule;
 
 module com.jwebmp.plugins.fontawesome5 {
@@ -18,7 +18,7 @@ module com.jwebmp.plugins.fontawesome5 {
 
     provides com.jwebmp.core.services.IPageConfigurator with com.jwebmp.plugins.fontawesome5.config.FontAwesome5PageConfigurator;
 
-    provides com.guicedee.guicedinjection.interfaces.IGuiceScanModuleInclusions with FA5InclusionModule;
+    provides IGuiceScanModuleInclusions with FA5InclusionModule;
 
     opens com.jwebmp.plugins.fontawesome5.options to com.fasterxml.jackson.databind, com.google.guice, com.jwebmp.core, com.jwebmp.core.angular;
     opens com.jwebmp.plugins.fontawesome5 to com.fasterxml.jackson.databind, com.google.guice, com.jwebmp.core, com.jwebmp.core.angular;
