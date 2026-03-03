@@ -12,7 +12,7 @@ import org.apache.commons.lang3.StringUtils;
 
 import java.util.Set;
 
-import static com.guicedee.services.jsonrepresentation.json.StaticStrings.STRING_SPACE;
+import static com.guicedee.modules.services.jsonrepresentation.json.StaticStrings.STRING_SPACE;
 
 @NgImportReference(value = "FaLayersComponent", reference = "@fortawesome/angular-fontawesome")
 @NgImportModule("FaLayersComponent")

@@ -35,7 +35,7 @@ import org.apache.commons.lang3.StringUtils;
 
 import java.util.List;
 
-import static com.guicedee.services.jsonrepresentation.json.StaticStrings.STRING_SPACE;
+import static com.guicedee.modules.services.jsonrepresentation.json.StaticStrings.STRING_SPACE;
 import static com.jwebmp.core.base.angular.client.services.interfaces.AnnotationUtils.getNgImportReference;
 import static com.jwebmp.plugins.fontawesome5.config.FontAwesome5PageConfigurator.tsDependencies;
 

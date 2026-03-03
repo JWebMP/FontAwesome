@@ -18,8 +18,8 @@ package com.jwebmp.plugins.fontawesome5.icons;
 
 import com.jwebmp.plugins.fontawesome5.IFontAwesomeIcon;
 
-import static com.guicedee.services.jsonrepresentation.json.StaticStrings.CHAR_DASH;
-import static com.guicedee.services.jsonrepresentation.json.StaticStrings.CHAR_UNDERSCORE;
+import static com.guicedee.modules.services.jsonrepresentation.json.StaticStrings.CHAR_DASH;
+import static com.guicedee.modules.services.jsonrepresentation.json.StaticStrings.CHAR_UNDERSCORE;
 
 /**
  * A list of all 5.0.13 Font Awesome Icons

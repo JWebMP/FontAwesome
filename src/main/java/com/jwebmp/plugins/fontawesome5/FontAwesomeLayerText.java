@@ -7,7 +7,7 @@ import com.jwebmp.plugins.fontawesome5.options.*;
 import jakarta.validation.constraints.*;
 import org.apache.commons.lang3.*;
 
-import static com.guicedee.services.jsonrepresentation.json.StaticStrings.*;
+import static com.guicedee.modules.services.jsonrepresentation.json.StaticStrings.*;
 
 @NgImportReference(value = "FaLayersTextComponent", reference = "@fortawesome/angular-fontawesome")
 @NgImportModule("FaLayersTextComponent")
