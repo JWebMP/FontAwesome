@@ -9,14 +9,14 @@
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript)
 
 <!-- Tech icons row -->
-![Font Awesome](https://img.shields.io/badge/Font%20Awesome-6.7.2-528DD7?logo=fontawesome)
+![Font Awesome](https://img.shields.io/badge/Font%20Awesome-7.2.0-528DD7?logo=fontawesome)
 ![JWebMP](https://img.shields.io/badge/JWebMP-2.0-0A7)
 
 Font Awesome Free icon integration for JWebMP with Angular 20. Provides type-safe access to Font Awesome's scalable vector icons with support for Free Solid and Free Brands icon sets.
 
 Built on [Font Awesome 6](https://fontawesome.com/) · [Angular FontAwesome](https://github.com/FortAwesome/angular-fontawesome) · [JWebMP Core](https://jwebmp.com/) · JPMS module `com.jwebmp.plugins.fontawesome5` · Java 25+
 
-**Version: 6.7.2** — Font Awesome Free integration with SVG rendering and TypeScript generation.
+**Version: 7.2.0** — Font Awesome Free integration with SVG rendering and TypeScript generation.
 
 ## Installation
 
@@ -43,10 +43,10 @@ The plugin automatically includes Font Awesome dependencies:
 ```json
 {
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^6.7.2",
-    "@fortawesome/free-solid-svg-icons": "^6.7.2",
+    "@fortawesome/fontawesome-svg-core": "^7.2.0",
+    "@fortawesome/free-solid-svg-icons": "^7.2.0",
     "@fortawesome/free-brands-svg-icons": "^6.2.2",
-    "@fortawesome/angular-fontawesome": "^1.0.0"
+    "@fortawesome/angular-fontawesome": "^4.0.0"
   }
 }
 ```
@@ -133,7 +133,7 @@ FontAwesome twitterIcon = new FontAwesome(FontAwesomeStyles.Brand, FontAwesomeBr
 ### Technology Stack
 
 - **Backend**: Java 25 LTS, Maven, GuicedEE (IoC)
-- **Frontend**: Angular 20, TypeScript, Font Awesome 6.7.2
+- **Frontend**: Angular 20, TypeScript, Font Awesome 7.2.0
 - **Integration**: JWebMP Page Configurators, ServiceLoader SPI
 - **Rendering**: SVG via angular-fontawesome or CSS Web Fonts
 - **Module System**: JPMS with explicit dependencies
@@ -269,10 +269,10 @@ layers.add(new FontAwesomeLayerCounter("5"));
 The plugin is automatically configured when present on the classpath:
 
 ```java
-@TsDependency(value = "@fortawesome/fontawesome-svg-core", version = "^6.7.2")
-@TsDependency(value = "@fortawesome/free-solid-svg-icons", version = "^6.7.2")
+@TsDependency(value = "@fortawesome/fontawesome-svg-core", version = "^7.2.0")
+@TsDependency(value = "@fortawesome/free-solid-svg-icons", version = "^7.2.0")
 @TsDependency(value = "@fortawesome/free-brands-svg-icons", version = "^6.2.2")
-@TsDependency(value = "@fortawesome/angular-fontawesome", version = "^1.0.0")
+@TsDependency(value = "@fortawesome/angular-fontawesome", version = "^4.0.0")
 @NgBootModuleImport("FontAwesomeModule")
 public class FontAwesome5PageConfigurator implements IPageConfigurator {
     // Auto-loaded via ServiceLoader SPI
@@ -505,7 +505,7 @@ Contributions are welcome! Please follow these guidelines:
 
 | Aspect | Status |
 |--------|--------|
-| **Version** | 6.7.2 / 2.0.0-SNAPSHOT |
+| **Version** | 7.2.0 / 2.0.0-SNAPSHOT |
 | **Icons** | 2000+ Free |
 | **Java** | 25 LTS (required) |
 | **Build** | Passing |

@@ -26,6 +26,7 @@ import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.core.base.interfaces.IIcon;
 import com.jwebmp.core.htmlbuilder.css.CSSImpl;
 import com.jwebmp.core.plugins.ComponentInformation;
+import com.jwebmp.plugins.fontawesome5.config.FontAwesome5PageConfigurator;
 import com.jwebmp.plugins.fontawesome5.icons.FontAwesomeBrandIcons;
 import com.jwebmp.plugins.fontawesome5.options.FontAwesomeSizes;
 import com.jwebmp.plugins.fontawesome5.options.FontAwesomeStyles;
@@ -37,7 +38,6 @@ import java.util.List;
 
 import static com.guicedee.modules.services.jsonrepresentation.json.StaticStrings.STRING_SPACE;
 import static com.jwebmp.core.base.angular.client.services.interfaces.AnnotationUtils.getNgImportReference;
-import static com.jwebmp.plugins.fontawesome5.config.FontAwesome5PageConfigurator.tsDependencies;
 
 /**
  * The FontAwesome project.
@@ -88,7 +88,7 @@ public class FontAwesome<J extends FontAwesome<J>> extends Italic<J> implements 
     protected void init()
     {
         List<NgImportReference> out = INgComponent.super.getAllImportAnnotations();
-        out.add(getNgImportReference(icon.toAngularIcon() + " as " + getFieldIdentifier(), tsDependencies.get(style)));
+        out.add(getNgImportReference(icon.toAngularIcon() + " as " + getFieldIdentifier(), FontAwesome5PageConfigurator.tsDependencies.get(style)));
         for (NgImportReference ngImportReference : out)
         {
             addConfiguration(AnnotationUtils.getNgImportReference(ngImportReference.value(), ngImportReference.reference()));
