@@ -12,7 +12,7 @@
 ![Font Awesome](https://img.shields.io/badge/Font%20Awesome-7.2.0-528DD7?logo=fontawesome)
 ![JWebMP](https://img.shields.io/badge/JWebMP-2.0-0A7)
 
-Font Awesome Free icon integration for JWebMP with Angular 20. Provides type-safe access to Font Awesome's scalable vector icons with support for Free Solid and Free Brands icon sets.
+Font Awesome Free icon integration for JWebMP with Angular 21. Provides type-safe access to Font Awesome's scalable vector icons with support for Free Solid and Free Brands icon sets.
 
 Built on [Font Awesome 6](https://fontawesome.com/) · [Angular FontAwesome](https://github.com/FortAwesome/angular-fontawesome) · [JWebMP Core](https://jwebmp.com/) · JPMS module `com.jwebmp.plugins.fontawesome5` · Java 25+
 
@@ -24,7 +24,7 @@ Built on [Font Awesome 6](https://fontawesome.com/) · [Angular FontAwesome](htt
 <dependency>
   <groupId>com.jwebmp.plugins</groupId>
   <artifactId>font-awesome</artifactId>
-  <version>2.0.0-SNAPSHOT</version>
+  <version>2.0.0-RC1</version>
 </dependency>
 ```
 
@@ -32,7 +32,7 @@ Built on [Font Awesome 6](https://fontawesome.com/) · [Angular FontAwesome](htt
 <summary>Gradle (Kotlin DSL)</summary>
 
 ```kotlin
-implementation("com.jwebmp.plugins:font-awesome:2.0.0-SNAPSHOT")
+implementation("com.jwebmp.plugins:font-awesome:2.0.0-RC1")
 ```
 </details>
 
@@ -72,7 +72,7 @@ The plugin automatically includes Font Awesome dependencies:
 - **Java 25 LTS** (required)
 - **Maven 3.8+**
 - **Node.js 18+** (for frontend builds)
-- **Angular 20+** (auto-integrated via JWebMP)
+- **Angular 21+** (auto-integrated via JWebMP)
 
 ### Basic Usage
 
@@ -133,7 +133,7 @@ FontAwesome twitterIcon = new FontAwesome(FontAwesomeStyles.Brand, FontAwesomeBr
 ### Technology Stack
 
 - **Backend**: Java 25 LTS, Maven, GuicedEE (IoC)
-- **Frontend**: Angular 20, TypeScript, Font Awesome 7.2.0
+- **Frontend**: Angular 21, TypeScript, Font Awesome 7.2.0
 - **Integration**: JWebMP Page Configurators, ServiceLoader SPI
 - **Rendering**: SVG via angular-fontawesome or CSS Web Fonts
 - **Module System**: JPMS with explicit dependencies
@@ -505,7 +505,7 @@ Contributions are welcome! Please follow these guidelines:
 
 | Aspect | Status |
 |--------|--------|
-| **Version** | 7.2.0 / 2.0.0-SNAPSHOT |
+| **Version** | 7.2.0 / 2.0.0-RC1 |
 | **Icons** | 2000+ Free |
 | **Java** | 25 LTS (required) |
 | **Build** | Passing |
