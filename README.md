@@ -24,7 +24,7 @@ Built on [Font Awesome 6](https://fontawesome.com/) · [Angular FontAwesome](htt
 <dependency>
   <groupId>com.jwebmp.plugins</groupId>
   <artifactId>font-awesome</artifactId>
-  <version>2.0.0-RC5</version>
+  <version>2.0.0-RC6</version>
 </dependency>
 ```
 
@@ -32,7 +32,7 @@ Built on [Font Awesome 6](https://fontawesome.com/) · [Angular FontAwesome](htt
 <summary>Gradle (Kotlin DSL)</summary>
 
 ```kotlin
-implementation("com.jwebmp.plugins:font-awesome:2.0.0-RC5")
+implementation("com.jwebmp.plugins:font-awesome:2.0.0-RC6")
 ```
 </details>
 
@@ -505,7 +505,7 @@ Contributions are welcome! Please follow these guidelines:
 
 | Aspect | Status |
 |--------|--------|
-| **Version** | 7.2.0 / 2.0.0-RC5 |
+| **Version** | 7.2.0 / 2.0.0-RC6 |
 | **Icons** | 2000+ Free |
 | **Java** | 25 LTS (required) |
 | **Build** | Passing |
