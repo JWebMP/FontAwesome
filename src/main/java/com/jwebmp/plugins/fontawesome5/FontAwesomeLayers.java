@@ -16,110 +16,125 @@ import static com.guicedee.modules.services.jsonrepresentation.json.StaticString
 
 @NgImportReference(value = "FaLayersComponent", reference = "@fortawesome/angular-fontawesome")
 @NgImportModule("FaLayersComponent")
-public class FontAwesomeLayers extends DivSimple<FontAwesomeLayers> implements INgComponent<FontAwesomeLayers>
+public class FontAwesomeLayers<J extends FontAwesomeLayers<J>> extends DivSimple<J> implements INgComponent<J>
 {
     public FontAwesomeLayers()
     {
         setTag("fa-layers");
     }
 
-    public FontAwesomeLayers addIcon(FontAwesome<?> icon)
+    @SuppressWarnings("unchecked")
+    public J addIcon(FontAwesome<?> icon)
     {
         add(icon);
-        return this;
+        return (J) this;
     }
 
-    public FontAwesomeLayers addCounter(FontAwesomeLayerCounter icon)
+    @SuppressWarnings("unchecked")
+    public J addCounter(FontAwesomeLayerCounter icon)
     {
         add(icon);
-        return this;
+        return (J) this;
     }
 
-    public FontAwesomeLayers addText(FontAwesomeLayerText icon)
+    @SuppressWarnings("unchecked")
+    public J addText(FontAwesomeLayerText icon)
     {
         add(icon);
-        return this;
+        return (J) this;
     }
 
     @NotNull
-    public FontAwesomeLayers setSize(FontAwesomeSizes size)
+    @SuppressWarnings("unchecked")
+    public J setSize(FontAwesomeSizes size)
     {
         addAttribute("size", size.toString());
-        return this;
+        return (J) this;
     }
 
     @NotNull
-    public FontAwesomeLayers spin()
+    @SuppressWarnings("unchecked")
+    public J spin()
     {
         addAttribute("[spin]", "true");
-        return this;
+        return (J) this;
     }
 
 
     @NotNull
-    public FontAwesomeLayers pulse()
+    @SuppressWarnings("unchecked")
+    public J pulse()
     {
         addAttribute("[pulse]", "true");
-        return this;
+        return (J) this;
     }
 
 
     @NotNull
-    public FontAwesomeLayers pullRight()
+    @SuppressWarnings("unchecked")
+    public J pullRight()
     {
         addAttribute("pull", "right");
-        return this;
+        return (J) this;
     }
 
 
     @NotNull
-    public FontAwesomeLayers pullLeft()
+    @SuppressWarnings("unchecked")
+    public J pullLeft()
     {
         addAttribute("pull", "left");
-        return this;
+        return (J) this;
     }
 
 
     @NotNull
-    public FontAwesomeLayers border()
+    @SuppressWarnings("unchecked")
+    public J border()
     {
         addAttribute("[border]", "true");
-        return this;
+        return (J) this;
     }
 
-    public FontAwesomeLayers inverse()
+    @SuppressWarnings("unchecked")
+    public J inverse()
     {
         addAttribute("[inverse]", "true");
-        return this;
+        return (J) this;
     }
 
-    public FontAwesomeLayers style(CSSImpl css)
+    @SuppressWarnings("unchecked")
+    public J style(CSSImpl css)
     {
         addAttribute("[styles]", "{" + css.toString() + "}");
-        return this;
+        return (J) this;
     }
 
-    public FontAwesomeLayers primaryColour(String primary)
+    @SuppressWarnings("unchecked")
+    public J primaryColour(String primary)
     {
         addAttribute("primaryColor", primary);
-        return this;
+        return (J) this;
     }
 
-    public FontAwesomeLayers secondaryColour(String secondary)
+    @SuppressWarnings("unchecked")
+    public J secondaryColour(String secondary)
     {
         addAttribute("secondaryColor", secondary);
-        return this;
+        return (J) this;
     }
 
 
     @NotNull
-    public FontAwesomeLayers fixedWidth()
+    @SuppressWarnings("unchecked")
+    public J fixedWidth()
     {
         addAttribute("[fixedWidth]", "true");
-        return this;
+        return (J) this;
     }
 
-    public FontAwesomeLayers transform(FontAwesomeTransforms... transforms)
+    @SuppressWarnings("unchecked")
+    public J transform(FontAwesomeTransforms... transforms)
     {
         StringBuilder attributeValue = new StringBuilder(StringUtils.trimToEmpty(getAttributes().get("data-fa-transform")));
         for (FontAwesomeTransforms transform : transforms)
@@ -128,6 +143,6 @@ public class FontAwesomeLayers extends DivSimple<FontAwesomeLayers> implements I
                     .append(STRING_SPACE);
         }
         addAttribute("transform", attributeValue.toString());
-        return this;
+        return (J) this;
     }
 }

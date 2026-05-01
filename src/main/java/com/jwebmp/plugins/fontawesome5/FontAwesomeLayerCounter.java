@@ -14,7 +14,7 @@ import static com.guicedee.modules.services.jsonrepresentation.json.StaticString
 
 @NgImportReference(value = "FaLayersCounterComponent", reference = "@fortawesome/angular-fontawesome")
 @NgImportModule("FaLayersCounterComponent")
-public class FontAwesomeLayerCounter extends DivSimple<FontAwesomeLayerCounter> implements INgComponent<FontAwesomeLayerCounter>
+public class FontAwesomeLayerCounter<J extends FontAwesomeLayerCounter<J>> extends DivSimple<J> implements INgComponent<J>
 {
     public FontAwesomeLayerCounter()
     {
@@ -22,13 +22,14 @@ public class FontAwesomeLayerCounter extends DivSimple<FontAwesomeLayerCounter> 
     }
 
     @Override
-    public @NotNull FontAwesomeLayerCounter setText(String text)
+    public @NotNull J setText(String text)
     {
         addAttribute("content", text);
-        return this;
+        return (J) this;
     }
 
-    public FontAwesomeLayerCounter transform(FontAwesomeTransforms... transforms)
+    @SuppressWarnings("unchecked")
+    public J transform(FontAwesomeTransforms... transforms)
     {
         StringBuilder attributeValue = new StringBuilder(StringUtils.trimToEmpty(getAttributes().get("data-fa-transform")));
         for (FontAwesomeTransforms transform : transforms)
@@ -37,7 +38,7 @@ public class FontAwesomeLayerCounter extends DivSimple<FontAwesomeLayerCounter> 
                     .append(STRING_SPACE);
         }
         addAttribute("transform", attributeValue.toString());
-        return this;
+        return (J) this;
     }
 
 }

@@ -12,7 +12,7 @@ import static com.guicedee.modules.services.jsonrepresentation.json.StaticString
 @NgImportReference(value = "FaLayersTextComponent", reference = "@fortawesome/angular-fontawesome")
 @NgImportModule("FaLayersTextComponent")
 
-public class FontAwesomeLayerText extends DivSimple<FontAwesomeLayerText>
+public class FontAwesomeLayerText<J extends FontAwesomeLayerText<J>> extends DivSimple<J>
 {
     public FontAwesomeLayerText()
     {
@@ -20,13 +20,14 @@ public class FontAwesomeLayerText extends DivSimple<FontAwesomeLayerText>
     }
 
     @Override
-    public @NotNull FontAwesomeLayerText setText(String text)
+    public @NotNull J setText(String text)
     {
         addAttribute("content", text);
-        return this;
+        return (J) this;
     }
 
-    public FontAwesomeLayerText transform(FontAwesomeTransforms... transforms)
+    @SuppressWarnings("unchecked")
+    public J transform(FontAwesomeTransforms... transforms)
     {
         StringBuilder attributeValue = new StringBuilder(StringUtils.trimToEmpty(getAttributes().get("data-fa-transform")));
         for (FontAwesomeTransforms transform : transforms)
@@ -35,7 +36,7 @@ public class FontAwesomeLayerText extends DivSimple<FontAwesomeLayerText>
                     .append(STRING_SPACE);
         }
         addAttribute("transform", attributeValue.toString());
-        return this;
+        return (J) this;
     }
 
 }
