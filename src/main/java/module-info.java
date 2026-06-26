@@ -20,9 +20,9 @@ module com.jwebmp.plugins.fontawesome5 {
 
     provides IGuiceScanModuleInclusions with FA5InclusionModule;
 
-    opens com.jwebmp.plugins.fontawesome5.options to com.fasterxml.jackson.databind, com.google.guice, com.jwebmp.core, com.jwebmp.core.angular;
-    opens com.jwebmp.plugins.fontawesome5 to com.fasterxml.jackson.databind, com.google.guice, com.jwebmp.core, com.jwebmp.core.angular;
-    opens com.jwebmp.plugins.fontawesome5.icons to com.fasterxml.jackson.databind, com.google.guice, com.jwebmp.core, com.jwebmp.core.angular;
-    opens com.jwebmp.plugins.fontawesome5.implementations to com.fasterxml.jackson.databind, com.google.guice, com.jwebmp.core, com.jwebmp.core.angular;
+    opens com.jwebmp.plugins.fontawesome5.options to tools.jackson.databind, com.google.guice, com.jwebmp.core, com.jwebmp.core.angular;
+    opens com.jwebmp.plugins.fontawesome5 to tools.jackson.databind, com.google.guice, com.jwebmp.core, com.jwebmp.core.angular;
+    opens com.jwebmp.plugins.fontawesome5.icons to tools.jackson.databind, com.google.guice, com.jwebmp.core, com.jwebmp.core.angular;
+    opens com.jwebmp.plugins.fontawesome5.implementations to tools.jackson.databind, com.google.guice, com.jwebmp.core, com.jwebmp.core.angular;
 
 }
