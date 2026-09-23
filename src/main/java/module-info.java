@@ -9,12 +9,8 @@ module com.jwebmp.plugins.fontawesome5 {
 
     requires transitive com.jwebmp.core.base.angular.client;
     requires static com.jwebmp.core.angular;
-    requires transitive com.jwebmp.client;
     requires transitive com.jwebmp.core;
-    requires transitive jakarta.activation;
 
-    requires org.apache.commons.lang3;
-    requires com.guicedee.jsonrepresentation;
 
     provides com.jwebmp.core.services.IPageConfigurator with com.jwebmp.plugins.fontawesome5.config.FontAwesome5PageConfigurator;
 
