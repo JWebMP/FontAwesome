@@ -49,7 +49,7 @@ import java.util.*;
         pluginDescription = "Font Awesome gives you scalable vector icons that can instantly be customized — size, color, drop shadow, " +
                 "and" +
                 " anything that can be done with the power of CSS. ",
-        pluginVersion = "7.2.0",
+        pluginVersion = "7.3.1",
         pluginCategories = "fonts, icons",
         pluginSubtitle = "In a single collection, Font Awesome is a pictographic language of web-related actions. ",
         pluginGitUrl = "https://github.com/GedMarc/JWebMP-FontAwesome5Plugin",
@@ -68,7 +68,7 @@ import java.util.*;
 public class FontAwesome5PageConfigurator
         implements IPageConfigurator<FontAwesome5PageConfigurator>
 {
-    private static final String FA_VERSION = "^7.2.0";
+    private static final String FA_VERSION = "^7.3.1";
 
     /**
      * Field configOptions

@@ -81,6 +81,10 @@ public class FontAwesome<J extends FontAwesome<J>> extends Italic<J> implements 
 
     public String getFieldIdentifier()
     {
+        if (icon instanceof IFontAwesomeFreeIcon freeIcon)
+        {
+            return freeIcon.getAngularPrefix() + icon.toAngularIcon();
+        }
         return style.getAngularText() + icon.toAngularIcon();
     }
 
@@ -88,7 +92,13 @@ public class FontAwesome<J extends FontAwesome<J>> extends Italic<J> implements 
     protected void init()
     {
         List<NgImportReference> out = INgComponent.super.getAllImportAnnotations();
-        out.add(getNgImportReference(icon.toAngularIcon() + " as " + getFieldIdentifier(), FontAwesome5PageConfigurator.tsDependencies.get(style)));
+        String iconPackage = icon instanceof IFontAwesomeFreeIcon freeIcon
+                ? freeIcon.getNpmPackage() : FontAwesome5PageConfigurator.tsDependencies.get(style);
+        if (icon instanceof IFontAwesomeFreeIcon)
+        {
+            addConfiguration(AnnotationUtils.getTsDependency(iconPackage, "^7.3.1", "fontawesome-free-" + ((IFontAwesomeFreeIcon) icon).getVariant()));
+        }
+        out.add(getNgImportReference(icon.toAngularIcon() + " as " + getFieldIdentifier(), iconPackage));
         for (NgImportReference ngImportReference : out)
         {
             addConfiguration(AnnotationUtils.getNgImportReference(ngImportReference.value(), ngImportReference.reference()));
@@ -122,10 +132,12 @@ public class FontAwesome<J extends FontAwesome<J>> extends Italic<J> implements 
             }
             if (icon != null)
             {
-                addAttribute("[icon]", "['" + style.getAngularText() + "','" + icon.toAngularIconAttributeName() + "']");
+                String prefix = icon instanceof IFontAwesomeFreeIcon freeIcon
+                        ? freeIcon.getAngularPrefix() : style.getAngularText();
+                addAttribute("[icon]", "['" + prefix + "','" + icon.toAngularIconAttributeName() + "']");
                 //addAttribute("[icon]", icon.toAngularIcon());
             }
-            if (style == FontAwesomeStyles.Duotone)
+            if (!(icon instanceof IFontAwesomeFreeIcon) && style == FontAwesomeStyles.Duotone)
             {
                 setTag("fa-duotone-icon");
                 addConfiguration(AnnotationUtils.getNgImportReference("FaDuotoneIconComponent", "@fortawesome/angular-fontawesome"));

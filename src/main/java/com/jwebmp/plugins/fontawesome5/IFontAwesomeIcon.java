@@ -12,7 +12,7 @@ public interface IFontAwesomeIcon
 	
 	default String toAngularIcon()
 	{
-		String str = name();
+		String str = name().replace("$", "");
 		str = Pattern.compile("_([a-z])")
 		             .matcher(str)
 		             .replaceAll(m -> m.group(1).toUpperCase());
@@ -26,7 +26,7 @@ public interface IFontAwesomeIcon
 	
 	default String toAngularIconAttributeName()
 	{
-		String str = name();
+		String str = name().replace("$", "");
 		str = str.replace('_', '-');
 		return str;
 	}

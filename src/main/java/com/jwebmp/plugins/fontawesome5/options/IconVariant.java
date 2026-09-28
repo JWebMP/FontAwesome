@@ -30,7 +30,10 @@ public enum IconVariant
     /**
      * Semibold variant
      */
-    Semibold;
+    Semibold,
+
+    /** Brand logos, available in the free Brands family. */
+    Brands;
 
     @Override
     public String toString()

@@ -8,7 +8,8 @@ package com.jwebmp.plugins.fontawesome5.options;
  * <strong>Pro Styles:</strong> Duotone, Sharp, Sharp_Duotone
  * <p>
  * <strong>Pro+ Styles:</strong> Chisel, Etch, Graphite, Jelly, Jelly_Duo, Jelly_Fill,
- * Notdog, Notdog_Duo, Slab, Slab_Press, Thumbprint, Utility, Utility_Duo, Utility_Fill, Whiteboard
+ * Mosaic, Notdog, Notdog_Duo, Pixel, Slab, Slab_Duo, Slab_Press, Slab_Press_Duo,
+ * Thumbprint, Utility, Utility_Duo, Utility_Fill, Vellum, Whiteboard
  * <p>
  * <strong>Kit:</strong> Kit, Kit_Custom — custom uploaded icons via Font Awesome Kits
  */
@@ -126,7 +127,18 @@ public enum IconFamily
     /**
      * Kit Custom family — alias for kit-custom uploaded icons
      */
-    Kit_Custom;
+    Kit_Custom,
+
+    /** Mosaic family, solid style (Font Awesome 7.3+). */
+    Mosaic,
+    /** Pixel family, regular style (Font Awesome 7.3+). */
+    Pixel,
+    /** Vellum family, solid style (Font Awesome 7.3+). */
+    Vellum,
+    /** Slab Duo family, regular style (Font Awesome 7.3+). */
+    Slab_Duo,
+    /** Slab Press Duo family, regular style (Font Awesome 7.3+). */
+    Slab_Press_Duo;
 
     @Override
     public String toString()

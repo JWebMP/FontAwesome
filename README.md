@@ -18,6 +18,43 @@ Built on [Font Awesome 6](https://fontawesome.com/) · [Angular FontAwesome](htt
 
 **Version: 7.2.0** — Font Awesome Free integration with SVG rendering and TypeScript generation.
 
+## Current free catalogs (7.3.1)
+
+Use the exact style enums in `com.jwebmp.plugins.fontawesome5.icons`:
+
+| Enum | Canonical icons | Style |
+| --- | ---: | --- |
+| `FontAwesomeFreeSolidIcons` | 1422 | Classic Solid |
+| `FontAwesomeFreeRegularIcons` | 169 | Classic Regular |
+| `FontAwesomeFreeBrandsIcons` | 572 | Brands |
+
+`FontAwesomeIcons` now includes every current free Solid/Regular name, with its
+existing aliases and ordinal order preserved. `FontAwesomeBrandIcons` is also
+updated with all current brand names while retaining legacy aliases. The new
+enums contain only canonical names and enforce exact free style membership.
+
+```java
+new FontAwesome<>(FontAwesomeStyles.Classic, FontAwesomeFreeRegularIcons.heart);
+// The typed enum selects the free-regular npm package and the far prefix.
+
+// With web-awesome-pro:
+new WaIconFA<>(FontAwesomeFreeRegularIcons.heart);
+new WaIconFA<>(FontAwesomeFreeBrandsIcons.bluesky);
+```
+
+Typed free catalogs implement `IFontAwesomeFreeIcon` / `IFontAwesomeCatalogIcon`
+and carry their family, style and npm package. An icon's presence in Solid does
+not imply that it is free in Regular. For Pro/Pro+ catalogs use font-awesome-pro.
+Older aliases may no longer be served by current assets; use the exact catalogs
+for new code.
+
+Regenerate using [Font Awesome's public metadata API](https://docs.fontawesome.com/apis/graphql/):
+
+```shell
+python scripts/generate-icon-enums.py --version 7.3.1
+python scripts/generate-icon-enums.py --catalog scripts/icon-catalog.json --check
+```
+
 ## Installation
 
 ```xml
