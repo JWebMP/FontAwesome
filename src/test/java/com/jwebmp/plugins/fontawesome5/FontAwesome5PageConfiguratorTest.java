@@ -20,7 +20,9 @@ import com.jwebmp.core.Page;
 import com.jwebmp.plugins.fontawesome5.config.FontAwesome5PageConfigurator;
 import com.jwebmp.plugins.fontawesome5.icons.FontAwesomeIcons;
 import com.jwebmp.plugins.fontawesome5.options.FontAwesomeStyles;
+import com.jwebmp.core.base.angular.client.annotations.typescript.TsDependency;
 import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * @author GedMarc
@@ -32,5 +34,16 @@ public class FontAwesome5PageConfiguratorTest
 	public FontAwesome5PageConfiguratorTest()
 	{
 	}
+
+    @Test
+    public void angularDependenciesSupportAngular22()
+    {
+        Page<?> page = new Page<>();
+        new FontAwesome5PageConfigurator().configureAngular(page);
+        TsDependency dependency = page.getBody().getConfigurations(TsDependency.class, false).stream()
+                .filter(d -> d.value().equals("@fortawesome/angular-fontawesome"))
+                .findFirst().orElseThrow();
+        assertEquals("^5.1.0", dependency.version());
+    }
 
 }

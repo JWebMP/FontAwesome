@@ -136,7 +136,7 @@ public class FontAwesome5PageConfigurator
         page.getBody().addConfiguration(
                 AnnotationUtils.getTsDependency("@fortawesome/fontawesome-svg-core", FA_VERSION, "fontawesome-svg-core"));
         page.getBody().addConfiguration(
-                AnnotationUtils.getTsDependency("@fortawesome/angular-fontawesome", "^4.0.0", "fontawesome-angular"));
+                AnnotationUtils.getTsDependency("@fortawesome/angular-fontawesome", "^5.1.0", "fontawesome-angular"));
 
         // Free icon family packages — only add what's enabled
         if (enabledFamilies.contains(IconFamily.Classic))

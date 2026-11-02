@@ -83,7 +83,7 @@ The plugin automatically includes Font Awesome dependencies:
     "@fortawesome/fontawesome-svg-core": "^7.2.0",
     "@fortawesome/free-solid-svg-icons": "^7.2.0",
     "@fortawesome/free-brands-svg-icons": "^6.2.2",
-    "@fortawesome/angular-fontawesome": "^4.0.0"
+    "@fortawesome/angular-fontawesome": "5.1.0"
   }
 }
 ```
@@ -309,7 +309,7 @@ The plugin is automatically configured when present on the classpath:
 @TsDependency(value = "@fortawesome/fontawesome-svg-core", version = "^7.2.0")
 @TsDependency(value = "@fortawesome/free-solid-svg-icons", version = "^7.2.0")
 @TsDependency(value = "@fortawesome/free-brands-svg-icons", version = "^6.2.2")
-@TsDependency(value = "@fortawesome/angular-fontawesome", version = "^4.0.0")
+@TsDependency(value = "@fortawesome/angular-fontawesome", version = "5.1.0")
 @NgBootModuleImport("FontAwesomeModule")
 public class FontAwesome5PageConfigurator implements IPageConfigurator {
     // Auto-loaded via ServiceLoader SPI
